@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OmniWound EMR system status - Real-time monitoring of platform availability, performance metrics, and service health for our wound care EMR platform.">
+    <meta name="keywords" content="OmniWound EMR system status, platform availability, uptime monitoring, service health, EMR performance, system reliability">
+    <meta name="author" content="OmniWound EMR">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omniwound.com/system-status.html">
+    <meta property="og:title" content="System Status - OmniWound EMR">
+    <meta property="og:description" content="Current system status and performance metrics for OmniWound EMR platform and services.">
+    <meta property="og:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://omniwound.com/system-status.html">
+    <meta name="twitter:title" content="System Status - OmniWound EMR">
+    <meta property="twitter:description" content="Current system status and performance metrics for OmniWound EMR platform and services.">
+    <meta name="twitter:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <title>System Status - OmniWound EMR</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    
+    <link rel="canonical" href="https://omniwound.com/system-status.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "System Status - OmniWound EMR",
+        "description": "Real-time system status and performance monitoring for OmniWound EMR platform",
+        "url": "https://omniwound.com/system-status.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "OmniWound EMR",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1590 Anderson Ave. #18A",
+                "addressLocality": "Fort Lee",
+                "addressRegion": "NJ",
+                "addressCountry": "US"
+            },
+            "telephone": "(201) 270-9103",
+            "email": "status@omniwound.com"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2c3e50;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header - Same as other pages */
+        .header {
+            background: white;
+            color: #2c3e50;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: font-size 0.3s ease;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .header.scrolled .logo {
+            font-size: 1.5rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 8px;
+            object-fit: contain;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .header.scrolled .logo-image {
+            width: 45px;
+            height: 45px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .nav-links a:focus::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #0891b2;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover,
+        .dropdown-toggle:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 10px;
+            transition: transform 0.3s;
+            color: #0891b2;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: white;
+            min-width: 300px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50 !important;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content a:focus {
+            background-color: #0891b2;
+            color: white !important;
+            outline: none;
+        }
+
+        .cta-button {
+            background: #0891b2;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+            outline: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem;
+            display: block;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            background-color: #f8fafc;
+            color: #0891b2;
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Overall Status Indicator */
+        .overall-status {
+            background: white;
+            border: 2px solid #22c55e;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-dot {
+            width: 16px;
+            height: 16px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .status-text {
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+
+        .status-details {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .last-updated {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Service Status Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .service-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+        .service-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-dot {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: servicePulse 3s infinite;
+        }
+
+        @keyframes servicePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .service-status-text {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .service-description {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .service-metrics {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 1rem;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .metric-label {
+            color: #64748b;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Performance Metrics Section */
+        .performance-section {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .metric-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .metric-title {
+            color: #1e3a8a;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .metric-description {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Incident History Section */
+        .incident-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .incident-content {
+            background: #f0fdf4;
+            border: 1px solid #22c55e;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .incident-icon {
+            font-size: 4rem;
+            color: #22c55e;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .incident-content h3 {
+            color: #15803d;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .incident-content p {
+            color: #166534;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .transparency-note {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid #0891b2;
+            margin-top: 2rem;
+        }
+
+        .transparency-note h4 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .transparency-note p {
+            color: #475569;
+            margin: 0;
+        }
+
+        /* Maintenance Section */
+        .maintenance-section {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .maintenance-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .maintenance-icon {
+            font-size: 3rem;
+            color: #0891b2;
+            margin-bottom: 1rem;
+        }
+
+        .maintenance-content h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .maintenance-content ul {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+            padding-left: 1.5rem;
+        }
+
+        .maintenance-content li {
+            color: #475569;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+        }
+
+        .newsletter-signup {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2.5rem;
+            background: linear-gradient(135deg, #0891b2 0%, #20b2aa 100%);
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(8, 145, 178, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .email-icon {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .newsletter-title {
+            color: white;
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .newsletter-description {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form .email-input-wrapper {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .newsletter-form input[type="email"] {
+            width: 100%;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .newsletter-form input[type="email"]:focus {
+            outline: 3px solid rgba(255,255,255,0.5);
+            outline-offset: 2px;
+        }
+
+        .newsletter-form button {
+            background: white;
+            color: #0891b2;
+            padding: 14px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .newsletter-form button:hover,
+        .newsletter-form button:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            outline: none;
+        }
+
+        .newsletter-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+
+        .newsletter-footer span {
+            color: rgba(255,255,255,0.8);
+            margin: 0;
+        }
+
+        .newsletter-footer .separator {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .newsletter-footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 1px;
+            transition: all 0.3s;
+        }
+
+        .newsletter-footer a:hover,
+        .newsletter-footer a:focus {
+            border-bottom-color: white;
+            outline: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            color: #0891b2;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover,
+        .footer a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .contact-section-full {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+
+        .contact-section-full h3 {
+            color: #0891b2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-grid-footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: left;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-emoji {
+            color: #0891b2;
+            margin-right: 8px;
+        }
+
+        .contact-indent {
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            text-align: center;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-bottom span, .footer-bottom a {
+            color: #64748b;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover,
+        .footer-bottom a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-separator {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .footer-status-indicator:hover,
+        .footer-status-indicator:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Focus visible for better accessibility */
+        *:focus-visible {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-metrics {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .contact-indent {
+                margin-left: 15px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form .email-input-wrapper {
+                min-width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-footer {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container, .content-container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section, .performance-section, .incident-section, .maintenance-section, .newsletter-section {
+                padding: 2rem 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overall-status {
+                padding: 1.5rem;
+                margin: 1.5rem auto;
+            }
+
+            .service-card {
+                padding: 1.5rem;
+            }
+
+            .metric-card {
+                padding: 2rem;
+            }
+
+            .incident-content, .maintenance-content {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-signup {
+                padding: 2rem;
+            }
+
+            .newsletter-title {
+                font-size: 1.2rem;
+            }
+
+            .newsletter-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .newsletter-header .email-icon {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header - Same as Homepage -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="OmniWound EMR Home">
+                <img src="omniwound-logo.png" alt="OmniWound EMR Logo" class="logo-image" loading="lazy">
+                <span class="logo-text">OmniWound EMR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Login <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="dropdown-content" role="menu">
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php" role="menuitem">OmniWound EMR</a>
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php?page=azure_login" role="menuitem">Login with Azure</a>
+                        <a href="https://omniwound.net/multitenant/telemedicine2/login.php" role="menuitem">MultiTenant</a>
+                        <a href="https://omniwound.net/multitenant/billing-availity/login.php?return=true&" role="menuitem">MultiTenant Billing</a>
+                        <a href="https://iwcbackoffice.com/iwc/telemedicine2/login.php" role="menuitem">IWC Back Office</a>
+                        <a href="https://omniwound.com/iwc-pcc/telemedicine2/login.php" role="menuitem">IWC Omni Latest</a>
+                        <a href="https://omniwound.com/iwc-backup-07-26-2025/telemedicine2/login.php" role="menuitem">Omni 1.0</a>
+                        <a href="https://omniwound.net/multitenant-testing/telemedicine2/login.php" role="menuitem">MultiTenant (Test)</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="demo.html" class="cta-button">Schedule Demo</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://omniwound.com/iwc/telemedicine2/login.php">Login</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" role="banner">
+            <div class="container">
+                <h1>System Status</h1>
+                <p>Real-time monitoring of OmniWound EMR platform availability and performance</p>
+                
+                <div class="overall-status">
+                    <div class="status-indicator">
+                        <div class="status-dot"></div>
+                        <span class="status-text">All Systems Operational</span>
+                    </div>
+                    <p class="status-details">All services are running normally with no disruptions</p>
+                    <p class="last-updated" id="lastUpdated">Last updated: September 17, 2025 at 3:45 PM EST</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Status Section -->
+        <section class="content-section" role="region" aria-labelledby="service-status-heading">
+            <div class="content-container">
+                <h2 class="section-title" id="service-status-heading">Service Status</h2>
+                <p class="section-subtitle">Current operational status of all OmniWound EMR services and components</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-name">EMR Platform</h3>
+                            <div class="service-status">
+                                <div class="service-dot"></div>
+                                <span class="service-status-text">Operational</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Core EMR application including patient records, documentation, and clinical workflows</p>
+                        <div class="service-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">185ms</span>
+                                <span class="metric-label">Response</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-name">Mobile App</h3>
+                            <div class="service-status">
+                                <div class="service-dot"></div>
+                                <span class="service-status-text">Operational</span>
+                            </div>
+                        </div>
+                        <p class="service-description">iOS and Android mobile applications for traveling wound care specialists</p>
+                        <div class="service-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.8%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">210ms</span>
+                                <span class="metric-label">Response</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-name">Data Sync</h3>
+                            <div class="service-status">
+                                <div class="service-dot"></div>
+                                <span class="service-status-text">Operational</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Real-time data synchronization between devices and cloud infrastructure</p>
+                        <div class="service-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">95ms</span>
+                                <span class="metric-label">Sync Time</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-name">Backup Systems</h3>
+                            <div class="service-status">
+                                <div class="service-dot"></div>
+                                <span class="service-status-text">Operational</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Automated backup and disaster recovery systems for data protection</p>
+                        <div class="service-metrics">
+                            <div class="metric">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Success</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">24hr</span>
+                                <span class="metric-label">Frequency</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-name">API Services</h3>
+                            <div class="service-status">
+                                <div class="service-dot"></div>
+                                <span class="service-status-text">Operational</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Third-party integrations and API endpoints for external systems</p>
+                        <div class="service-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.7%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">150ms</span>
+                                <span class="metric-label">Response</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <h3 class="service-name">Support Portal</h3>
+                            <div class="service-status">
+                                <div class="service-dot"></div>
+                                <span class="service-status-text">Operational</span>
+                            </div>
+                        </div>
+                        <p class="service-description">Customer support systems, help desk, and documentation portals</p>
+                        <div class="service-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.9%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">120ms</span>
+                                <span class="metric-label">Response</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Incident History Section -->
+        <section class="incident-section" role="region" aria-labelledby="incident-heading">
+            <div class="content-container">
+                <h2 class="section-title" id="incident-heading">Incident History</h2>
+                <p class="section-subtitle">Track record of system reliability and incident management</p>
+                
+                <div class="incident-content">
+                    <span class="incident-icon">✅</span>
+                    <h3>Excellent System Stability</h3>
+                    <p>We're pleased to report no significant incidents or service disruptions in our recent operational history. Our systems have maintained excellent stability and reliability.</p>
+                    <p>OmniWound EMR is committed to maintaining the highest standards of system availability and performance for our healthcare providers.</p>
+                </div>
+
+                <div class="transparency-note">
+                    <h4>Our Commitment to Transparency</h4>
+                    <p>In the event of any service incidents, we will provide real-time updates on this page and notify all affected customers immediately. We believe in complete transparency regarding system performance and any issues that may arise.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maintenance Information Section -->
+        <section class="maintenance-section" role="region" aria-labelledby="maintenance-heading">
+            <div class="content-container">
+                <h2 class="section-title" id="maintenance-heading">Maintenance & Updates</h2>
+                <p class="section-subtitle">Information about system maintenance and updates</p>
+                
+                <div class="maintenance-content">
+                    <span class="maintenance-icon">🔧</span>
+                    <h3>Proactive System Maintenance</h3>
+                    <p>We perform regular system maintenance to ensure optimal performance and security:</p>
+                    <ul>
+                        <li><strong>Advance Notifications:</strong> All maintenance activities are communicated via email at least 48 hours in advance</li>
+                        <li><strong>Minimal Downtime:</strong> Maintenance windows are designed to minimize impact on clinical operations</li>
+                        <li><strong>Off-Peak Hours:</strong> Scheduled during low-usage periods when possible</li>
+                        <li><strong>Emergency Maintenance:</strong> Critical security updates may be applied with shorter notice</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section" role="region" aria-labelledby="newsletter-heading">
+            <div class="container">
+                <div class="newsletter-signup">
+                    <div class="newsletter-content">
+                        <div class="newsletter-header">
+                            <span class="email-icon" role="img" aria-label="Email icon">📧</span>
+                            <h3 class="newsletter-title" id="newsletter-heading">Stay Updated with Industry Insights</h3>
+                        </div>
+                        <p class="newsletter-description">Get the latest wound care industry insights, EMR best practices, and tips to optimize your practice delivered to your inbox monthly.</p>
+                        
+                        <form class="newsletter-form" aria-label="Newsletter signup form">
+                            <div class="email-input-wrapper">
+                                <label for="newsletter-email" class="sr-only">Email address</label>
+                                <input 
+                                    type="email" 
+                                    id="newsletter-email"
+                                    name="email"
+                                    placeholder="Enter your email address" 
+                                    required
+                                    aria-required="true"
+                                >
+                                <input type="hidden" name="signup_source" value="system_status_notifications">
+                            </div>
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAACWJS37i2-evcqS0" data-callback="onTurnstileSuccess"></div>
+                            <button type="submit" aria-describedby="newsletter-description">
+                                Subscribe Now
+                            </button>
+                        </form>
+                        
+                        <div class="newsletter-footer">
+                            <span>No spam, unsubscribe anytime</span>
+                            <span class="separator" aria-hidden="true">•</span>
+                            <a href="newsletter.html" aria-label="Browse our newsletter archive">
+                                <span role="img" aria-label="Book icon">📖</span> Browse Archive
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Product</h3>
+                    <a href="features.html">Features</a>
+                    <a href="demo.html">Demo</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+
+                <div>
+                    <h3>Support</h3>
+                    <a href="documentation.html">Help Documentation</a>
+                    <a href="training.html">Training Resources</a>
+                    <a href="system-status.html">System Status</a>
+                </div>
+
+                <div>
+                    <h3>Resources</h3>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="roi-calculator.html">ROI Calculator</a>
+                    <a href="newsletter.html">Newsletter Archive</a>
+                    <a href="implementation.html">Implementation Guide</a>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <a href="about.html">About OmniWound</a>
+                    <a href="certification.html">CMS EMR Certification</a>
+                </div>
+            </div>
+
+            <div class="contact-section-full">
+                <h3>Contact</h3>
+                <div class="contact-grid-footer">
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">●</span>Address:</p>
+                        <p class="contact-indent">1590 Anderson Ave. #18A</p>
+                        <p class="contact-indent">Fort Lee, NJ</p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">☎</span>Call Us:</p>
+                        <p class="contact-indent"><a href="tel:+12012709103">(201) 270-9103</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">✉</span>Email Sales:</p>
+                        <p class="contact-indent"><a href="mailto:fgoncalv@omniwound.com">fgoncalv@omniwound.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">★</span>Email Support:</p>
+                        <p class="contact-indent"><a href="mailto:kyu@omniwound.com">kyu@omniwound.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 OmniWound EMR. All rights reserved.</span>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="terms.html">Terms of Service</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="compliance.html">HIPAA Compliance</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="system-status.html" class="footer-status-indicator">
+                    <div class="footer-status-dot" aria-hidden="true"></div>
+                    <span>System Status</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header shrinking on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        if (mobileToggle && mobileNav) {
+            mobileToggle.addEventListener('click', function() {
+                const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+                mobileToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileNav.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.mobile-menu-toggle') && !event.target.closest('.mobile-nav')) {
+                    mobileNav.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+// Newsletter form submission
+(function() {
+  const API_URL = 'https://omni-sales-app.vercel.app/api/public/leads';
+  const FORM_SOURCE = 'system_status_page_newsletter';
+
+  const form = document.querySelector('.newsletter-form');
+  if (!form) return;
+
+  let turnstileToken = '';
+
+  // Turnstile callback
+  window.onTurnstileSuccess = function(token) {
+    turnstileToken = token;
+  };
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const emailInput = form.querySelector('input[type="email"]');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const messageEl = form.querySelector('.form-message') || createMessageElement(form);
+
+    if (!turnstileToken) {
+      showMessage(messageEl, 'Please complete the security check.', 'error');
+      return;
+    }
+
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Subscribing...';
+    messageEl.textContent = '';
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form_type: 'newsletter',
+          data: {
+            email: emailInput.value,
+            form_source: FORM_SOURCE
+          },
+          turnstile_token: turnstileToken
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        showMessage(messageEl, result.message || 'Thank you for subscribing!', 'success');
+        form.reset();
+        if (typeof turnstile !== 'undefined') turnstile.reset();
+        turnstileToken = '';
+      } else {
+        showMessage(messageEl, result.error || 'Something went wrong. Please try again.', 'error');
+      }
+    } catch (error) {
+      showMessage(messageEl, 'Network error. Please try again.', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+
+  function showMessage(el, text, type) {
+    el.textContent = text;
+    el.className = 'form-message ' + type;
+    el.style.display = 'block';
+  }
+
+  function createMessageElement(form) {
+    const el = document.createElement('div');
+    el.className = 'form-message';
+    el.style.display = 'none';
+    form.appendChild(el);
+    return el;
+  }
+})();
+        
+        // Update timestamp dynamically
+        function updateTimestamp() {
+            const now = new Date();
+            const timeString = now.toLocaleString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit',
+                timeZone: 'America/New_York',
+                timeZoneName: 'short'
+            });
+            
+            const lastUpdatedElement = document.getElementById('lastUpdated');
+            if (lastUpdatedElement) {
+                lastUpdatedElement.textContent = `Last updated: ${timeString}`;
+            }
+        }
+
+        // Update timestamp on page load
+        document.addEventListener('DOMContentLoaded', updateTimestamp);
+
+        // Animation for service cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.service-card, .metric-card');
+            
+            animatedElements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(element);
+            });
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

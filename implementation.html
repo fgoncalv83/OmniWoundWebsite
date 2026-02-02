@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OmniWound EMR Implementation Guide - Seamless setup process with zero downtime. Learn about our proven 3-phase approach, data migration, training, and support for wound care practices.">
+    <meta name="keywords" content="EMR implementation, wound care EMR setup, data migration, EMR training, practice management implementation, OmniWound setup guide">
+    <meta name="author" content="OmniWound EMR">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omniwound.com/implementation.html">
+    <meta property="og:title" content="Implementation Guide - Seamless EMR Setup Process">
+    <meta property="og:description" content="Our proven implementation process gets your wound care practice up and running with OmniWound EMR quickly with zero downtime.">
+    <meta property="og:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://omniwound.com/implementation.html">
+    <meta name="twitter:title" content="Implementation Guide - Seamless EMR Setup Process">
+    <meta name="twitter:description" content="Our proven implementation process gets your wound care practice up and running with OmniWound EMR quickly with zero downtime.">
+    <meta name="twitter:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <title>Implementation Guide - OmniWound EMR</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    
+    <link rel="canonical" href="https://omniwound.com/implementation.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Implementation Guide - OmniWound EMR",
+        "description": "Comprehensive implementation guide for OmniWound EMR wound care software",
+        "url": "https://omniwound.com/implementation.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "OmniWound EMR",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1590 Anderson Ave. #18A",
+                "addressLocality": "Fort Lee",
+                "addressRegion": "NJ",
+                "addressCountry": "US"
+            },
+            "telephone": "(201) 270-9103",
+            "email": "fgoncalv@omniwound.com"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Screen reader only class */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2c3e50;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header with Light Theme and Shrinking Animation */
+        .header {
+            background: white;
+            color: #2c3e50;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: font-size 0.3s ease;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .header.scrolled .logo {
+            font-size: 1.5rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 8px;
+            object-fit: contain;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .header.scrolled .logo-image {
+            width: 45px;
+            height: 45px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .nav-links a:focus::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #0891b2;
+        }
+
+        /* Login Dropdown with Light Theme */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover,
+        .dropdown-toggle:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .dropdown-toggle:focus::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #0891b2;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 10px;
+            transition: transform 0.3s;
+            color: #0891b2;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 5px);
+            right: 0;
+            background: white;
+            min-width: 300px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content,
+        .dropdown-content:hover {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            animation: fadeInDropdown 0.2s ease forwards;
+        }
+
+        /* Keep dropdown open when hovering over the content */
+        .dropdown-content:hover {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        @keyframes fadeInDropdown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-content a {
+            color: #2c3e50 !important;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content a:focus {
+            background-color: #0891b2;
+            color: white !important;
+            outline: none;
+        }
+
+        .cta-button {
+            background: #0891b2;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+            outline: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem;
+            display: block;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            background-color: #f8fafc;
+            color: #0891b2;
+            outline: none;
+        }
+
+        /* Hero Section - Compact with 3 Better-Spaced Boxes */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #475569;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin: 2.5rem 0;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stat {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0891b2;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Main Content */
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Process Section */
+        .process-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .process-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .process-number {
+            background: #0891b2;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .process-card h3 {
+            color: #1e3a8a;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .process-card p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .process-features {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .process-features li {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .process-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0f766e;
+            font-weight: bold;
+        }
+
+        /* Data Migration Section */
+        .migration-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+            padding: 4rem 0;
+        }
+
+        .migration-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .migration-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .migration-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .migration-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .migration-card p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .migration-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .migration-features li {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .migration-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #0891b2;
+            font-weight: bold;
+        }
+
+        /* Support Section */
+        .support-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .support-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .support-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .support-card h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+        }
+
+        .support-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+            padding: 4rem 0;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: #1e3a8a;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #f8fafc;
+        }
+
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 2rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem 1.5rem 2rem;
+            color: #64748b;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* CTA Section - Deep Blue Gradient */
+        .cta-section {
+            background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            color: #0891b2;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover,
+        .footer a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        /* Contact Section - Full Width with Perfect Alignment */
+        .contact-section-full {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+
+        .contact-section-full h3 {
+            color: #0891b2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: left;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-emoji {
+            color: #0891b2;
+            margin-right: 8px;
+        }
+
+        .contact-indent {
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            text-align: center;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-bottom span, .footer-bottom a {
+            color: #64748b;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover,
+        .footer-bottom a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-separator {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .footer-status-indicator:hover,
+        .footer-status-indicator:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .nav-links,
+            .cta-button {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .migration-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .process-card {
+                padding: 1.5rem;
+            }
+
+            .migration-card {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question {
+                padding: 1rem 1.5rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="OmniWound EMR Home">
+                <img src="omniwound-logo.png" alt="OmniWound EMR Logo" class="logo-image" loading="lazy">
+                <span class="logo-text">OmniWound EMR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Login <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="dropdown-content" role="menu">
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php" role="menuitem">OmniWound EMR</a>
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php?page=azure_login" role="menuitem">Login with Azure</a>
+                        <a href="https://omniwound.net/multitenant/telemedicine2/login.php" role="menuitem">MultiTenant</a>
+                        <a href="https://omniwound.net/multitenant/billing-availity/login.php?return=true&" role="menuitem">MultiTenant Billing</a>
+                        <a href="https://iwcbackoffice.com/iwc/telemedicine2/login.php" role="menuitem">IWC Back Office</a>
+                        <a href="https://omniwound.com/iwc-pcc/telemedicine2/login.php" role="menuitem">IWC Omni Latest</a>
+                        <a href="https://omniwound.com/iwc-backup-07-26-2025/telemedicine2/login.php" role="menuitem">Omni 1.0</a>
+                        <a href="https://omniwound.net/multitenant-testing/telemedicine2/login.php" role="menuitem">MultiTenant (Test)</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="demo.html" class="cta-button">Schedule Demo</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://omniwound.com/iwc/telemedicine2/login.php">Login</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" role="banner">
+        <div class="container">
+            <h1>Seamless Implementation Process</h1>
+            <p>Our proven approach gets your wound care practice up and running quickly with zero disruption to patient care</p>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">Fast</span>
+                    <span class="hero-stat-label">Quick Setup Process</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">100+</span>
+                    <span class="hero-stat-label">Successful Deployments</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">24/7</span>
+                    <span class="hero-stat-label">Go-Live Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Implementation Process -->
+        <section class="process-section" role="region" aria-labelledby="process-heading">
+            <div class="container">
+                <h2 class="section-title" id="process-heading">Our 3-Phase Implementation Process</h2>
+                <p class="section-subtitle">A streamlined approach that ensures smooth transition with minimal disruption to your practice</p>
+                
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-number">1</div>
+                        <h3>Setup & Configuration</h3>
+                        <p>We analyze your workflow and configure OmniWound EMR to match your practice's specific needs and preferences.</p>
+                        <ul class="process-features">
+                            <li>Current workflow assessment</li>
+                            <li>System environment setup</li>
+                            <li>Custom form configuration</li>
+                            <li>User account provisioning</li>
+                            <li>Security configuration</li>
+                        </ul>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="process-number">2</div>
+                        <h3>Data Migration & Training</h3>
+                        <p>Secure transfer of your patient data combined with comprehensive training for all users to ensure confidence.</p>
+                        <ul class="process-features">
+                            <li>Complete data migration</li>
+                            <li>Data validation & verification</li>
+                            <li>Administrator training</li>
+                            <li>Provider workflow training</li>
+                            <li>Test environment practice</li>
+                        </ul>
+                    </div>
+
+                    <div class="process-card">
+                        <div class="process-number">3</div>
+                        <h3>Go-Live & Support</h3>
+                        <p>Monitored launch with dedicated support team available around the clock until operations are running smoothly.</p>
+                        <ul class="process-features">
+                            <li>Production system activation</li>
+                            <li>Live workflow monitoring</li>
+                            <li>24/7 technical support</li>
+                            <li>Performance optimization</li>
+                            <li>Post-launch review</li>
+                            <li>Ongoing success support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Migration Section -->
+        <section class="migration-section" role="region" aria-labelledby="migration-heading">
+            <div class="container">
+                <h2 class="section-title" id="migration-heading">Secure Data Migration</h2>
+                <p class="section-subtitle">We handle the technical complexity so you can focus on patient care</p>
+                
+                <div class="migration-cards">
+                    <div class="migration-card">
+                        <span class="migration-icon">🔒</span>
+                        <h3>HIPAA-Compliant Transfer</h3>
+                        <p>End-to-end encryption and secure protocols ensure your patient data remains protected throughout the migration process.</p>
+                        <ul class="migration-features">
+                            <li>256-bit SSL encryption</li>
+                            <li>SOC 2 Type II certified process</li>
+                            <li>Audit trail documentation</li>
+                            <li>HIPAA compliance verification</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="migration-card">
+                        <span class="migration-icon">📊</span>
+                        <h3>Complete Data Integrity</h3>
+                        <p>Our migration process ensures high accuracy with comprehensive validation and verification at every step.</p>
+                        <ul class="migration-features">
+                            <li>Automated data validation</li>
+                            <li>Duplicate record detection</li>
+                            <li>Data format standardization</li>
+                            <li>Quality assurance testing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="migration-card">
+                        <span class="migration-icon">🔄</span>
+                        <h3>Zero Downtime Transition</h3>
+                        <p>Parallel system operation ensures continuous patient care while we migrate your data in the background.</p>
+                        <ul class="migration-features">
+                            <li>Staged migration approach</li>
+                            <li>Real-time synchronization</li>
+                            <li>Rollback capabilities</li>
+                            <li>Seamless cutover process</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Training & Support Section -->
+        <section class="support-section" role="region" aria-labelledby="support-heading">
+            <div class="container">
+                <h2 class="section-title" id="support-heading">Comprehensive Training & Support</h2>
+                <p class="section-subtitle">We ensure your team is confident and productive from day one</p>
+                
+                <div class="support-grid">
+                    <div class="support-card">
+                        <span class="support-icon">👨‍🏫</span>
+                        <h3>Live Training Sessions</h3>
+                        <p>Interactive training sessions tailored to different user roles, ensuring everyone knows how to use the system effectively.</p>
+                    </div>
+                    
+                    <div class="support-card">
+                        <span class="support-icon">📚</span>
+                        <h3>Training Materials</h3>
+                        <p>Comprehensive documentation, video tutorials, and quick reference guides available 24/7 in our training portal.</p>
+                    </div>
+                    
+                    <div class="support-card">
+                        <span class="support-icon">📞</span>
+                        <h3>24/7 Go-Live Support</h3>
+                        <p>Dedicated support team available around the clock during your first week of live operation for immediate assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" role="region" aria-labelledby="faq-heading">
+            <div class="container">
+                <h2 class="section-title" id="faq-heading">Implementation FAQ</h2>
+                <p class="section-subtitle">Common questions about the OmniWound EMR implementation process</p>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            How long does the typical implementation take?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our streamlined implementation process is designed to get you up and running quickly. The timeline varies based on your practice size, data complexity, and specific requirements. Smaller practices may complete implementation in just a few days, while larger multi-location practices may require additional time for general coordination, data-transfer, and training.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Will we experience any downtime during the transition?
+                        </button>
+                        <div class="faq-answer">
+                            <p>No, we design our implementation process to maintain continuous operations. We use parallel system operation during migration, allowing you to continue seeing patients and documenting care while we set up OmniWound EMR in the background. The actual cutover happens during a planned maintenance window with minimal impact.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Can you migrate data from any EMR system?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, our data migration team has experience with many different EMR systems. Whether you're using a major platform like Epic or Cerner, or a specialized wound care system, we can securely migrate your patient data, encounter history, and practice information with high accuracy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            What if we need additional training after go-live?
+                        </button>
+                        <div class="faq-answer">
+                            <p>We provide ongoing training support through multiple channels: our comprehensive training portal with video tutorials, live monthly training webinars, one-on-one coaching sessions, and unlimited access to our support team. Additional training is included in your subscription at no extra cost.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            Do you provide ongoing support after implementation?
+                        </button>
+                        <div class="faq-answer">
+                            <p>Absolutely. All OmniWound EMR subscriptions include ongoing technical support, system updates, training resources, and access to our customer success team. We're committed to your long-term success, not just a successful launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section" role="region" aria-labelledby="cta-heading">
+            <div class="container">
+                <h2 id="cta-heading">Ready to Get Started?</h2>
+                <p>Join 100+ providers who have successfully implemented OmniWound EMR with zero disruption to patient care</p>
+                
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-button" style="font-size: 1.2rem; padding: 15px 30px;">Start Your Implementation</a>
+                    <a href="demo.html" class="cta-button cta-secondary" style="font-size: 1.2rem; padding: 15px 30px;">Schedule Demo First</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Product</h3>
+                    <a href="features.html">Features</a>
+                    <a href="demo.html">Demo</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+
+                <div>
+                    <h3>Support</h3>
+                    <a href="documentation.html">Help Documentation</a>
+                    <a href="training.html">Training Resources</a>
+                    <a href="system-status.html">System Status</a>
+                </div>
+
+                <div>
+                    <h3>Resources</h3>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="roi-calculator.html">ROI Calculator</a>
+                    <a href="newsletter.html">Newsletter Archive</a>
+                    <a href="implementation.html">Implementation Guide</a>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <a href="about.html">About OmniWound</a>
+                    <a href="certification.html">CMS EMR Certification</a>
+                </div>
+            </div>
+
+            <div class="contact-section-full">
+                <h3>Contact</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">●</span>Address:</p>
+                        <p class="contact-indent">1590 Anderson Ave. #18A</p>
+                        <p class="contact-indent">Fort Lee, NJ</p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">☎</span>Call Us:</p>
+                        <p class="contact-indent"><a href="tel:+12012709103">(201) 270-9103</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">✉</span>Email Sales:</p>
+                        <p class="contact-indent"><a href="mailto:fgoncalv@omniwound.com">fgoncalv@omniwound.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">★</span>Email Support:</p>
+                        <p class="contact-indent"><a href="mailto:kyu@omniwound.com">kyu@omniwound.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 OmniWound EMR. All rights reserved.</span>
+                <span class="footer-separator">|</span>
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator">|</span>
+                <a href="terms.html">Terms of Service</a>
+                <span class="footer-separator">|</span>
+                <a href="compliance.html">HIPAA Compliance</a>
+                <span class="footer-separator">|</span>
+                <a href="system-status.html" class="footer-status-indicator">
+                    <span class="footer-status-dot"></span>
+                    System Status
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileClose = document.querySelector('.mobile-close');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose.addEventListener('click', function() {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.setAttribute('aria-expanded', 'false');
+                    q.nextElementSibling.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    question.classList.add('active');
+                    question.setAttribute('aria-expanded', 'true');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>

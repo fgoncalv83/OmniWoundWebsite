@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OmniWound EMR Privacy Policy - Comprehensive information on how we protect patient health information (PHI) and ensure HIPAA compliance for our wound care EMR platform.">
+    <meta name="keywords" content="OmniWound EMR privacy policy, HIPAA compliance, patient data protection, healthcare privacy, PHI security, wound care EMR privacy">
+    <meta name="author" content="OmniWound EMR">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omniwound.com/privacy.html">
+    <meta property="og:title" content="Privacy Policy - OmniWound EMR">
+    <meta property="og:description" content="Learn how OmniWound EMR protects patient health information and ensures HIPAA compliance for healthcare providers.">
+    <meta property="og:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://omniwound.com/privacy.html">
+    <meta name="twitter:title" content="Privacy Policy - OmniWound EMR">
+    <meta property="twitter:description" content="Learn how OmniWound EMR protects patient health information and ensures HIPAA compliance for healthcare providers.">
+    <meta name="twitter:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <title>Privacy Policy - OmniWound EMR</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    
+    <link rel="canonical" href="https://omniwound.com/privacy.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Privacy Policy - OmniWound EMR",
+        "description": "Comprehensive privacy policy detailing how OmniWound EMR protects patient health information and ensures HIPAA compliance",
+        "url": "https://omniwound.com/privacy.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "OmniWound EMR",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1590 Anderson Ave. #18A",
+                "addressLocality": "Fort Lee",
+                "addressRegion": "NJ",
+                "addressCountry": "US"
+            },
+            "telephone": "(201) 270-9103",
+            "email": "kyu@omniwound.com"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2c3e50;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Screen reader only class */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Header - Same as Homepage */
+        .header {
+            background: white;
+            color: #2c3e50;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: font-size 0.3s ease;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .header.scrolled .logo {
+            font-size: 1.5rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 8px;
+            object-fit: contain;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .header.scrolled .logo-image {
+            width: 45px;
+            height: 45px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .nav-links a:focus::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #0891b2;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover,
+        .dropdown-toggle:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 10px;
+            transition: transform 0.3s;
+            color: #0891b2;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: white;
+            min-width: 300px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50 !important;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content a:focus {
+            background-color: #0891b2;
+            color: white !important;
+            outline: none;
+        }
+
+        .cta-button {
+            background: #0891b2;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+            outline: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem;
+            display: block;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            background-color: #f8fafc;
+            color: #0891b2;
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .privacy-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-content h2 {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .privacy-content h2:first-child {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .privacy-content h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .privacy-content h4 {
+            color: #374151;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .privacy-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .privacy-content ul, .privacy-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .privacy-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .privacy-content strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: #f0f9ff;
+            border: 1px solid #0891b2;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box h4 {
+            color: #0891b2;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0891b2;
+        }
+
+        .contact-info h4 {
+            color: #1e3a8a;
+            margin-top: 0;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #0891b2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .table-of-contents {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .table-of-contents h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .table-of-contents ol {
+            margin-bottom: 0;
+        }
+
+        .table-of-contents a {
+            color: #0891b2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .table-of-contents a:hover {
+            text-decoration: underline;
+        }
+
+        .effective-date {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .effective-date strong {
+            color: #92400e;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            color: #0891b2;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover,
+        .footer a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .contact-section-full {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+
+        .contact-section-full h3 {
+            color: #0891b2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-grid-footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: left;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-emoji {
+            color: #0891b2;
+            margin-right: 8px;
+        }
+
+        .contact-indent {
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            text-align: center;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-bottom span, .footer-bottom a {
+            color: #64748b;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover,
+        .footer-bottom a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-separator {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .footer-status-indicator:hover,
+        .footer-status-indicator:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Focus visible for better accessibility */
+        *:focus-visible {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .privacy-content {
+                padding: 2rem;
+            }
+
+            .table-of-contents {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .contact-indent {
+                margin-left: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container, .content-container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section {
+                padding: 2rem 0;
+            }
+
+            .privacy-content {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header - Same as Homepage -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="OmniWound EMR Home">
+                <img src="omniwound-logo.png" alt="OmniWound EMR Logo" class="logo-image" loading="lazy">
+                <span class="logo-text">OmniWound EMR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Login <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="dropdown-content" role="menu">
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php" role="menuitem">OmniWound EMR</a>
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php?page=azure_login" role="menuitem">Login with Azure</a>
+                        <a href="https://omniwound.net/multitenant/telemedicine2/login.php" role="menuitem">MultiTenant</a>
+                        <a href="https://omniwound.net/multitenant/billing-availity/login.php?return=true&" role="menuitem">MultiTenant Billing</a>
+                        <a href="https://iwcbackoffice.com/iwc/telemedicine2/login.php" role="menuitem">IWC Back Office</a>
+                        <a href="https://omniwound.com/iwc-pcc/telemedicine2/login.php" role="menuitem">IWC Omni Latest</a>
+                        <a href="https://omniwound.com/iwc-backup-07-26-2025/telemedicine2/login.php" role="menuitem">Omni 1.0</a>
+                        <a href="https://omniwound.net/multitenant-testing/telemedicine2/login.php" role="menuitem">MultiTenant (Test)</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="demo.html" class="cta-button">Schedule Demo</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://omniwound.com/iwc/telemedicine2/login.php">Login</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" role="banner">
+            <div class="container">
+                <h1>Privacy Policy</h1>
+                <p>Your privacy and the security of patient health information is our highest priority</p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="content-section" role="region">
+            <div class="content-container">
+                
+                <div class="effective-date">
+                    <p><strong>Effective Date:</strong> September 17, 2025 | <strong>Last Updated:</strong> September 17, 2025</p>
+                </div>
+
+                <div class="table-of-contents">
+                    <h3>Table of Contents</h3>
+                    <ol>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#information-we-collect">Information We Collect</a></li>
+                        <li><a href="#how-we-use-information">How We Use Information</a></li>
+                        <li><a href="#information-sharing">Information Sharing and Disclosure</a></li>
+                        <li><a href="#data-security">Data Security and Protection</a></li>
+                        <li><a href="#individual-rights">Your Rights and Choices</a></li>
+                        <li><a href="#data-retention">Data Retention and Deletion</a></li>
+                        <li><a href="#third-party-services">Third-Party Services</a></li>
+                        <li><a href="#international-users">International Users</a></li>
+                        <li><a href="#children-privacy">Children's Privacy</a></li>
+                        <li><a href="#policy-updates">Policy Updates</a></li>
+                        <li><a href="#contact-information">Contact Information</a></li>
+                    </ol>
+                </div>
+
+                <div class="privacy-content">
+                    
+                    <h2 id="introduction">1. Introduction</h2>
+                    
+                    <p>OmniWound EMR ("we," "us," or "our") is committed to protecting the privacy and security of all information entrusted to us. This Privacy Policy explains how we collect, use, disclose, and safeguard information when you use our electronic medical records platform and related services (collectively, the "Service").</p>
+                    
+                    <p>This Privacy Policy applies to:</p>
+                    <ul>
+                        <li><strong>Healthcare Providers:</strong> Medical practices, clinicians, and administrative staff who use our EMR platform</li>
+                        <li><strong>Patients:</strong> Individuals whose health information is processed through our platform</li>
+                        <li><strong>Website Visitors:</strong> Anyone who visits our website or interacts with our marketing materials</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>HIPAA Compliance</h4>
+                        <p>OmniWound EMR is a HIPAA-covered entity and business associate. We comply with all applicable provisions of the Health Insurance Portability and Accountability Act (HIPAA) and its implementing regulations, including the Privacy Rule, Security Rule, and Breach Notification Rule.</p>
+                    </div>
+
+                    <h2 id="information-we-collect">2. Information We Collect</h2>
+                    
+                    <h3>2.1 Protected Health Information (PHI)</h3>
+                    <p>Through our EMR platform, we collect and process PHI on behalf of healthcare providers, including:</p>
+                    <ul>
+                        <li><strong>Patient Demographics:</strong> Name, address, phone number, email, date of birth, emergency contacts</li>
+                        <li><strong>Medical Information:</strong> Diagnoses, treatment plans, medications, allergies, medical history</li>
+                        <li><strong>Clinical Data:</strong> Wound assessments, progress notes, vital signs, test results</li>
+                        <li><strong>Insurance Information:</strong> Insurance provider details, policy numbers, coverage information</li>
+                        <li><strong>Billing Information:</strong> Procedure codes, diagnosis codes, billing addresses</li>
+                        <li><strong>Digital Images:</strong> Wound photographs, medical images (when applicable)</li>
+                    </ul>
+                    
+                    <h3>2.2 Healthcare Provider Information</h3>
+                    <p>We collect information about healthcare providers and their staff, including:</p>
+                    <ul>
+                        <li><strong>Account Information:</strong> Name, email address, phone number, professional credentials</li>
+                        <li><strong>Practice Information:</strong> Practice name, address, NPI numbers, specialty information</li>
+                        <li><strong>Usage Data:</strong> Login times, feature usage, system interactions</li>
+                        <li><strong>Billing Information:</strong> Payment methods, billing addresses, subscription details</li>
+                        <li><strong>Support Communications:</strong> Support tickets, email communications, phone call records</li>
+                    </ul>
+                    
+                    <h3>2.3 Website and Marketing Information</h3>
+                    <p>When you visit our website or interact with our marketing materials, we may collect:</p>
+                    <ul>
+                        <li><strong>Contact Information:</strong> Name, email address, phone number, practice information</li>
+                        <li><strong>Web Analytics:</strong> IP address, browser type, pages visited, time spent on pages</li>
+                        <li><strong>Form Submissions:</strong> Demo requests, newsletter signups, contact form submissions</li>
+                        <li><strong>Marketing Preferences:</strong> Communication preferences, marketing consent</li>
+                    </ul>
+                    
+                    <h3>2.4 Automatically Collected Information</h3>
+                    <p>Our systems automatically collect certain technical information:</p>
+                    <ul>
+                        <li><strong>System Logs:</strong> Access logs, error logs, security logs</li>
+                        <li><strong>Device Information:</strong> Device type, operating system, browser version</li>
+                        <li><strong>Network Information:</strong> IP addresses, connection details</li>
+                        <li><strong>Performance Data:</strong> System performance metrics, response times</li>
+                    </ul>
+
+                    <h2 id="how-we-use-information">3. How We Use Information</h2>
+                    
+                    <h3>3.1 Healthcare Operations</h3>
+                    <p>We use PHI exclusively for permitted healthcare operations, including:</p>
+                    <ul>
+                        <li><strong>Treatment Support:</strong> Enabling healthcare providers to document, track, and manage patient care</li>
+                        <li><strong>Care Coordination:</strong> Facilitating communication between healthcare team members</li>
+                        <li><strong>Quality Improvement:</strong> Supporting quality assurance and improvement activities</li>
+                        <li><strong>Reporting:</strong> Generating clinical reports and analytics for healthcare providers</li>
+                        <li><strong>MIPS Reporting:</strong> Supporting Merit-based Incentive Payment System reporting requirements</li>
+                    </ul>
+                    
+                    <h3>3.2 Platform Operations</h3>
+                    <p>We use collected information to:</p>
+                    <ul>
+                        <li><strong>Provide Services:</strong> Operate and maintain the EMR platform</li>
+                        <li><strong>User Support:</strong> Provide customer service and technical support</li>
+                        <li><strong>Security:</strong> Monitor for and prevent security threats</li>
+                        <li><strong>System Improvements:</strong> Analyze usage patterns to improve platform functionality</li>
+                        <li><strong>Account Management:</strong> Manage user accounts and subscriptions</li>
+                    </ul>
+                    
+                    <h3>3.3 Business Operations</h3>
+                    <p>For business purposes, we may use non-PHI information to:</p>
+                    <ul>
+                        <li><strong>Marketing:</strong> Send newsletters, product updates, and promotional materials (with consent)</li>
+                        <li><strong>Analytics:</strong> Analyze website usage and user engagement</li>
+                        <li><strong>Communication:</strong> Respond to inquiries and provide information about our services</li>
+                        <li><strong>Legal Compliance:</strong> Meet legal and regulatory obligations</li>
+                    </ul>
+
+                    <h2 id="information-sharing">4. Information Sharing and Disclosure</h2>
+                    
+                    <h3>4.1 PHI Sharing</h3>
+                    <p>We only share PHI in accordance with HIPAA regulations and your healthcare provider's instructions:</p>
+                    
+                    <h4>Permitted Disclosures:</h4>
+                    <ul>
+                        <li><strong>Healthcare Providers:</strong> With other members of your healthcare team as directed by your provider</li>
+                        <li><strong>Treatment Purposes:</strong> To facilitate ongoing medical care and treatment</li>
+                        <li><strong>Healthcare Operations:</strong> For quality assurance, case management, and care coordination</li>
+                        <li><strong>Legal Requirements:</strong> When required by law, court order, or regulatory authority</li>
+                        <li><strong>Public Health:</strong> For public health activities as required by law</li>
+                        <li><strong>Emergency Situations:</strong> When necessary to prevent serious harm</li>
+                    </ul>
+                    
+                    <h3>4.2 Service Providers</h3>
+                    <p>We work with trusted third-party service providers who assist in operating our platform:</p>
+                    <ul>
+                        <li><strong>Cloud Hosting:</strong> Secure cloud infrastructure providers</li>
+                        <li><strong>Data Backup:</strong> Encrypted backup and disaster recovery services</li>
+                        <li><strong>Analytics:</strong> Website analytics and performance monitoring</li>
+                        <li><strong>Communication:</strong> Email delivery and customer support platforms</li>
+                    </ul>
+                    <p>All service providers sign Business Associate Agreements (BAAs) and are required to maintain the same level of protection for PHI as we do.</p>
+                    
+                    <h3>4.3 Legal Disclosures</h3>
+                    <p>We may disclose information when required by law, including:</p>
+                    <ul>
+                        <li><strong>Legal Process:</strong> In response to subpoenas, court orders, or legal proceedings</li>
+                        <li><strong>Regulatory Compliance:</strong> To comply with healthcare regulations and oversight</li>
+                        <li><strong>Law Enforcement:</strong> When required for law enforcement purposes under applicable law</li>
+                        <li><strong>National Security:</strong> When required for national security purposes</li>
+                    </ul>
+
+                    <h2 id="data-security">5. Data Security and Protection</h2>
+                    
+                    <p>We implement comprehensive security measures to protect all information in our custody:</p>
+                    
+                    <h3>5.1 Technical Safeguards</h3>
+                    <ul>
+                        <li><strong>Encryption:</strong> All data is encrypted in transit (TLS 1.3) and at rest (AES-256)</li>
+                        <li><strong>Access Controls:</strong> Role-based access controls and multi-factor authentication</li>
+                        <li><strong>Network Security:</strong> Firewalls, intrusion detection, and network monitoring</li>
+                        <li><strong>Regular Updates:</strong> Timely security patches and system updates</li>
+                        <li><strong>Audit Logging:</strong> Comprehensive logging of all system access and activities</li>
+                    </ul>
+                    
+                    <h3>5.2 Physical Safeguards</h3>
+                    <ul>
+                        <li><strong>Data Centers:</strong> SOC 2 Type II certified data centers with 24/7 security</li>
+                        <li><strong>Access Control:</strong> Restricted physical access to servers and equipment</li>
+                        <li><strong>Environmental Controls:</strong> Climate control, fire suppression, and power backup systems</li>
+                        <li><strong>Asset Management:</strong> Secure disposal and destruction of hardware</li>
+                    </ul>
+                    
+                    <h3>5.3 Administrative Safeguards</h3>
+                    <ul>
+                        <li><strong>Security Training:</strong> Regular security awareness training for all employees</li>
+                        <li><strong>Incident Response:</strong> Comprehensive security incident response procedures</li>
+                        <li><strong>Risk Assessment:</strong> Regular security risk assessments and vulnerability testing</li>
+                        <li><strong>Vendor Management:</strong> Due diligence and ongoing monitoring of third-party vendors</li>
+                        <li><strong>Business Associate Agreements:</strong> Contractual protections with all service providers</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>Security Incident Notification</h4>
+                        <p>In the event of a security incident that may affect PHI, we will notify affected healthcare providers within 60 days as required by HIPAA, and assist them in meeting their patient notification obligations.</p>
+                    </div>
+
+                    <h2 id="individual-rights">6. Your Rights and Choices</h2>
+                    
+                    <h3>6.1 Patient Rights (PHI)</h3>
+                    <p>As a patient, you have the following rights regarding your PHI:</p>
+                    <ul>
+                        <li><strong>Access:</strong> Right to access and obtain copies of your health information</li>
+                        <li><strong>Amendment:</strong> Right to request amendments to your health information</li>
+                        <li><strong>Restriction:</strong> Right to request restrictions on how your PHI is used or disclosed</li>
+                        <li><strong>Accounting:</strong> Right to receive an accounting of disclosures of your PHI</li>
+                        <li><strong>Confidential Communication:</strong> Right to request confidential communications</li>
+                        <li><strong>Complaint:</strong> Right to file a complaint about privacy practices</li>
+                    </ul>
+                    <p><strong>Note:</strong> These requests must be made to your healthcare provider, not directly to OmniWound EMR.</p>
+                    
+                    <h3>6.2 Healthcare Provider Rights</h3>
+                    <p>As a healthcare provider using our platform, you have rights regarding your account information:</p>
+                    <ul>
+                        <li><strong>Access:</strong> Access and update your account information</li>
+                        <li><strong>Data Portability:</strong> Export your data in standard formats</li>
+                        <li><strong>Account Deletion:</strong> Request deletion of your account and associated data</li>
+                        <li><strong>Marketing Opt-out:</strong> Unsubscribe from marketing communications</li>
+                    </ul>
+                    
+                    <h3>6.3 Website Visitor Rights</h3>
+                    <p>Website visitors have the following choices:</p>
+                    <ul>
+                        <li><strong>Marketing Communications:</strong> Opt-out of marketing emails at any time</li>
+                        <li><strong>Analytics:</strong> Use browser settings to limit tracking</li>
+                        <li><strong>Contact:</strong> Contact us to request information about data we have collected</li>
+                    </ul>
+
+                    <h2 id="data-retention">7. Data Retention and Deletion</h2>
+                    
+                    <h3>7.1 PHI Retention</h3>
+                    <p>PHI retention is governed by:</p>
+                    <ul>
+                        <li><strong>Healthcare Provider Instructions:</strong> We retain PHI as instructed by healthcare providers</li>
+                        <li><strong>Legal Requirements:</strong> Federal and state medical record retention laws</li>
+                        <li><strong>Standard Practices:</strong> Generally, medical records are retained for 6-10 years from the last patient encounter</li>
+                        <li><strong>Minors:</strong> Records for minors are retained until the age of majority plus applicable retention period</li>
+                    </ul>
+                    
+                    <h3>7.2 Account Data Retention</h3>
+                    <ul>
+                        <li><strong>Active Accounts:</strong> Account data is retained while accounts remain active</li>
+                        <li><strong>Inactive Accounts:</strong> Data may be retained for up to 7 years after account closure for legal and business purposes</li>
+                        <li><strong>Financial Records:</strong> Billing and payment information is retained for 7 years</li>
+                    </ul>
+                    
+                    <h3>7.3 Website Data Retention</h3>
+                    <ul>
+                        <li><strong>Analytics Data:</strong> Website analytics data is retained for 26 months</li>
+                        <li><strong>Marketing Data:</strong> Marketing contact information is retained until opt-out or 3 years of inactivity</li>
+                        <li><strong>Support Records:</strong> Customer support communications are retained for 3 years</li>
+                    </ul>
+                    
+                    <h3>7.4 Secure Deletion</h3>
+                    <p>When data is deleted, we ensure:</p>
+                    <ul>
+                        <li><strong>Secure Erasure:</strong> Data is securely overwritten and cannot be recovered</li>
+                        <li><strong>Backup Purging:</strong> Data is removed from all backup systems</li>
+                        <li><strong>Third-Party Notification:</strong> Service providers are notified to delete data</li>
+                        <li><strong>Certification:</strong> Deletion is documented and certified when required</li>
+                    </ul>
+
+                    <h2 id="third-party-services">8. Third-Party Services</h2>
+                    
+                    <p>We use the following categories of third-party services:</p>
+                    
+                    <h3>8.1 Essential Platform Services</h3>
+                    <ul>
+                        <li><strong>Cloud Infrastructure:</strong> Amazon Web Services (AWS) - HIPAA-compliant hosting</li>
+                        <li><strong>Database Services:</strong> Encrypted database hosting and management</li>
+                        <li><strong>Backup Services:</strong> Automated encrypted backup solutions</li>
+                        <li><strong>Content Delivery:</strong> Global content delivery network for performance</li>
+                    </ul>
+                    
+                    <h3>8.2 Analytics and Monitoring</h3>
+                    <ul>
+                        <li><strong>Google Analytics:</strong> Website traffic and user behavior analysis (anonymized data only)</li>
+                        <li><strong>System Monitoring:</strong> Platform performance and uptime monitoring</li>
+                        <li><strong>Security Monitoring:</strong> Security event monitoring and threat detection</li>
+                    </ul>
+                    
+                    <h3>8.3 Communication Services</h3>
+                    <ul>
+                        <li><strong>FormSpree:</strong> Contact form processing and email delivery</li>
+                        <li><strong>Email Services:</strong> Transactional and marketing email delivery</li>
+                        <li><strong>Support Platform:</strong> Customer support ticket management</li>
+                    </ul>
+                    
+                    <h3>8.4 Business Services</h3>
+                    <ul>
+                        <li><strong>Payment Processing:</strong> Secure payment processing for subscriptions</li>
+                        <li><strong>Legal Services:</strong> Legal document storage and compliance management</li>
+                        <li><strong>Accounting Services:</strong> Financial record keeping and reporting</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>Third-Party Protections</h4>
+                        <p>All third-party services that may access PHI are required to sign Business Associate Agreements (BAAs) and maintain HIPAA-compliant security standards. We regularly audit and monitor our service providers to ensure compliance.</p>
+                    </div>
+
+                    <h2 id="international-users">9. International Users</h2>
+                    
+                    <p>OmniWound EMR is designed for and operates exclusively within the United States:</p>
+                    
+                    <ul>
+                        <li><strong>US-Only Service:</strong> Our platform is intended for healthcare providers operating in the United States</li>
+                        <li><strong>Data Location:</strong> All data is stored and processed within the United States</li>
+                        <li><strong>US Law Compliance:</strong> We comply with US federal and state privacy laws, including HIPAA</li>
+                        <li><strong>International Access:</strong> Access from outside the US may be limited or restricted</li>
+                    </ul>
+                    
+                    <p>If you are accessing our website from outside the United States, please be aware that your information may be transferred to, stored, and processed in the United States where our servers are located and our central database is operated.</p>
+
+                    <h2 id="children-privacy">10. Children's Privacy</h2>
+                    
+                    <p>Our platform handles pediatric patient information in accordance with applicable laws:</p>
+                    
+                    <ul>
+                        <li><strong>Parental Consent:</strong> Pediatric patient information is collected only with appropriate parental or guardian consent</li>
+                        <li><strong>Age-Appropriate Handling:</strong> Special protections for minors' health information</li>
+                        <li><strong>Extended Retention:</strong> Pediatric records are retained until age of majority plus applicable retention period</li>
+                        <li><strong>Access Rights:</strong> Parents/guardians have rights to access and control their minor children's health information</li>
+                    </ul>
+                    
+                    <p>Our website is not directed to children under 13, and we do not knowingly collect personal information from children under 13 through our website.</p>
+
+                    <h2 id="policy-updates">11. Policy Updates</h2>
+                    
+                    <p>We may update this Privacy Policy periodically to reflect changes in our practices or applicable laws:</p>
+                    
+                    <ul>
+                        <li><strong>Notification:</strong> We will notify healthcare providers of material changes via email and platform notifications</li>
+                        <li><strong>Effective Date:</strong> Changes become effective 30 days after notification unless immediate compliance is required by law</li>
+                        <li><strong>Website Posting:</strong> The current version is always available on our website with the effective date clearly marked</li>
+                        <li><strong>Continued Use:</strong> Continued use of our platform after changes become effective constitutes acceptance of the updated policy</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>Material Changes</h4>
+                        <p>Material changes include modifications to how we collect, use, or share PHI, changes to individual rights, or changes to our security practices. We will provide prominent notice of such changes.</p>
+                    </div>
+
+                    <h2 id="contact-information">12. Contact Information</h2>
+                    
+                    <p>For questions about this Privacy Policy or our privacy practices, please contact us:</p>
+                    
+                    <div class="contact-info">
+                        <h4>Privacy Officer</h4>
+                        <p><strong>Email:</strong> <a href="mailto:privacy@omniwound.com">privacy@omniwound.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+12012709103">(201) 270-9103</a></p>
+                        <p><strong>Mailing Address:</strong></p>
+                        <p>OmniWound EMR<br>
+                        Attn: Privacy Officer<br>
+                        1590 Anderson Ave. #18A<br>
+                        Fort Lee, NJ 07024</p>
+                    </div>
+                    
+                    <h3>Filing Complaints</h3>
+                    <p>If you believe your privacy rights have been violated, you may file a complaint with:</p>
+                    
+                    <ul>
+                        <li><strong>OmniWound EMR:</strong> Contact our Privacy Officer using the information above</li>
+                        <li><strong>US Department of Health and Human Services:</strong> Office for Civil Rights (OCR)
+                            <br>Website: <a href="https://www.hhs.gov/ocr/privacy/" target="_blank" rel="noopener">www.hhs.gov/ocr/privacy/</a>
+                            <br>Phone: 1-800-368-1019</li>
+                    </ul>
+                    
+                    <p>You will not be retaliated against for filing a complaint about our privacy practices.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Emergency Situations</h4>
+                        <p>For urgent privacy or security concerns, including suspected data breaches, please contact us immediately at <a href="mailto:security@omniwound.com">security@omniwound.com</a> or call <a href="tel:+12012709103">(201) 270-9103</a>.</p>
+                    </div>
+                    
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    
+                    <p><em>This Privacy Policy is effective as of September 17, 2025. OmniWound EMR reserves the right to modify this policy at any time in accordance with applicable law and the procedures outlined above.</em></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Product</h3>
+                    <a href="features.html">Features</a>
+                    <a href="demo.html">Demo</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+
+                <div>
+                    <h3>Support</h3>
+                    <a href="documentation.html">Help Documentation</a>
+                    <a href="training.html">Training Resources</a>
+                    <a href="system-status.html">System Status</a>
+                </div>
+
+                <div>
+                    <h3>Resources</h3>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="roi-calculator.html">ROI Calculator</a>
+                    <a href="newsletter.html">Newsletter Archive</a>
+                    <a href="implementation.html">Implementation Guide</a>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <a href="about.html">About OmniWound</a>
+                    <a href="certification.html">CMS EMR Certification</a>
+                </div>
+            </div>
+
+            <div class="contact-section-full">
+                <h3>Contact</h3>
+                <div class="contact-grid-footer">
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">●</span>Address:</p>
+                        <p class="contact-indent">1590 Anderson Ave. #18A</p>
+                        <p class="contact-indent">Fort Lee, NJ</p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">☎</span>Call Us:</p>
+                        <p class="contact-indent"><a href="tel:+12012709103">(201) 270-9103</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">✉</span>Email Sales:</p>
+                        <p class="contact-indent"><a href="mailto:fgoncalv@omniwound.com">fgoncalv@omniwound.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">★</span>Email Support:</p>
+                        <p class="contact-indent"><a href="mailto:kyu@omniwound.com">kyu@omniwound.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 OmniWound EMR. All rights reserved.</span>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="terms.html">Terms of Service</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="compliance.html">HIPAA Compliance</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="system-status.html" class="footer-status-indicator">
+                    <div class="footer-status-dot" aria-hidden="true"></div>
+                    <span>System Status</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header shrinking on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        if (mobileToggle && mobileNav) {
+            mobileToggle.addEventListener('click', function() {
+                const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+                mobileToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileNav.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.mobile-menu-toggle') && !event.target.closest('.mobile-nav')) {
+                    mobileNav.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.table-of-contents a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in table of contents
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '-100px 0px -50% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const tocLink = document.querySelector(`.table-of-contents a[href="#${id}"]`);
+                
+                if (entry.isIntersecting && tocLink) {
+                    // Remove active class from all links
+                    document.querySelectorAll('.table-of-contents a').forEach(link => {
+                        link.style.fontWeight = 'normal';
+                        link.style.color = '#0891b2';
+                    });
+                    
+                    // Add active class to current link
+                    tocLink.style.fontWeight = 'bold';
+                    tocLink.style.color = '#1e3a8a';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all section headings
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('h2[id]').forEach(heading => {
+                observer.observe(heading);
+            });
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

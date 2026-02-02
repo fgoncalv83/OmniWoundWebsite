@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OmniWound EMR HIPAA compliance information - Business Associate Agreement, PHI protection, security safeguards, and healthcare regulatory compliance for wound care specialists.">
+    <meta name="keywords" content="OmniWound EMR HIPAA compliance, Business Associate Agreement, PHI protection, healthcare security, ONC Health IT certification, ISO 9001 QMS, wound care EMR compliance">
+    <meta name="author" content="OmniWound EMR">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omniwound.com/compliance.html">
+    <meta property="og:title" content="HIPAA Compliance - OmniWound EMR">
+    <meta property="og:description" content="Learn about OmniWound EMR's comprehensive HIPAA compliance, security safeguards, and healthcare regulatory standards.">
+    <meta property="og:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://omniwound.com/compliance.html">
+    <meta name="twitter:title" content="HIPAA Compliance - OmniWound EMR">
+    <meta property="twitter:description" content="Learn about OmniWound EMR's comprehensive HIPAA compliance, security safeguards, and healthcare regulatory standards.">
+    <meta name="twitter:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <title>HIPAA Compliance - OmniWound EMR</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    
+    <link rel="canonical" href="https://omniwound.com/compliance.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "HIPAA Compliance - OmniWound EMR",
+        "description": "Comprehensive HIPAA compliance information for OmniWound EMR platform including security safeguards and regulatory standards",
+        "url": "https://omniwound.com/compliance.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "OmniWound EMR",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1590 Anderson Ave. #18A",
+                "addressLocality": "Fort Lee",
+                "addressRegion": "NJ",
+                "addressCountry": "US"
+            },
+            "telephone": "(201) 270-9103",
+            "email": "compliance@omniwound.com"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2c3e50;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header - Same as other pages */
+        .header {
+            background: white;
+            color: #2c3e50;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: font-size 0.3s ease;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .header.scrolled .logo {
+            font-size: 1.5rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 8px;
+            object-fit: contain;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .header.scrolled .logo-image {
+            width: 45px;
+            height: 45px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .nav-links a:focus::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #0891b2;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover,
+        .dropdown-toggle:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 10px;
+            transition: transform 0.3s;
+            color: #0891b2;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: white;
+            min-width: 300px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50 !important;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content a:focus {
+            background-color: #0891b2;
+            color: white !important;
+            outline: none;
+        }
+
+        .cta-button {
+            background: #0891b2;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+            outline: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem;
+            display: block;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            background-color: #f8fafc;
+            color: #0891b2;
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Certification Badges */
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-icon {
+            font-size: 1.5rem;
+            color: #22c55e;
+        }
+
+        .cert-text {
+            font-weight: 600;
+            color: #1e3a8a;
+            font-size: 0.9rem;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .compliance-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+
+        .compliance-content h2 {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .compliance-content h2:first-child {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .compliance-content h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .compliance-content h4 {
+            color: #374151;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .compliance-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .compliance-content ul, .compliance-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .compliance-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .compliance-content strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: #f0f9ff;
+            border: 1px solid #0891b2;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box h4 {
+            color: #0891b2;
+            margin-top: 0;
+        }
+
+        .success-box {
+            background: #f0fdf4;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .success-box h4 {
+            color: #15803d;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0891b2;
+        }
+
+        .contact-info h4 {
+            color: #1e3a8a;
+            margin-top: 0;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #0891b2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .table-of-contents {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .table-of-contents h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .table-of-contents ol {
+            margin-bottom: 0;
+        }
+
+        .table-of-contents a {
+            color: #0891b2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .table-of-contents a:hover {
+            text-decoration: underline;
+        }
+
+        .safeguards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .safeguard-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+        }
+
+        .safeguard-icon {
+            font-size: 2.5rem;
+            color: #0891b2;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .safeguard-card h4 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .safeguard-card ul {
+            text-align: left;
+            padding-left: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            color: #0891b2;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover,
+        .footer a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .contact-section-full {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+
+        .contact-section-full h3 {
+            color: #0891b2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-grid-footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: left;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-emoji {
+            color: #0891b2;
+            margin-right: 8px;
+        }
+
+        .contact-indent {
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            text-align: center;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-bottom span, .footer-bottom a {
+            color: #64748b;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover,
+        .footer-bottom a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-separator {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .footer-status-indicator:hover,
+        .footer-status-indicator:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Focus visible for better accessibility */
+        *:focus-visible {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cert-badges {
+                gap: 1rem;
+            }
+
+            .cert-badge {
+                padding: 0.75rem 1rem;
+            }
+
+            .compliance-content {
+                padding: 2rem;
+            }
+
+            .table-of-contents {
+                padding: 1.5rem;
+            }
+
+            .safeguards-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .contact-indent {
+                margin-left: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container, .content-container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section {
+                padding: 2rem 0;
+            }
+
+            .compliance-content {
+                padding: 1.5rem;
+            }
+
+            .cert-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header - Same as Homepage -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="OmniWound EMR Home">
+                <img src="omniwound-logo.png" alt="OmniWound EMR Logo" class="logo-image" loading="lazy">
+                <span class="logo-text">OmniWound EMR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Login <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="dropdown-content" role="menu">
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php" role="menuitem">OmniWound EMR</a>
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php?page=azure_login" role="menuitem">Login with Azure</a>
+                        <a href="https://omniwound.net/multitenant/telemedicine2/login.php" role="menuitem">MultiTenant</a>
+                        <a href="https://omniwound.net/multitenant/billing-availity/login.php?return=true&" role="menuitem">MultiTenant Billing</a>
+                        <a href="https://iwcbackoffice.com/iwc/telemedicine2/login.php" role="menuitem">IWC Back Office</a>
+                        <a href="https://omniwound.com/iwc-pcc/telemedicine2/login.php" role="menuitem">IWC Omni Latest</a>
+                        <a href="https://omniwound.com/iwc-backup-07-26-2025/telemedicine2/login.php" role="menuitem">Omni 1.0</a>
+                        <a href="https://omniwound.net/multitenant-testing/telemedicine2/login.php" role="menuitem">MultiTenant (Test)</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="demo.html" class="cta-button">Schedule Demo</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://omniwound.com/iwc/telemedicine2/login.php">Login</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" role="banner">
+            <div class="container">
+                <h1>HIPAA Compliance & Security</h1>
+                <p>Comprehensive protection for patient health information with industry-leading security standards and regulatory compliance.</p>
+                
+                <div class="cert-badges">
+                    <div class="cert-badge">
+                        <span class="cert-icon">✓</span>
+                        <span class="cert-text">HIPAA Compliant</span>
+                    </div>
+                    <div class="cert-badge">
+                        <span class="cert-icon">🏆</span>
+                        <span class="cert-text">ONC Health IT Certified</span>
+                    </div>
+                    <div class="cert-badge">
+                        <span class="cert-icon">⚙️</span>
+                        <span class="cert-text">ISO 9001 QMS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="content-section" role="region">
+            <div class="content-container">
+
+                <div class="table-of-contents">
+                    <h3>Compliance Overview</h3>
+                    <ol>
+                        <li><a href="#business-associate">Business Associate Role</a></li>
+                        <li><a href="#hipaa-safeguards">HIPAA Security Safeguards</a></li>
+                        <li><a href="#certifications">Certifications & Standards</a></li>
+                        <li><a href="#data-protection">Data Protection Measures</a></li>
+                        <li><a href="#access-controls">Access Controls & Authentication</a></li>
+                        <li><a href="#incident-response">Incident Response & Breach Notification</a></li>
+                        <li><a href="#baa-process">Business Associate Agreement Process</a></li>
+                        <li><a href="#compliance-contact">Compliance Contact Information</a></li>
+                    </ol>
+                </div>
+
+                <div class="compliance-content">
+                    
+                    <h2 id="business-associate">1. Business Associate Role</h2>
+                    
+                    <p>OmniWound EMR operates as a HIPAA Business Associate, providing electronic medical records services to healthcare providers (Covered Entities). This means we:</p>
+                    
+                    <ul>
+                        <li><strong>Handle PHI on behalf of healthcare providers</strong> - We process, store, and transmit protected health information as directed by our customers</li>
+                        <li><strong>Execute Business Associate Agreements (BAAs)</strong> - Every customer relationship includes a comprehensive BAA that outlines our responsibilities and protections</li>
+                        <li><strong>Maintain HIPAA compliance standards</strong> - We implement all required administrative, physical, and technical safeguards</li>
+                        <li><strong>Support customer compliance</strong> - We provide tools and documentation to help healthcare providers meet their own HIPAA obligations</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>What This Means for Healthcare Providers</h4>
+                        <p>When you use OmniWound EMR, you can be confident that we maintain the same level of protection for patient data as required for your own practice. Our Business Associate status means we're legally bound to protect PHI and support your compliance efforts.</p>
+                    </div>
+
+                    <h2 id="hipaa-safeguards">2. HIPAA Security Safeguards</h2>
+                    
+                    <p>We implement comprehensive security measures across all three categories of HIPAA safeguards:</p>
+                    
+                    <div class="safeguards-grid">
+                        <div class="safeguard-card">
+                            <span class="safeguard-icon">🔧</span>
+                            <h4>Technical Safeguards</h4>
+                            <ul>
+                                <li>End-to-end encryption (AES-256)</li>
+                                <li>Secure data transmission (TLS 1.3)</li>
+                                <li>Multi-factor authentication</li>
+                                <li>Role-based access controls</li>
+                                <li>Audit logging and monitoring</li>
+                                <li>Automatic session timeouts</li>
+                                <li>Data backup and recovery</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="safeguard-card">
+                            <span class="safeguard-icon">🏢</span>
+                            <h4>Physical Safeguards</h4>
+                            <ul>
+                                <li>Secure data centers with 24/7 monitoring</li>
+                                <li>Biometric access controls</li>
+                                <li>Environmental monitoring</li>
+                                <li>Fire suppression systems</li>
+                                <li>Redundant power and cooling</li>
+                                <li>Secure hardware disposal</li>
+                                <li>Restricted facility access</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="safeguard-card">
+                            <span class="safeguard-icon">📋</span>
+                            <h4>Administrative Safeguards</h4>
+                            <ul>
+                                <li>HIPAA compliance training</li>
+                                <li>Security incident procedures</li>
+                                <li>Risk assessment programs</li>
+                                <li>Workforce security measures</li>
+                                <li>Assigned security responsibilities</li>
+                                <li>Business Associate Agreements</li>
+                                <li>Regular compliance audits</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2 id="certifications">3. Certifications & Standards</h2>
+                    
+                    <h3>3.1 ONC Health IT Certification</h3>
+                    <p>OmniWound EMR is certified by the Office of the National Coordinator for Health Information Technology (ONC), which means our platform:</p>
+                    <ul>
+                        <li><strong>Meets federal standards</strong> for electronic health records functionality</li>
+                        <li><strong>Supports meaningful use</strong> and quality reporting requirements</li>
+                        <li><strong>Enables interoperability</strong> with other certified health IT systems</li>
+                        <li><strong>Provides required clinical decision support</strong> and reporting capabilities</li>
+                        <li><strong>Maintains data portability</strong> and patient access requirements</li>
+                    </ul>
+                    
+                    <h3>3.2 ISO 9001 Quality Management System</h3>
+                    <p>Our ISO 9001 QMS certification demonstrates our commitment to:</p>
+                    <ul>
+                        <li><strong>Consistent quality</strong> in software development and customer service</li>
+                        <li><strong>Continuous improvement</strong> of processes and systems</li>
+                        <li><strong>Customer satisfaction</strong> through reliable service delivery</li>
+                        <li><strong>Risk management</strong> and preventive action procedures</li>
+                        <li><strong>Documented processes</strong> for all critical business functions</li>
+                    </ul>
+                    
+                    <div class="success-box">
+                        <h4>Regulatory Compliance Benefits</h4>
+                        <p>These certifications provide healthcare providers with confidence that OmniWound EMR meets rigorous federal standards for both functionality and quality management, supporting your own regulatory compliance efforts.</p>
+                    </div>
+
+                    <h2 id="data-protection">4. Data Protection Measures</h2>
+                    
+                    <h3>4.1 Encryption Standards</h3>
+                    <p>All patient data is protected using industry-leading encryption:</p>
+                    <ul>
+                        <li><strong>Data at Rest:</strong> AES-256 encryption for all stored data</li>
+                        <li><strong>Data in Transit:</strong> TLS 1.3 encryption for all data transmission</li>
+                        <li><strong>Database Encryption:</strong> Field-level encryption for sensitive data elements</li>
+                        <li><strong>Backup Encryption:</strong> All backups are encrypted using the same standards</li>
+                    </ul>
+                    
+                    <h3>4.2 Data Storage and Backup</h3>
+                    <ul>
+                        <li><strong>Secure Cloud Infrastructure:</strong> Data stored in HIPAA-compliant cloud environments</li>
+                        <li><strong>Automated Backups:</strong> Regular, encrypted backups with geographic redundancy</li>
+                        <li><strong>Disaster Recovery:</strong> Comprehensive business continuity and disaster recovery plans</li>
+                        <li><strong>Data Retention:</strong> Configurable retention policies to meet regulatory requirements</li>
+                    </ul>
+                    
+                    <h3>4.3 Network Security</h3>
+                    <ul>
+                        <li><strong>Firewalls and Intrusion Detection:</strong> Multi-layer network security monitoring</li>
+                        <li><strong>VPN Access:</strong> Secure remote access for authorized personnel</li>
+                        <li><strong>Network Segmentation:</strong> Isolated environments for different security zones</li>
+                        <li><strong>DDoS Protection:</strong> Advanced protection against distributed denial of service attacks</li>
+                    </ul>
+
+                    <h2 id="access-controls">5. Access Controls & Authentication</h2>
+                    
+                    <h3>5.1 User Authentication</h3>
+                    <p>We implement robust authentication measures to ensure only authorized users can access patient data:</p>
+                    <ul>
+                        <li><strong>Multi-Factor Authentication (MFA):</strong> Required for all user accounts</li>
+                        <li><strong>Strong Password Policies:</strong> Enforced complexity and regular updates</li>
+                        <li><strong>Single Sign-On (SSO):</strong> Integration with healthcare organization identity systems</li>
+                        <li><strong>Session Management:</strong> Automatic timeouts and secure session handling</li>
+                    </ul>
+                    
+                    <h3>5.2 Role-Based Access Control</h3>
+                    <ul>
+                        <li><strong>Principle of Least Privilege:</strong> Users only access data necessary for their role</li>
+                        <li><strong>Customizable User Roles:</strong> Flexible permissions based on job functions</li>
+                        <li><strong>Audit Trails:</strong> Comprehensive logging of all access and actions</li>
+                        <li><strong>Regular Access Reviews:</strong> Periodic review and certification of user access rights</li>
+                    </ul>
+                    
+                    <h3>5.3 Administrative Controls</h3>
+                    <ul>
+                        <li><strong>User Provisioning:</strong> Formal processes for granting and revoking access</li>
+                        <li><strong>Identity Verification:</strong> Verification of user identity before account creation</li>
+                        <li><strong>Terminated User Processing:</strong> Immediate access revocation upon employment termination</li>
+                        <li><strong>Privileged Account Management:</strong> Enhanced controls for administrative accounts</li>
+                    </ul>
+
+                    <h2 id="incident-response">6. Incident Response & Breach Notification</h2>
+                    
+                    <h3>6.1 Security Incident Response</h3>
+                    <p>We maintain a comprehensive incident response program that includes:</p>
+                    <ul>
+                        <li><strong>24/7 Security Monitoring:</strong> Continuous monitoring for security threats and anomalies</li>
+                        <li><strong>Incident Response Team:</strong> Dedicated team trained in healthcare security incident response</li>
+                        <li><strong>Response Procedures:</strong> Documented procedures for different types of security incidents</li>
+                        <li><strong>Forensic Capabilities:</strong> Tools and expertise for incident investigation and analysis</li>
+                    </ul>
+                    
+                    <h3>6.2 Breach Notification Process</h3>
+                    <p>In the event of a security incident involving PHI, we follow strict notification procedures:</p>
+                    <ul>
+                        <li><strong>Immediate Assessment:</strong> Rapid evaluation to determine if a breach has occurred</li>
+                        <li><strong>Customer Notification:</strong> Healthcare providers notified within 60 days as required by HIPAA</li>
+                        <li><strong>Breach Documentation:</strong> Detailed documentation of the incident and response actions</li>
+                        <li><strong>Regulatory Reporting:</strong> Assistance with required breach notifications to HHS and affected individuals</li>
+                        <li><strong>Remediation Support:</strong> Help implementing additional safeguards to prevent future incidents</li>
+                    </ul>
+                    
+                    <h3>6.3 Business Continuity</h3>
+                    <ul>
+                        <li><strong>Disaster Recovery Plan:</strong> Comprehensive plan for service restoration after incidents</li>
+                        <li><strong>Backup Systems:</strong> Redundant systems and data backups for rapid recovery</li>
+                        <li><strong>Communication Plan:</strong> Clear communication procedures during incidents</li>
+                        <li><strong>Regular Testing:</strong> Periodic testing of incident response and recovery procedures</li>
+                    </ul>
+
+                    <h2 id="baa-process">7. Business Associate Agreement Process</h2>
+                    
+                    <h3>7.1 BAA Requirements</h3>
+                    <p>Every healthcare provider using OmniWound EMR must execute a Business Associate Agreement that includes:</p>
+                    <ul>
+                        <li><strong>Permitted Uses and Disclosures:</strong> Clear definition of how we may use and disclose PHI</li>
+                        <li><strong>Safeguard Requirements:</strong> Our obligations to implement appropriate safeguards</li>
+                        <li><strong>Subcontractor Management:</strong> Requirements for any subcontractors who may access PHI</li>
+                        <li><strong>Individual Rights:</strong> Support for patient rights under HIPAA</li>
+                        <li><strong>Breach Notification:</strong> Procedures for notifying covered entities of breaches</li>
+                        <li><strong>Termination Procedures:</strong> Data handling requirements upon contract termination</li>
+                    </ul>
+                    
+                    <h3>7.2 BAA Execution Process</h3>
+                    <p>Our streamlined BAA process ensures rapid onboarding while maintaining compliance:</p>
+                    <ol>
+                        <li><strong>Standard BAA Review:</strong> We provide a comprehensive, standard BAA for review</li>
+                        <li><strong>Customization if Needed:</strong> Accommodation of reasonable healthcare provider-specific requirements</li>
+                        <li><strong>Legal Review Period:</strong> Adequate time for legal review and negotiation</li>
+                        <li><strong>Electronic Execution:</strong> Secure electronic signature process for efficiency</li>
+                        <li><strong>Documentation:</strong> Proper filing and documentation of executed agreements</li>
+                    </ol>
+                    
+                    <div class="highlight-box">
+                        <h4>BAA Compliance Assurance</h4>
+                        <p>Our Business Associate Agreement is regularly updated to reflect current HIPAA requirements and industry best practices. We work closely with healthcare legal counsel to ensure comprehensive protection for all parties.</p>
+                    </div>
+
+                    <h2 id="compliance-contact">8. Compliance Contact Information</h2>
+                    
+                    <p>For questions about HIPAA compliance, security measures, or to request compliance documentation:</p>
+                    
+                    <div class="contact-info">
+                        <h4>Compliance & Security Team</h4>
+                        <p><strong>Email:</strong> <a href="mailto:compliance@omniwound.com">compliance@omniwound.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+12012709103">(201) 270-9103</a></p>
+                        <p><strong>Mailing Address:</strong></p>
+                        <p>OmniWound EMR<br>
+                        Attn: Compliance Department<br>
+                        1590 Anderson Ave. #18A<br>
+                        Fort Lee, NJ 07024</p>
+                    </div>
+                    
+                    <h3>Compliance Documentation Requests</h3>
+                    <p>We can provide the following compliance documentation upon request:</p>
+                    <ul>
+                        <li><strong>Business Associate Agreement Template:</strong> Standard BAA for review and execution</li>
+                        <li><strong>Security Assessment Reports:</strong> Third-party security assessments and certifications</li>
+                        <li><strong>Compliance Attestations:</strong> Formal attestations of HIPAA compliance</li>
+                        <li><strong>Incident Response Procedures:</strong> Overview of our security incident response capabilities</li>
+                        <li><strong>Data Processing Addendum:</strong> Additional privacy protections and data handling procedures</li>
+                    </ul>
+                    
+                    <h3>Security Incident Reporting</h3>
+                    <p>For urgent security concerns or to report suspected security incidents:</p>
+                    <ul>
+                        <li><strong>Emergency Contact:</strong> <a href="mailto:security@omniwound.com">security@omniwound.com</a></li>
+                        <li><strong>24/7 Security Hotline:</strong> <a href="tel:+12012709103">(201) 270-9103</a> (ask for security team)</li>
+                        <li><strong>Incident Reporting Portal:</strong> Secure online portal for detailed incident reporting</li>
+                    </ul>
+                    
+                    <div class="success-box">
+                        <h4>Ongoing Compliance Support</h4>
+                        <p>Our compliance team is available to assist healthcare providers with their own HIPAA compliance efforts, including risk assessments, policy development, and staff training support. We're committed to being a true partner in maintaining the highest standards of patient data protection.</p>
+                    </div>
+                    
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    
+                    <p><em>This compliance information is current as of September 17, 2025. OmniWound EMR continuously monitors regulatory changes and updates our compliance program accordingly. For the most current compliance documentation, please contact our compliance team.</em></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Product</h3>
+                    <a href="features.html">Features</a>
+                    <a href="demo.html">Demo</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+
+                <div>
+                    <h3>Support</h3>
+                    <a href="documentation.html">Help Documentation</a>
+                    <a href="training.html">Training Resources</a>
+                    <a href="system-status.html">System Status</a>
+                </div>
+
+                <div>
+                    <h3>Resources</h3>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="roi-calculator.html">ROI Calculator</a>
+                    <a href="newsletter.html">Newsletter Archive</a>
+                    <a href="implementation.html">Implementation Guide</a>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <a href="about.html">About OmniWound</a>
+                    <a href="certification.html">CMS EMR Certification</a>
+                </div>
+            </div>
+
+            <div class="contact-section-full">
+                <h3>Contact</h3>
+                <div class="contact-grid-footer">
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">●</span>Address:</p>
+                        <p class="contact-indent">1590 Anderson Ave. #18A</p>
+                        <p class="contact-indent">Fort Lee, NJ</p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">☎</span>Call Us:</p>
+                        <p class="contact-indent"><a href="tel:+12012709103">(201) 270-9103</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">✉</span>Email Sales:</p>
+                        <p class="contact-indent"><a href="mailto:fgoncalv@omniwound.com">fgoncalv@omniwound.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">★</span>Email Support:</p>
+                        <p class="contact-indent"><a href="mailto:kyu@omniwound.com">kyu@omniwound.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 OmniWound EMR. All rights reserved.</span>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="terms.html">Terms of Service</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="compliance.html">HIPAA Compliance</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="system-status.html" class="footer-status-indicator">
+                    <div class="footer-status-dot" aria-hidden="true"></div>
+                    <span>System Status</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header shrinking on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        if (mobileToggle && mobileNav) {
+            mobileToggle.addEventListener('click', function() {
+                const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+                mobileToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileNav.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.mobile-menu-toggle') && !event.target.closest('.mobile-nav')) {
+                    mobileNav.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.table-of-contents a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in table of contents
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '-100px 0px -50% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const tocLink = document.querySelector(`.table-of-contents a[href="#${id}"]`);
+                
+                if (entry.isIntersecting && tocLink) {
+                    // Remove active class from all links
+                    document.querySelectorAll('.table-of-contents a').forEach(link => {
+                        link.style.fontWeight = 'normal';
+                        link.style.color = '#0891b2';
+                    });
+                    
+                    // Add active class to current link
+                    tocLink.style.fontWeight = 'bold';
+                    tocLink.style.color = '#1e3a8a';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all section headings
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('h2[id]').forEach(heading => {
+                observer.observe(heading);
+            });
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

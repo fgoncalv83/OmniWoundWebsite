@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your potential savings and ROI from switching to OmniWound EMR. See how our 50% documentation time reduction translates to real cost savings for your wound care practice.">
+    <meta name="keywords" content="OmniWound EMR ROI calculator, wound care EMR savings, healthcare ROI calculator, medical practice efficiency calculator, EMR cost savings, MIPS compliance savings, billing efficiency">
+    <meta name="author" content="OmniWound EMR">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omniwound.com/roi-calculator.html">
+    <meta property="og:title" content="ROI Calculator - See Your OmniWound EMR Savings">
+    <meta property="og:description" content="Calculate your potential savings and ROI from switching to OmniWound EMR. See how our 50% documentation time reduction translates to real cost savings.">
+    <meta property="og:image" content="https://omniwound.com/omniwound-logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://omniwound.com/roi-calculator.html">
+    <meta property="twitter:title" content="ROI Calculator - See Your OmniWound EMR Savings">
+    <meta property="twitter:description" content="Calculate your potential savings and ROI from switching to OmniWound EMR. See how our 50% documentation time reduction translates to real cost savings.">
+    <meta property="twitter:image" content="https://omniwound.com/omniwound-logo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://omniwound.com/roi-calculator.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <title>ROI Calculator - See Your OmniWound EMR Savings | OmniWound EMR</title>
+
+    <!-- Structured Data for Software Application -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OmniWound EMR",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web-based",
+        "description": "Specialized electronic medical records software for traveling wound care specialists",
+        "url": "https://omniwound.com",
+        "author": {
+            "@type": "Organization",
+            "name": "OmniWound EMR"
+        },
+        "offers": {
+            "@type": "Offer",
+            "description": "EMR software with 50% documentation time reduction"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #0891b2;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            color: #2c3e50;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: font-size 0.3s ease;
+            color: #2c3e50;
+            text-decoration: none;
+            gap: 0.5rem;
+        }
+
+        .header.scrolled .logo {
+            font-size: 1.2rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .header.scrolled .logo-image {
+            width: 45px;
+            height: 45px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown[aria-expanded="true"] .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 0.5rem 0;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .dropdown:hover .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown[aria-expanded="true"] .dropdown-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #64748b;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-content a:hover {
+            background: #f8fafc;
+            color: #0891b2;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #64748b;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mobile-nav li {
+            margin: 0;
+        }
+
+        .mobile-nav a {
+            display: block;
+            padding: 1rem 2rem;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .mobile-nav a:hover {
+            background: #f8fafc;
+            color: #0891b2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            padding: 8rem 0 4rem 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .calculator-header {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .calculator-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .calculator-header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .progress-step.active {
+            color: #0891b2;
+        }
+
+        .progress-step .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .progress-step.active .step-number {
+            background: #0891b2;
+            color: white;
+        }
+
+        .progress-separator {
+            width: 60px;
+            height: 2px;
+            background: #e2e8f0;
+            margin: 0 1rem;
+        }
+
+        .progress-separator.active {
+            background: #0891b2;
+        }
+
+        /* Form Styles */
+        .form-step {
+            padding: 2rem;
+        }
+
+        .form-step.hidden {
+            display: none;
+        }
+
+        .input-section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-section h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .input-field {
+            position: relative;
+        }
+
+        .input-field label {
+            display: block;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-field input,
+        .input-field select {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .input-field input:focus,
+        .input-field select:focus {
+            outline: none;
+            border-color: #0891b2;
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+        }
+
+        .input-field input.error,
+        .input-field select.error {
+            border-color: #ef4444;
+        }
+
+        .input-help {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* Step Buttons */
+        .step-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+        }
+
+        .step-button {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .step-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3);
+        }
+
+        .step-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .step-button.secondary {
+            background: #6b7280;
+        }
+
+        .step-button.secondary:hover {
+            background: #4b5563;
+        }
+
+        /* Contact Step */
+        .contact-step {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-step h3 {
+            color: #1e3a8a;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-step p {
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .results-section.hidden {
+            display: none;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-header h3 {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-savings {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .total-savings .amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .total-savings .period {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .savings-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .savings-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #0891b2;
+        }
+
+        .savings-card h4 {
+            color: #1e3a8a;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .savings-amount {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 0.5rem;
+        }
+
+        .savings-description {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .implementation-cost {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .implementation-cost strong {
+            color: #92400e;
+        }
+
+        .net-savings {
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .net-savings .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-btn.primary {
+            background: #0891b2;
+            color: white;
+        }
+
+        .cta-btn.primary:hover {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: white;
+            color: #1e3a8a;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            color: #0891b2;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover,
+        .footer a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .contact-section-full {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+
+        .contact-section-full h3 {
+            color: #0891b2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: left;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-emoji {
+            color: #0891b2;
+            margin-right: 8px;
+        }
+
+        .contact-indent {
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            text-align: center;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-bottom span, .footer-bottom a {
+            color: #64748b;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover,
+        .footer-bottom a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-separator {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* System Status in Footer */
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .status-indicator:hover,
+        .status-indicator:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .nav-links, .cta-button {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .calculator-section {
+                padding: 2rem 0;
+            }
+
+            .input-section {
+                padding: 1.5rem;
+            }
+
+            .input-group {
+                grid-template-columns: 1fr;
+            }
+
+            .savings-breakdown {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-indicator {
+                padding: 1rem;
+            }
+
+            .progress-separator {
+                width: 40px;
+                margin: 0 0.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calculator-header,
+            .form-step,
+            .contact-step {
+                padding: 1.5rem;
+            }
+
+            .hero {
+                padding: 6rem 0 3rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .total-savings .amount {
+                font-size: 2rem;
+            }
+
+            .net-savings .amount {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header - Same as index.html -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="OmniWound EMR Home">
+                <img src="omniwound-logo.png" alt="OmniWound EMR Logo" class="logo-image" loading="lazy">
+                <span class="logo-text">OmniWound EMR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Login <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="dropdown-content" role="menu">
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php" role="menuitem">OmniWound EMR</a>
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php?page=azure_login" role="menuitem">Login with Azure</a>
+                        <a href="https://omniwound.net/multitenant/telemedicine2/login.php" role="menuitem">MultiTenant</a>
+                        <a href="https://omniwound.net/multitenant/billing-availity/login.php?return=true&" role="menuitem">MultiTenant Billing</a>
+                        <a href="https://iwcbackoffice.com/iwc/telemedicine2/login.php" role="menuitem">IWC Back Office</a>
+                        <a href="https://omniwound.com/iwc-pcc/telemedicine2/login.php" role="menuitem">IWC Omni Latest</a>
+                        <a href="https://omniwound.com/iwc-backup-07-26-2025/telemedicine2/login.php" role="menuitem">Omni 1.0</a>
+                        <a href="https://omniwound.net/multitenant-testing/telemedicine2/login.php" role="menuitem">MultiTenant (Test)</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="demo.html" class="cta-button">Schedule Demo</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://omniwound.com/iwc/telemedicine2/login.php">Login</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" role="banner">
+            <div class="container">
+                <h1>Calculate Your ROI with OmniWound EMR</h1>
+                <p>See how our efficiencies and savings with documentation time, MIPS compliance, and billing can translate to real cost savings for your wound care practice. Get a free personalized analysis in minutes.</p>
+            </div>
+        </section>
+
+        <!-- ROI Calculator Section -->
+        <section class="calculator-section">
+            <div class="container">
+                <div class="calculator-container">
+                    <div class="calculator-header">
+                        <h2>ROI Calculator</h2>
+                        <p>Calculate your potential savings by switching to OmniWound EMR</p>
+                    </div>
+
+                    <!-- Progress Indicator -->
+                    <div class="progress-indicator">
+                        <div class="progress-step active" id="progress-step-1">
+                            <div class="step-number">1</div>
+                            <span>Practice Information</span>
+                        </div>
+                        <div class="progress-separator" id="progress-sep-1"></div>
+                        <div class="progress-step" id="progress-step-2">
+                            <div class="step-number">2</div>
+                            <span>Contact Information</span>
+                        </div>
+                        <div class="progress-separator" id="progress-sep-2"></div>
+                        <div class="progress-step" id="progress-step-3">
+                            <div class="step-number">3</div>
+                            <span>Your Results</span>
+                        </div>
+                    </div>
+
+                    <!-- ROI Calculator Form -->
+                    <form id="roiCalculatorForm" method="POST">
+                        <!-- Step 1: Practice Information -->
+                        <div class="form-step" id="step-1">
+                            <!-- Practice Details -->
+                            <div class="input-section">
+                                <h3>📊 Practice Details</h3>
+                                <div class="input-group">
+                                    <div class="input-field">
+                                        <label for="providers">Number of Providers</label>
+                                        <input type="number" id="providers" name="providers" min="1" max="50" required>
+                                        <div class="input-help">Include physicians, nurse practitioners, and PAs</div>
+                                        <div class="error-message">Please enter a valid number of providers</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="encounters">Weekly Patient Encounters</label>
+                                        <input type="number" id="encounters" name="encounters" min="1" max="1000" required>
+                                        <div class="input-help">Total across all providers</div>
+                                        <div class="error-message">Please enter weekly patient encounters</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="hourly-rate">Average Provider Hourly Rate</label>
+                                        <select id="hourly-rate" name="hourly-rate" required>
+                                            <option value="">Select rate...</option>
+                                            <option value="75">$75/hour (Nurse Practitioner)</option>
+                                            <option value="100">$100/hour (Mid-level Provider)</option>
+                                            <option value="150">$150/hour (Physician)</option>
+                                            <option value="200">$200/hour (Specialist)</option>
+                                        </select>
+                                        <div class="error-message">Please select an hourly rate</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="doc-time">Current Documentation Time per Encounter (minutes)</label>
+                                        <input type="number" id="doc-time" name="doc-time" min="5" max="60" required>
+                                        <div class="input-help">Average time spent documenting per patient visit</div>
+                                        <div class="error-message">Please enter documentation time</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Billing Information -->
+                            <div class="input-section">
+                                <h3>💰 Billing Performance</h3>
+                                <div class="input-group">
+                                    <div class="input-field">
+                                        <label for="monthly-billables">Monthly Gross Billables</label>
+                                        <input type="number" id="monthly-billables" name="monthly-billables" min="1000" step="1000" required>
+                                        <div class="input-help">Total monthly billing amount before collections</div>
+                                        <div class="error-message">Please enter monthly gross billables</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="collection-rate">Percentage of Monthly Billables Successfully Collected (%)</label>
+                                        <input type="number" id="collection-rate" name="collection-rate" min="50" max="100" step="0.1" required>
+                                        <div class="input-help">What percentage of your billables do you actually collect?</div>
+                                        <div class="error-message">Please enter collection rate percentage</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="collection-months">Months to Reach Collection Rate</label>
+                                        <input type="number" id="collection-months" name="collection-months" min="1" max="24" required>
+                                        <div class="input-help">How long does it take to achieve your collection rate?</div>
+                                        <div class="error-message">Please enter months to reach collection rate</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- MIPS Information -->
+                            <div class="input-section">
+                                <h3>📈 MIPS Compliance</h3>
+                                <div class="input-group">
+                                    <div class="input-field">
+                                        <label for="mips-score">Recent MIPS Penalty/Bonus Percentage</label>
+                                        <select id="mips-score" name="mips-score" required>
+                                            <option value="">Select your MIPS status...</option>
+                                            <option value="-9">-9% (Maximum Penalty)</option>
+                                            <option value="-8">-8% (High Penalty)</option>
+                                            <option value="-7">-7% (High Penalty)</option>
+                                            <option value="-6">-6% (Moderate Penalty)</option>
+                                            <option value="-5">-5% (Moderate Penalty)</option>
+                                            <option value="-4">-4% (Low Penalty)</option>
+                                            <option value="-3">-3% (Low Penalty)</option>
+                                            <option value="-2">-2% (Low Penalty)</option>
+                                            <option value="-1">-1% (Low Penalty)</option>
+                                            <option value="0">0% (Neutral)</option>
+                                            <option value="1">+1% (Small Bonus)</option>
+                                            <option value="2">+2% (Small Bonus)</option>
+                                            <option value="3">+3% (Moderate Bonus)</option>
+                                            <option value="4">+4% (Moderate Bonus)</option>
+                                            <option value="5">+5% (Good Bonus)</option>
+                                            <option value="6">+6% (Good Bonus)</option>
+                                            <option value="7">+7% (High Bonus)</option>
+                                            <option value="8">+8% (High Bonus)</option>
+                                            <option value="9">+9% (Maximum Bonus)</option>
+                                        </select>
+                                        <div class="input-help">Your most recent MIPS adjustment percentage</div>
+                                        <div class="error-message">Please select your MIPS status</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="mips-costs">Annual MIPS Compliance Costs</label>
+                                        <input type="number" id="mips-costs" name="mips-costs" min="0" step="500" required>
+                                        <div class="input-help">Staff time, consultant fees, software costs for MIPS reporting</div>
+                                        <div class="error-message">Please enter annual MIPS compliance costs</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="current-emr-cost">Current EMR Monthly Cost</label>
+                                        <input type="number" id="current-emr-cost" name="current-emr-cost" min="0" step="50" required>
+                                        <div class="input-help">Monthly cost of your current EMR system</div>
+                                        <div class="error-message">Please enter your current EMR monthly cost</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 1.5rem; padding: 1rem; background: #f8fafc; border-radius: 8px; border-left: 3px solid #0891b2;">
+                                <p style="margin: 0; font-size: 0.875rem; color: #64748b; line-height: 1.4;">
+                                    <strong style="color: #374151;">Disclaimer:</strong> This calculator provides estimates based on the information you provide. Results are not guaranteed and may vary by provider, practice size, and implementation. Actual savings depend on individual usage patterns and practice efficiency improvements.
+                                </p>
+                            </div>
+
+                            <div class="step-buttons">
+                                <div></div> <!-- Empty div for spacing -->
+                                <button type="button" class="step-button" id="next-step">
+                                    Calculate My ROI & Savings →
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Contact Information -->
+                        <div class="form-step hidden" id="step-2">
+                            <div class="contact-step">
+                                <h3>Get Your Personalized ROI Results</h3>
+                                <p>Enter your contact information to view your detailed savings analysis and receive a copy via email.</p>
+                                
+                                <div class="input-group">
+                                    <div class="input-field">
+                                        <label for="name">Full Name *</label>
+                                        <input type="text" id="name" name="name" required>
+                                        <div class="error-message">Please enter your full name</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="email">Email Address *</label>
+                                        <input type="email" id="email" name="email" required>
+                                        <div class="error-message">Please enter a valid email address</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="phone">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" required>
+                                        <div class="error-message">Please enter your phone number</div>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="practice-name">Practice Name</label>
+                                        <input type="text" id="practice-name" name="practice-name">
+                                        <div class="input-help">Optional - Your practice or organization name</div>
+                                    </div>
+                                </div>
+
+                                <!-- Hidden fields for form data -->
+                                <input type="hidden" name="_subject" value="New ROI Calculator Submission - OmniWound EMR">
+                                <input type="hidden" name="_cc" value="fgoncalv@omniwound.com">
+                                <input type="hidden" name="form_type" value="roi_calculator">
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="basic">
+                                
+                                <div class="step-buttons">
+                                    <button type="button" class="step-button secondary" id="prev-step">
+                                        ← Back to Practice Info
+                                    </button>
+                                    <div class="cf-turnstile" data-sitekey="0x4AAAAAACWJS37i2-evcqS0" data-callback="onRoiTurnstileSuccess"></div>
+                                    <button type="submit" class="step-button" id="submit-btn">
+                                        Display My Results
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Results Section -->
+                    <div class="results-section hidden" id="results-section">
+                        <div class="results-header">
+                            <h3>Your Personalized ROI Analysis</h3>
+                            <p>Here's how OmniWound EMR will transform your practice efficiency and profitability:</p>
+                        </div>
+
+                        <div class="total-savings">
+                            <div class="amount" id="total-annual-savings">$0</div>
+                            <div class="period">Total Annual Savings</div>
+                        </div>
+
+                        <div class="savings-breakdown">
+                            <div class="savings-card">
+                                <h4>📝 Documentation Efficiency</h4>
+                                <div class="savings-amount" id="doc-savings">$0</div>
+                                <div class="savings-description" id="doc-description">
+                                    50% reduction in documentation time per encounter
+                                </div>
+                            </div>
+
+                            <div class="savings-card">
+                                <h4>💰 Billing Optimization</h4>
+                                <div class="savings-amount" id="billing-savings">$0</div>
+                                <div class="savings-description" id="billing-description">
+                                    Improved collection rates and faster payment cycles
+                                </div>
+                            </div>
+
+                            <div class="savings-card">
+                                <h4>📈 MIPS Compliance</h4>
+                                <div class="savings-amount" id="mips-savings">$0</div>
+                                <div class="savings-description" id="mips-description">
+                                    Eliminated compliance costs and improved bonus potential
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="implementation-cost">
+                            <strong>Implementation Investment:</strong> <span id="implementation-amount">$0</span> one-time setup
+                            <div style="margin-top: 0.5rem; font-size: 0.9rem;">
+                                Includes training, data migration, and system configuration ($500 per provider)
+                            </div>
+                        </div>
+
+                        <div class="net-savings">
+                            <div class="amount" id="net-annual-savings">$0</div>
+                            <div class="period">Net First-Year Savings</div>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding: 1rem; background: #f0f9ff; border-radius: 8px; border-left: 4px solid #0891b2;">
+                            <strong style="color: #1e3a8a;">Payback Period:</strong> 
+                            <span id="payback-period" style="color: #0891b2; font-weight: 600;">0 months</span>
+                            <div style="margin-top: 0.5rem; font-size: 0.9rem; color: #64748b;">
+                                Time to recover your initial investment through operational savings
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Transform Your Practice?</h2>
+                <p>Join 100+ providers across 20+ states who have already reduced their documentation time by 50%</p>
+                <div class="cta-buttons">
+                    <a href="demo.html" class="cta-btn primary">Schedule Your Demo</a>
+                    <a href="contact.html" class="cta-btn secondary">Speak with an Expert</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer - Same as index.html -->
+    <footer class="footer" id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Product</h3>
+                    <a href="features.html">Features</a>
+                    <a href="demo.html">Demo</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+
+                <div>
+                    <h3>Support</h3>
+                    <a href="documentation.html">Help Documentation</a>
+                    <a href="training.html">Training Resources</a>
+                    <a href="system-status.html">System Status</a>
+                </div>
+
+                <div>
+                    <h3>Resources</h3>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="roi-calculator.html">ROI Calculator</a>
+                    <a href="newsletter.html">Newsletter Archive</a>
+                    <a href="implementation.html">Implementation Guide</a>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <a href="about.html">About OmniWound</a>
+                    <a href="certification.html">CMS EMR Certification</a>
+                </div>
+            </div>
+
+            <div class="contact-section-full">
+                <h3>Contact</h3>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">●</span>Address:</p>
+                        <p class="contact-indent">1590 Anderson Ave. #18A</p>
+                        <p class="contact-indent">Fort Lee, NJ</p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">☎</span>Call Us:</p>
+                        <p class="contact-indent"><a href="tel:+12012709103">(201) 270-9103</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">✉</span>Email Sales:</p>
+                        <p class="contact-indent"><a href="mailto:fgoncalv@omniwound.com">fgoncalv@omniwound.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">★</span>Email Support:</p>
+                        <p class="contact-indent"><a href="mailto:kyu@omniwound.com">kyu@omniwound.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 OmniWound EMR. All rights reserved.</span>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="terms.html">Terms of Service</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="compliance.html">HIPAA Compliance</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="system-status.html" class="status-indicator">
+                    <div class="status-dot" aria-hidden="true"></div>
+                    <span>System Status</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header shrinking on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        if (mobileToggle && mobileNav) {
+            mobileToggle.addEventListener('click', function() {
+                const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+                mobileToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileNav.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.mobile-menu-toggle') && !event.target.closest('.mobile-nav')) {
+                    mobileNav.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // ROI Calculator Logic
+        const form = document.getElementById('roiCalculatorForm');
+        const step1 = document.getElementById('step-1');
+        const step2 = document.getElementById('step-2');
+        const resultsSection = document.getElementById('results-section');
+        const nextStepBtn = document.getElementById('next-step');
+        const prevStepBtn = document.getElementById('prev-step');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Progress indicators
+        const progressStep1 = document.getElementById('progress-step-1');
+        const progressStep2 = document.getElementById('progress-step-2');
+        const progressStep3 = document.getElementById('progress-step-3');
+        const progressSep1 = document.getElementById('progress-sep-1');
+        const progressSep2 = document.getElementById('progress-sep-2');
+
+        // Step 1 -> Step 2
+        nextStepBtn.addEventListener('click', function() {
+            if (validateStep1()) {
+                // Update progress
+                progressStep1.classList.remove('active');
+                progressSep1.classList.add('active');
+                progressStep2.classList.add('active');
+                
+                // Switch steps
+                step1.classList.add('hidden');
+                step2.classList.remove('hidden');
+                
+                // Scroll to top of calculator
+                document.querySelector('.calculator-container').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+        });
+
+        // Step 2 -> Step 1
+        prevStepBtn.addEventListener('click', function() {
+            // Update progress
+            progressStep2.classList.remove('active');
+            progressSep1.classList.remove('active');
+            progressStep1.classList.add('active');
+            
+            // Switch steps
+            step2.classList.add('hidden');
+            step1.classList.remove('hidden');
+            
+            // Scroll to top of calculator
+            document.querySelector('.calculator-container').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Form submit event triggered');
+            
+            if (validateStep2()) {
+                console.log('Step 2 validation passed');
+                
+                // Calculate and display results
+                calculateROI();
+                
+                // Update progress
+                progressStep2.classList.remove('active');
+                progressSep2.classList.add('active');
+                progressStep3.classList.add('active');
+                
+                // Show results
+                step2.classList.add('hidden');
+                resultsSection.classList.remove('hidden');
+                
+                // Submit form data in background
+                console.log('About to submit form data');
+                window.submitRoiToLeadGenerator({
+    documentation_savings: document.getElementById('doc-savings').textContent,
+    billing_optimization: document.getElementById('billing-savings').textContent,
+    mips_improvements: document.getElementById('mips-savings').textContent,
+    total_savings: document.getElementById('total-annual-savings').textContent,
+    net_savings: document.getElementById('net-annual-savings').textContent,
+    payback_period: document.getElementById('payback-period').textContent
+});
+
+                
+                // Scroll to results
+                resultsSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            } else {
+                console.log('Step 2 validation failed');
+            }
+        });
+
+        // Validation functions
+        function validateStep1() {
+            const requiredFields = [
+                'providers', 'encounters', 'hourly-rate', 'doc-time',
+                'monthly-billables', 'collection-rate', 'collection-months',
+                'mips-score', 'mips-costs', 'current-emr-cost'
+            ];
+            
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorMsg = field.parentNode.querySelector('.error-message');
+                
+                if (!field.value || field.value.trim() === '') {
+                    field.classList.add('error');
+                    errorMsg.classList.add('show');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    errorMsg.classList.remove('show');
+                }
+            });
+            
+            return isValid;
+        }
+
+        function validateStep2() {
+            const requiredFields = ['name', 'email', 'phone'];
+            let isValid = true;
+            
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorMsg = field.parentNode.querySelector('.error-message');
+                
+                if (!field.value || field.value.trim() === '') {
+                    field.classList.add('error');
+                    errorMsg.classList.add('show');
+                    isValid = false;
+                } else if (fieldId === 'email' && !isValidEmail(field.value)) {
+                    field.classList.add('error');
+                    errorMsg.classList.add('show');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    errorMsg.classList.remove('show');
+                }
+            });
+            
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // ROI Calculation Functions
+        function calculateROI() {
+            // Get form values
+            const providers = parseInt(document.getElementById('providers').value);
+            const encounters = parseInt(document.getElementById('encounters').value);
+            const hourlyRate = parseInt(document.getElementById('hourly-rate').value);
+            const docTime = parseInt(document.getElementById('doc-time').value);
+            const monthlyBillables = parseInt(document.getElementById('monthly-billables').value);
+            const collectionRate = parseFloat(document.getElementById('collection-rate').value);
+            const collectionMonths = parseInt(document.getElementById('collection-months').value);
+            const mipsScore = parseInt(document.getElementById('mips-score').value);
+            const mipsCosts = parseInt(document.getElementById('mips-costs').value);
+            const currentEmrCost = parseInt(document.getElementById('current-emr-cost').value) || 0;
+
+            // Calculate savings
+            const docSavings = calculateDocumentationSavings(encounters, docTime, hourlyRate);
+            const billingSavings = calculateBillingSavings(monthlyBillables, collectionRate, collectionMonths);
+            const mipsSavings = calculateMIPSSavings(mipsScore, mipsCosts, monthlyBillables);
+            const emrSavings = currentEmrCost * 12; // Annual EMR cost savings
+
+            const totalSavings = docSavings + billingSavings + mipsSavings + emrSavings;
+            const implementationCost = providers * 500; // $500 per provider
+            const netSavings = totalSavings - implementationCost;
+            const paybackMonths = Math.ceil(implementationCost / (totalSavings / 12));
+
+            // Update display
+            updateResultsDisplay(docSavings, billingSavings, mipsSavings, totalSavings, implementationCost, netSavings, paybackMonths, encounters, docTime, collectionRate, collectionMonths, mipsScore);
+        }
+
+        function calculateDocumentationSavings(encounters, docTime, hourlyRate) {
+            // 50% reduction in documentation time
+            const weeklyTimeSaved = encounters * (docTime / 60) * 0.5; // Convert minutes to hours
+            const annualTimeSaved = weeklyTimeSaved * 48; // 48 working weeks
+            return Math.round(annualTimeSaved * hourlyRate);
+        }
+
+        function calculateBillingSavings(monthlyBillables, currentRate, currentMonths) {
+            let improvedRate = currentRate;
+            if (currentRate < 95) {
+                improvedRate = 95; // OmniWound can achieve 95% collection rate
+            }
+            
+            const annualBillables = monthlyBillables * 12;
+            const rateSavings = annualBillables * (improvedRate - currentRate) / 100;
+            
+            // Cash flow improvement from faster collection (30 days vs current)
+            const monthsImprovement = Math.max(0, currentMonths - 1); // Improve to 30 days (1 month)
+            const cashFlowImprovement = monthlyBillables * (improvedRate / 100) * monthsImprovement * 0.05; // 5% annual opportunity cost
+            
+            return Math.round(rateSavings + cashFlowImprovement);
+        }
+
+        function calculateMIPSSavings(currentScore, mipsCosts, monthlyBillables) {
+            let improvedScore = currentScore;
+            
+            // MIPS improvement logic
+            if (currentScore < 0) {
+                improvedScore = 0; // Eliminate penalties
+            } else if (currentScore <= 5) {
+                improvedScore = Math.min(currentScore + 2, 9); // Improve by 2-3 points
+            }
+            // If already at high bonus (6-9%), maintain current level
+            
+            const scoreImprovement = (improvedScore - currentScore) / 100;
+            const annualRevenue = monthlyBillables * 12;
+            const scoreSavings = annualRevenue * scoreImprovement;
+            
+            return Math.round(scoreSavings + mipsCosts); // Add eliminated compliance costs
+        }
+
+        function updateResultsDisplay(docSavings, billingSavings, mipsSavings, totalSavings, implementationCost, netSavings, paybackMonths, encounters, docTime, collectionRate, collectionMonths, mipsScore) {
+            // Format currency
+            const formatCurrency = (amount) => {
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(amount);
+            };
+
+            // Update amounts
+            document.getElementById('total-annual-savings').textContent = formatCurrency(totalSavings);
+            document.getElementById('doc-savings').textContent = formatCurrency(docSavings);
+            document.getElementById('billing-savings').textContent = formatCurrency(billingSavings);
+            document.getElementById('mips-savings').textContent = formatCurrency(mipsSavings);
+            document.getElementById('implementation-amount').textContent = formatCurrency(implementationCost);
+            document.getElementById('net-annual-savings').textContent = formatCurrency(netSavings);
+            document.getElementById('payback-period').textContent = `${paybackMonths} months`;
+
+            // Update descriptions
+            const weeklyHoursSaved = Math.round(encounters * (docTime / 60) * 0.5 * 10) / 10;
+            document.getElementById('doc-description').textContent = 
+                `50% reduction saves ${weeklyHoursSaved} hours per week for patient care`;
+
+            let billingDesc = `Improve collection rate`;
+            if (collectionRate < 95) {
+                billingDesc += ` from ${collectionRate}% to 95%`;
+            }
+            if (collectionMonths > 1) {
+                billingDesc += ` and reduce collection time from ${collectionMonths} months to 30 days`;
+            }
+            document.getElementById('billing-description').textContent = billingDesc;
+
+            let mipsDesc = 'Eliminate all compliance costs';
+            if (mipsScore < 0) {
+                mipsDesc += ` and eliminate ${Math.abs(mipsScore)}% penalty`;
+            } else if (mipsScore <= 5) {
+                mipsDesc += ` and improve bonus from ${mipsScore}% to ${Math.min(mipsScore + 2, 9)}%`;
+            } else {
+                mipsDesc += ` while maintaining ${mipsScore}% bonus`;
+            }
+            document.getElementById('mips-description').textContent = mipsDesc;
+        }
+
+        // ROI Calculator form submission
+(function() {
+  const API_URL = 'https://omni-sales-app.vercel.app/api/public/leads';
+
+  const form = document.getElementById('roiCalculatorForm') || document.getElementById('roi-form');
+  if (!form) return;
+
+  let turnstileToken = '';
+
+  window.onRoiTurnstileSuccess = function(token) {
+    turnstileToken = token;
+  };
+
+  // Hook into existing form submission
+  // Note: You'll need to integrate this with your existing multi-step form logic
+
+  async function submitToLeadGenerator(calculatedResults) {
+    if (!turnstileToken) {
+      alert('Please complete the security check.');
+      return false;
+    }
+
+    const formData = new FormData(form);
+
+    const data = {
+      // Contact info
+      full_name: formData.get('full_name') || formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      practice_name: formData.get('practice_name') || formData.get('practiceName'),
+
+      // Practice details
+      num_providers: formData.get('num_providers') || formData.get('providers'),
+      weekly_patients: formData.get('weekly_patients') || formData.get('encounters'),
+      hourly_rate: formData.get('hourly_rate') || formData.get('rate'),
+      documentation_time: formData.get('documentation_time') || formData.get('docTime'),
+      monthly_billables: formData.get('monthly_billables') || formData.get('billables'),
+      collection_rate: formData.get('collection_rate') || formData.get('collectionRate'),
+      mips_penalty: formData.get('mips_penalty') || formData.get('mipsBonus'),
+      compliance_costs: formData.get('compliance_costs') || formData.get('complianceCosts'),
+      emr_cost: formData.get('emr_cost') || formData.get('currentEmrCost'),
+
+      // Calculated results (passed from your calculation logic)
+      ...calculatedResults
+    };
+
+    // Remove undefined/null values
+    Object.keys(data).forEach(key => {
+      if (data[key] === null || data[key] === undefined || data[key] === '') {
+        delete data[key];
+      }
+    });
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          form_type: 'roi_calculator',
+          data: data,
+          turnstile_token: turnstileToken
+        })
+      });
+
+      const result = await response.json();
+      return result.success;
+    } catch (error) {
+      console.error('Form submission error:', error);
+      return false;
+    }
+  }
+
+  // Export for use in your existing ROI calculator logic
+  window.submitRoiToLeadGenerator = submitToLeadGenerator;
+})();
+
+// In your existing ROI calculator submission code, call:
+// await window.submitRoiToLeadGenerator({
+//   documentation_savings: calculatedDocSavings,
+//   billing_optimization: calculatedBillingSavings,
+//   mips_improvements: calculatedMipsSavings,
+//   total_savings: totalAnnualSavings,
+//   net_savings: netSavings,
+//   payback_period: paybackPeriodText
+// });
+
+        // Real-time validation feedback
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                const errorMsg = this.parentNode.querySelector('.error-message');
+                if (errorMsg) {
+                    if (this.hasAttribute('required') && (!this.value || this.value.trim() === '')) {
+                        this.classList.add('error');
+                        errorMsg.classList.add('show');
+                    } else if (this.type === 'email' && this.value && !isValidEmail(this.value)) {
+                        this.classList.add('error');
+                        errorMsg.classList.add('show');
+                    } else {
+                        this.classList.remove('error');
+                        errorMsg.classList.remove('show');
+                    }
+                }
+            });
+
+            input.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    const errorMsg = this.parentNode.querySelector('.error-message');
+                    if (this.value && this.value.trim() !== '') {
+                        if (this.type !== 'email' || isValidEmail(this.value)) {
+                            this.classList.remove('error');
+                            errorMsg.classList.remove('show');
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

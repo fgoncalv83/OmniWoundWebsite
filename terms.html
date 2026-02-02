@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OmniWound EMR Terms of Service - Website usage terms, service overview, and general legal terms for our wound care EMR platform and website.">
+    <meta name="keywords" content="OmniWound EMR terms of service, website terms, EMR legal terms, software license, healthcare terms">
+    <meta name="author" content="OmniWound EMR">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omniwound.com/terms.html">
+    <meta property="og:title" content="Terms of Service - OmniWound EMR">
+    <meta property="og:description" content="Website terms of service for OmniWound EMR platform and services.">
+    <meta property="og:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://omniwound.com/terms.html">
+    <meta name="twitter:title" content="Terms of Service - OmniWound EMR">
+    <meta property="twitter:description" content="Website terms of service for OmniWound EMR platform and services.">
+    <meta name="twitter:image" content="https://omniwound.com/omniwound-logo.png">
+    
+    <title>Terms of Service - OmniWound EMR</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    
+    <link rel="canonical" href="https://omniwound.com/terms.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Terms of Service - OmniWound EMR",
+        "description": "Website terms of service for OmniWound EMR platform and related services",
+        "url": "https://omniwound.com/terms.html",
+        "provider": {
+            "@type": "Organization",
+            "name": "OmniWound EMR",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1590 Anderson Ave. #18A",
+                "addressLocality": "Fort Lee",
+                "addressRegion": "NJ",
+                "addressCountry": "US"
+            },
+            "telephone": "(201) 270-9103",
+            "email": "legal@omniwound.com"
+        }
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #2c3e50;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+            border-radius: 4px;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Header - Same as other pages */
+        .header {
+            background: white;
+            color: #2c3e50;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: font-size 0.3s ease;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .header.scrolled .logo {
+            font-size: 1.5rem;
+        }
+
+        .logo-image {
+            width: 60px;
+            height: 60px;
+            margin-right: 8px;
+            object-fit: contain;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .header.scrolled .logo-image {
+            width: 45px;
+            height: 45px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #2c3e50;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .nav-links a:focus::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #0891b2;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .dropdown-toggle:hover,
+        .dropdown-toggle:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .dropdown-arrow {
+            margin-left: 5px;
+            font-size: 10px;
+            transition: transform 0.3s;
+            color: #0891b2;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            background: white;
+            min-width: 300px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .dropdown:hover .dropdown-content,
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50 !important;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover,
+        .dropdown-content a:focus {
+            background-color: #0891b2;
+            color: white !important;
+            outline: none;
+        }
+
+        .cta-button {
+            background: #0891b2;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+            outline: none;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .mobile-menu-toggle:focus {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 1rem;
+        }
+
+        .mobile-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.75rem;
+            display: block;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .mobile-nav a:hover,
+        .mobile-nav a:focus {
+            background-color: #f8fafc;
+            color: #0891b2;
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fa 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .terms-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+
+        .terms-content h2 {
+            color: #1e3a8a;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .terms-content h2:first-child {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .terms-content h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .terms-content h4 {
+            color: #374151;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        .terms-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .terms-content ul, .terms-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .terms-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: #374151;
+        }
+
+        .terms-content strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: #f0f9ff;
+            border: 1px solid #0891b2;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box h4 {
+            color: #0891b2;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #0891b2;
+        }
+
+        .contact-info h4 {
+            color: #1e3a8a;
+            margin-top: 0;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #0891b2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .table-of-contents {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .table-of-contents h3 {
+            color: #1e3a8a;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .table-of-contents ol {
+            margin-bottom: 0;
+        }
+
+        .table-of-contents a {
+            color: #0891b2;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .table-of-contents a:hover {
+            text-decoration: underline;
+        }
+
+        .effective-date {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .effective-date strong {
+            color: #92400e;
+        }
+
+        .warning-box {
+            background: #fef2f2;
+            border: 1px solid #f87171;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning-box h4 {
+            color: #dc2626;
+            margin-top: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+            color: #0891b2;
+        }
+
+        .footer p, .footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover,
+        .footer a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .contact-section-full {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+        }
+
+        .contact-section-full h3 {
+            color: #0891b2;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        .contact-grid-footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            text-align: left;
+        }
+
+        .contact-item p {
+            color: #cbd5e1;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-emoji {
+            color: #0891b2;
+            margin-right: 8px;
+        }
+
+        .contact-indent {
+            margin-left: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            text-align: center;
+            color: #64748b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-bottom span, .footer-bottom a {
+            color: #64748b;
+            text-decoration: none;
+            white-space: nowrap;
+            font-size: 14px;
+            line-height: 1.4;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover,
+        .footer-bottom a:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-separator {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .footer-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        .footer-status-indicator:hover,
+        .footer-status-indicator:focus {
+            color: #0891b2;
+            outline: none;
+        }
+
+        .footer-status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: statusPulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes statusPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Focus visible for better accessibility */
+        *:focus-visible {
+            outline: 2px solid #0891b2;
+            outline-offset: 2px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .terms-content {
+                padding: 2rem;
+            }
+
+            .table-of-contents {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .contact-indent {
+                margin-left: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container, .content-container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section {
+                padding: 2rem 0;
+            }
+
+            .terms-content {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid-footer {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header - Same as Homepage -->
+    <header class="header" role="banner">
+        <nav class="nav container" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="OmniWound EMR Home">
+                <img src="omniwound-logo.png" alt="OmniWound EMR Logo" class="logo-image" loading="lazy">
+                <span class="logo-text">OmniWound EMR</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="support.html">Support</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        Login <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="dropdown-content" role="menu">
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php" role="menuitem">OmniWound EMR</a>
+                        <a href="https://omniwound.com/iwc/telemedicine2/login.php?page=azure_login" role="menuitem">Login with Azure</a>
+                        <a href="https://omniwound.net/multitenant/telemedicine2/login.php" role="menuitem">MultiTenant</a>
+                        <a href="https://omniwound.net/multitenant/billing-availity/login.php?return=true&" role="menuitem">MultiTenant Billing</a>
+                        <a href="https://iwcbackoffice.com/iwc/telemedicine2/login.php" role="menuitem">IWC Back Office</a>
+                        <a href="https://omniwound.com/iwc-pcc/telemedicine2/login.php" role="menuitem">IWC Omni Latest</a>
+                        <a href="https://omniwound.com/iwc-backup-07-26-2025/telemedicine2/login.php" role="menuitem">Omni 1.0</a>
+                        <a href="https://omniwound.net/multitenant-testing/telemedicine2/login.php" role="menuitem">MultiTenant (Test)</a>
+                    </div>
+                </li>
+            </ul>
+            <a href="demo.html" class="cta-button">Schedule Demo</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
+            
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" role="navigation" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="demo.html">Demo</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="https://omniwound.com/iwc/telemedicine2/login.php">Login</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="hero" role="banner">
+            <div class="container">
+                <h1>Terms of Service</h1>
+                <p>Website usage terms and general service conditions for OmniWound EMR</p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="content-section" role="region">
+            <div class="content-container">
+                
+                <div class="effective-date">
+                    <p><strong>Effective Date:</strong> September 17, 2025 | <strong>Last Updated:</strong> September 17, 2025</p>
+                </div>
+
+                <div class="table-of-contents">
+                    <h3>Table of Contents</h3>
+                    <ol>
+                        <li><a href="#acceptance">Acceptance of Terms</a></li>
+                        <li><a href="#service-description">Service Description</a></li>
+                        <li><a href="#account-registration">Account Registration</a></li>
+                        <li><a href="#website-usage">Website Usage</a></li>
+                        <li><a href="#payment-billing">Payment and Billing</a></li>
+                        <li><a href="#intellectual-property">Intellectual Property</a></li>
+                        <li><a href="#prohibited-conduct">Prohibited Conduct</a></li>
+                        <li><a href="#disclaimers">Disclaimers and Warranties</a></li>
+                        <li><a href="#limitation-liability">Limitation of Liability</a></li>
+                        <li><a href="#termination">Termination</a></li>
+                        <li><a href="#governing-law">Governing Law and Disputes</a></li>
+                        <li><a href="#updates">Updates to Terms</a></li>
+                        <li><a href="#contact">Contact Information</a></li>
+                    </ol>
+                </div>
+
+                <div class="terms-content">
+                    
+                    <h2 id="acceptance">1. Acceptance of Terms</h2>
+                    
+                    <p>These Terms of Service ("Terms") govern your access to and use of the OmniWound EMR website (omniwound.com) and related services provided by OmniWound EMR ("we," "us," or "our"). By accessing or using our website, creating an account, or using our services, you agree to be bound by these Terms.</p>
+                    
+                    <p>If you do not agree to these Terms, you may not access or use our website or services.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Important Note About EMR Platform Usage</h4>
+                        <p>These Terms cover general website usage and basic service terms. <strong>Detailed terms for EMR platform usage, including clinical functionality, data handling, and healthcare compliance, are governed by separate agreements:</strong></p>
+                        <ul>
+                            <li><strong>Software License Agreement</strong> - Detailed EMR platform terms and conditions</li>
+                            <li><strong>Business Associate Agreement (BAA)</strong> - HIPAA compliance and PHI handling requirements</li>
+                            <li><strong>Service Level Agreement (SLA)</strong> - Platform availability and support commitments</li>
+                        </ul>
+                        <p>These separate agreements are provided and executed during the onboarding process for EMR platform users.</p>
+                    </div>
+
+                    <h2 id="service-description">2. Service Description</h2>
+                    
+                    <h3>2.1 Website Services</h3>
+                    <p>Our website provides information about OmniWound EMR, including:</p>
+                    <ul>
+                        <li>Product information and demonstrations</li>
+                        <li>Educational content and resources</li>
+                        <li>Customer support and documentation</li>
+                        <li>Account registration and management</li>
+                        <li>Marketing communications and newsletters</li>
+                    </ul>
+                    
+                    <h3>2.2 EMR Platform Overview</h3>
+                    <p>OmniWound EMR is a cloud-based electronic medical records platform designed specifically for wound care specialists. The platform includes:</p>
+                    <ul>
+                        <li>Patient record management and documentation</li>
+                        <li>Clinical workflow tools and templates</li>
+                        <li>Reporting and analytics capabilities</li>
+                        <li>Integration with third-party systems</li>
+                        <li>Mobile access and functionality</li>
+                    </ul>
+                    
+                    <div class="warning-box">
+                        <h4>Medical Disclaimer</h4>
+                        <p>OmniWound EMR is a documentation and practice management tool. It is not intended to replace professional medical judgment or serve as a substitute for clinical decision-making. Healthcare providers remain solely responsible for all clinical decisions and patient care.</p>
+                    </div>
+
+                    <h2 id="account-registration">3. Account Registration</h2>
+                    
+                    <h3>3.1 Account Creation</h3>
+                    <p>To access certain features of our website or services, you may need to create an account. When creating an account, you agree to:</p>
+                    <ul>
+                        <li>Provide accurate, current, and complete information</li>
+                        <li>Maintain and update your information as necessary</li>
+                        <li>Keep your account credentials secure and confidential</li>
+                        <li>Notify us immediately of any unauthorized use of your account</li>
+                        <li>Accept responsibility for all activities under your account</li>
+                    </ul>
+                    
+                    <h3>3.2 Account Eligibility</h3>
+                    <p>You may create an account only if you:</p>
+                    <ul>
+                        <li>Are at least 18 years old</li>
+                        <li>Have the legal authority to enter into these Terms</li>
+                        <li>Are a healthcare professional or practice administrator (for EMR platform access)</li>
+                        <li>Provide accurate professional licensing information when required</li>
+                    </ul>
+                    
+                    <h3>3.3 Account Security</h3>
+                    <p>You are responsible for maintaining the security of your account and password. We recommend:</p>
+                    <ul>
+                        <li>Using strong, unique passwords</li>
+                        <li>Enabling multi-factor authentication when available</li>
+                        <li>Regularly reviewing account activity</li>
+                        <li>Logging out from shared or public devices</li>
+                    </ul>
+
+                    <h2 id="website-usage">4. Website Usage</h2>
+                    
+                    <h3>4.1 Permitted Use</h3>
+                    <p>You may use our website for lawful purposes only, including:</p>
+                    <ul>
+                        <li>Learning about our products and services</li>
+                        <li>Accessing educational resources and documentation</li>
+                        <li>Requesting demonstrations or information</li>
+                        <li>Managing your account and subscriptions</li>
+                        <li>Communicating with our support team</li>
+                    </ul>
+                    
+                    <h3>4.2 Geographic Restrictions</h3>
+                    <p>Our services are intended for use within the United States only. Access from other countries may be limited or prohibited.</p>
+                    
+                    <h3>4.3 Third-Party Links</h3>
+                    <p>Our website may contain links to third-party websites or services. We are not responsible for the content, privacy practices, or terms of use of third-party sites.</p>
+
+                    <h2 id="payment-billing">5. Payment and Billing</h2>
+                    
+                    <h3>5.1 Subscription Services</h3>
+                    <p>OmniWound EMR is offered as a subscription-based service with the following general terms:</p>
+                    <ul>
+                        <li>Subscription fees are billed in advance on a monthly or annual basis</li>
+                        <li>All fees are non-refundable unless otherwise specified</li>
+                        <li>Pricing is subject to change with 30 days' notice</li>
+                        <li>Detailed pricing and billing terms are provided in your Software License Agreement</li>
+                    </ul>
+                    
+                    <h3>5.2 Payment Methods</h3>
+                    <p>We accept the following payment methods:</p>
+                    <ul>
+                        <li>Credit cards (Visa, MasterCard, American Express)</li>
+                        <li>ACH bank transfers</li>
+                        <li>Wire transfers (for annual subscriptions)</li>
+                    </ul>
+                    
+                    <h3>5.3 Late Payments</h3>
+                    <p>Late payments may result in:</p>
+                    <ul>
+                        <li>Service suspension after 30 days past due</li>
+                        <li>Late fees as specified in your Software License Agreement</li>
+                        <li>Collection activities for seriously delinquent accounts</li>
+                    </ul>
+                    
+                    <h3>5.4 Taxes</h3>
+                    <p>You are responsible for all applicable taxes related to your use of our services, including sales tax, use tax, and VAT.</p>
+
+                    <h2 id="intellectual-property">6. Intellectual Property</h2>
+                    
+                    <h3>6.1 Our Intellectual Property</h3>
+                    <p>All content on our website and in our software, including but not limited to text, graphics, logos, software code, and functionality, is owned by OmniWound EMR or our licensors and is protected by copyright, trademark, and other intellectual property laws.</p>
+                    
+                    <h3>6.2 Limited License</h3>
+                    <p>We grant you a limited, non-exclusive, non-transferable license to:</p>
+                    <ul>
+                        <li>Access and use our website for its intended purpose</li>
+                        <li>Use our software in accordance with your Software License Agreement</li>
+                        <li>Download and print materials for your internal business use</li>
+                    </ul>
+                    
+                    <h3>6.3 Restrictions</h3>
+                    <p>You may not:</p>
+                    <ul>
+                        <li>Copy, modify, or distribute our software or website content</li>
+                        <li>Reverse engineer, decompile, or disassemble our software</li>
+                        <li>Remove or modify any proprietary notices or labels</li>
+                        <li>Use our trademarks without written permission</li>
+                        <li>Create derivative works based on our intellectual property</li>
+                    </ul>
+                    
+                    <h3>6.4 User Content</h3>
+                    <p>You retain ownership of any content you submit through our website (such as support requests or feedback). By submitting content, you grant us a license to use, reproduce, and display such content for the purpose of providing our services.</p>
+
+                    <h2 id="prohibited-conduct">7. Prohibited Conduct</h2>
+                    
+                    <p>You agree not to engage in any of the following prohibited activities:</p>
+                    
+                    <h3>7.1 Illegal Activities</h3>
+                    <ul>
+                        <li>Using our services for any unlawful purpose</li>
+                        <li>Violating any applicable laws or regulations</li>
+                        <li>Infringing on the rights of others</li>
+                    </ul>
+                    
+                    <h3>7.2 Security Violations</h3>
+                    <ul>
+                        <li>Attempting to gain unauthorized access to our systems</li>
+                        <li>Interfering with the security features of our services</li>
+                        <li>Distributing malware or other harmful code</li>
+                        <li>Conducting security testing without written permission</li>
+                    </ul>
+                    
+                    <h3>7.3 Misuse of Services</h3>
+                    <ul>
+                        <li>Using our services to send spam or unsolicited communications</li>
+                        <li>Impersonating other individuals or entities</li>
+                        <li>Submitting false or misleading information</li>
+                        <li>Overloading our systems or interfering with other users</li>
+                    </ul>
+                    
+                    <h3>7.4 Healthcare-Specific Violations</h3>
+                    <ul>
+                        <li>Using our platform without proper professional licensing</li>
+                        <li>Violating HIPAA or other healthcare privacy laws</li>
+                        <li>Sharing patient information inappropriately</li>
+                        <li>Using our platform for fraudulent billing or documentation</li>
+                    </ul>
+
+                    <h2 id="disclaimers">8. Disclaimers and Warranties</h2>
+                    
+                    <h3>8.1 Website Disclaimer</h3>
+                    <p>Our website and general services are provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to:</p>
+                    <ul>
+                        <li>Warranties of merchantability</li>
+                        <li>Fitness for a particular purpose</li>
+                        <li>Non-infringement</li>
+                        <li>Uninterrupted or error-free operation</li>
+                    </ul>
+                    
+                    <h3>8.2 EMR Platform Warranties</h3>
+                    <p>Specific warranties and service level commitments for the EMR platform are detailed in your Software License Agreement and Service Level Agreement.</p>
+                    
+                    <h3>8.3 Third-Party Services</h3>
+                    <p>We disclaim any warranties related to third-party services, integrations, or websites that may be accessible through our platform.</p>
+                    
+                    <div class="warning-box">
+                        <h4>Medical Care Disclaimer</h4>
+                        <p>OmniWound EMR does not provide medical advice, diagnosis, or treatment. The software is a tool to assist healthcare providers in documentation and practice management. Healthcare providers are solely responsible for all medical decisions and patient care.</p>
+                    </div>
+
+                    <h2 id="limitation-liability">9. Limitation of Liability</h2>
+                    
+                    <h3>9.1 General Limitation</h3>
+                    <p>To the maximum extent permitted by law, OmniWound EMR shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to:</p>
+                    <ul>
+                        <li>Loss of profits or revenue</li>
+                        <li>Loss of data or information</li>
+                        <li>Business interruption</li>
+                        <li>Loss of business opportunities</li>
+                        <li>Personal injury or property damage</li>
+                    </ul>
+                    
+                    <h3>9.2 Maximum Liability</h3>
+                    <p>Our total liability for any claims arising from these Terms or your use of our website shall not exceed the amount you have paid us in the 12 months preceding the claim.</p>
+                    
+                    <h3>9.3 Healthcare Limitation</h3>
+                    <p>We shall not be liable for any medical malpractice claims, patient care decisions, or clinical outcomes. Healthcare providers assume full responsibility for all medical decisions and patient care.</p>
+                    
+                    <h3>9.4 Force Majeure</h3>
+                    <p>We shall not be liable for any failure to perform our obligations due to circumstances beyond our reasonable control, including natural disasters, government actions, or technical failures.</p>
+
+                    <h2 id="termination">10. Termination</h2>
+                    
+                    <h3>10.1 Termination by You</h3>
+                    <p>You may terminate your account at any time by:</p>
+                    <ul>
+                        <li>Contacting our customer support team</li>
+                        <li>Following the cancellation process in your account dashboard</li>
+                        <li>Providing written notice of termination</li>
+                    </ul>
+                    
+                    <h3>10.2 Termination by Us</h3>
+                    <p>We may terminate or suspend your access to our services immediately, without prior notice, for:</p>
+                    <ul>
+                        <li>Violation of these Terms</li>
+                        <li>Non-payment of fees</li>
+                        <li>Illegal or fraudulent activity</li>
+                        <li>Security breaches or policy violations</li>
+                    </ul>
+                    
+                    <h3>10.3 Effect of Termination</h3>
+                    <p>Upon termination:</p>
+                    <ul>
+                        <li>Your right to access our services will cease immediately</li>
+                        <li>You remain liable for all fees incurred prior to termination</li>
+                        <li>Data export procedures are governed by your Software License Agreement</li>
+                        <li>Provisions regarding intellectual property, liability, and disputes will survive</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>Data Retention After Termination</h4>
+                        <p>Patient data and medical records retention after termination is governed by your Software License Agreement and applicable healthcare regulations. We provide data export tools and transition assistance as specified in your service agreements.</p>
+                    </div>
+
+                    <h2 id="governing-law">11. Governing Law and Disputes</h2>
+                    
+                    <h3>11.1 Governing Law</h3>
+                    <p>These Terms are governed by and construed in accordance with the laws of the State of New Jersey, without regard to conflict of law principles.</p>
+                    
+                    <h3>11.2 Jurisdiction</h3>
+                    <p>Any legal disputes arising from these Terms shall be resolved in the state or federal courts located in Bergen County, New Jersey.</p>
+                    
+                    <h3>11.3 Dispute Resolution</h3>
+                    <p>Before filing any lawsuit, the parties agree to attempt good faith resolution through:</p>
+                    <ul>
+                        <li>Direct negotiation between the parties</li>
+                        <li>Mediation with a mutually agreed mediator</li>
+                        <li>Binding arbitration if mediation fails (for disputes under $50,000)</li>
+                    </ul>
+                    
+                    <h3>11.4 Class Action Waiver</h3>
+                    <p>You agree that any disputes will be resolved on an individual basis and waive any right to participate in class action lawsuits or class-wide arbitration.</p>
+
+                    <h2 id="updates">12. Updates to Terms</h2>
+                    
+                    <h3>12.1 Modification Process</h3>
+                    <p>We may update these Terms from time to time to reflect:</p>
+                    <ul>
+                        <li>Changes in our services or business practices</li>
+                        <li>Legal or regulatory requirements</li>
+                        <li>Industry best practices</li>
+                        <li>Security or technical improvements</li>
+                    </ul>
+                    
+                    <h3>12.2 Notice of Changes</h3>
+                    <p>We will provide notice of material changes by:</p>
+                    <ul>
+                        <li>Email notification to registered users</li>
+                        <li>Prominent notice on our website</li>
+                        <li>In-platform notifications for EMR users</li>
+                        <li>30 days' advance notice for material changes</li>
+                    </ul>
+                    
+                    <h3>12.3 Acceptance of Changes</h3>
+                    <p>Your continued use of our services after changes become effective constitutes acceptance of the updated Terms. If you do not agree to the changes, you must discontinue use of our services.</p>
+                    
+                    <h3>12.4 Current Version</h3>
+                    <p>The current version of these Terms is always available on our website at omniwound.com/terms.html with the effective date clearly marked.</p>
+
+                    <h2 id="contact">13. Contact Information</h2>
+                    
+                    <p>For questions about these Terms of Service or to report violations, please contact us:</p>
+                    
+                    <div class="contact-info">
+                        <h4>Legal Department</h4>
+                        <p><strong>Email:</strong> <a href="mailto:legal@omniwound.com">legal@omniwound.com</a></p>
+                        <p><strong>Phone:</strong> <a href="tel:+12012709103">(201) 270-9103</a></p>
+                        <p><strong>Mailing Address:</strong></p>
+                        <p>OmniWound EMR<br>
+                        Attn: Legal Department<br>
+                        1590 Anderson Ave. #18A<br>
+                        Fort Lee, NJ 07024</p>
+                    </div>
+                    
+                    <h3>Additional Contacts</h3>
+                    <ul>
+                        <li><strong>General Support:</strong> <a href="mailto:kyu@omniwound.com">kyu@omniwound.com</a></li>
+                        <li><strong>Sales Inquiries:</strong> <a href="mailto:fgoncalv@omniwound.com">fgoncalv@omniwound.com</a></li>
+                        <li><strong>Privacy Concerns:</strong> <a href="mailto:privacy@omniwound.com">privacy@omniwound.com</a></li>
+                        <li><strong>Security Issues:</strong> <a href="mailto:security@omniwound.com">security@omniwound.com</a></li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4>Separate Agreements</h4>
+                        <p>For questions specifically related to EMR platform usage, data handling, or clinical functionality, please refer to your Software License Agreement, Business Associate Agreement, or Service Level Agreement, or contact your dedicated account manager.</p>
+                    </div>
+                    
+                    <hr style="margin: 2rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    
+                    <p><em>These Terms of Service are effective as of September 17, 2025. OmniWound EMR reserves the right to modify these terms at any time in accordance with the procedures outlined above.</em></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Product</h3>
+                    <a href="features.html">Features</a>
+                    <a href="demo.html">Demo</a>
+                    <a href="pricing.html">Pricing</a>
+                </div>
+
+                <div>
+                    <h3>Support</h3>
+                    <a href="documentation.html">Help Documentation</a>
+                    <a href="training.html">Training Resources</a>
+                    <a href="system-status.html">System Status</a>
+                </div>
+
+                <div>
+                    <h3>Resources</h3>
+                    <a href="case-studies.html">Case Studies</a>
+                    <a href="roi-calculator.html">ROI Calculator</a>
+                    <a href="newsletter.html">Newsletter Archive</a>
+                    <a href="implementation.html">Implementation Guide</a>
+                </div>
+
+                <div>
+                    <h3>Company</h3>
+                    <a href="about.html">About OmniWound</a>
+                    <a href="certification.html">CMS EMR Certification</a>
+                </div>
+            </div>
+
+            <div class="contact-section-full">
+                <h3>Contact</h3>
+                <div class="contact-grid-footer">
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">●</span>Address:</p>
+                        <p class="contact-indent">1590 Anderson Ave. #18A</p>
+                        <p class="contact-indent">Fort Lee, NJ</p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">☎</span>Call Us:</p>
+                        <p class="contact-indent"><a href="tel:+12012709103">(201) 270-9103</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">✉</span>Email Sales:</p>
+                        <p class="contact-indent"><a href="mailto:fgoncalv@omniwound.com">fgoncalv@omniwound.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <p><span class="contact-emoji" aria-hidden="true">★</span>Email Support:</p>
+                        <p class="contact-indent"><a href="mailto:kyu@omniwound.com">kyu@omniwound.com</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2025 OmniWound EMR. All rights reserved.</span>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="privacy.html">Privacy Policy</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="terms.html">Terms of Service</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="compliance.html">HIPAA Compliance</a>
+                <span class="footer-separator" aria-hidden="true">|</span>
+                <a href="system-status.html" class="footer-status-indicator">
+                    <div class="footer-status-dot" aria-hidden="true"></div>
+                    <span>System Status</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header shrinking on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileNav = document.querySelector('.mobile-nav');
+        
+        if (mobileToggle && mobileNav) {
+            mobileToggle.addEventListener('click', function() {
+                const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+                mobileToggle.setAttribute('aria-expanded', !isExpanded);
+                mobileNav.classList.toggle('active');
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.mobile-menu-toggle') && !event.target.closest('.mobile-nav')) {
+                    mobileNav.classList.remove('active');
+                    mobileToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Dropdown functionality
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdownToggle) {
+            dropdownToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.table-of-contents a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight current section in table of contents
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '-100px 0px -50% 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const tocLink = document.querySelector(`.table-of-contents a[href="#${id}"]`);
+                
+                if (entry.isIntersecting && tocLink) {
+                    // Remove active class from all links
+                    document.querySelectorAll('.table-of-contents a').forEach(link => {
+                        link.style.fontWeight = 'normal';
+                        link.style.color = '#0891b2';
+                    });
+                    
+                    // Add active class to current link
+                    tocLink.style.fontWeight = 'bold';
+                    tocLink.style.color = '#1e3a8a';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all section headings
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('h2[id]').forEach(heading => {
+                observer.observe(heading);
+            });
+        });
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+</body>
+</html>

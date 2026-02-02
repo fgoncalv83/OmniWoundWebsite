@@ -1345,6 +1345,21 @@
     el.textContent = text;
     el.className = 'form-message ' + type;
     el.style.display = 'block';
+    el.style.padding = '12px 16px';
+    el.style.marginTop = '12px';
+    el.style.borderRadius = '8px';
+    el.style.fontSize = '14px';
+    el.style.fontWeight = '500';
+    el.style.textAlign = 'center';
+    if (type === 'success') {
+      el.style.backgroundColor = '#d4edda';
+      el.style.color = '#155724';
+      el.style.border = '1px solid #c3e6cb';
+    } else {
+      el.style.backgroundColor = '#f8d7da';
+      el.style.color = '#721c24';
+      el.style.border = '1px solid #f5c6cb';
+    }
   }
 
   function createMessageElement(form) {

@@ -1466,41 +1466,47 @@
         });
 
         // Form submission
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             console.log('Form submit event triggered');
-            
+
             if (validateStep2()) {
                 console.log('Step 2 validation passed');
-                
-                // Calculate and display results
+
+                // Calculate results first (needed for submission)
                 calculateROI();
-                
+
+                // Try to submit to lead generator - this checks for Turnstile
+                console.log('About to submit form data');
+                const submitted = await window.submitRoiToLeadGenerator({
+                    documentation_savings: document.getElementById('doc-savings').textContent,
+                    billing_optimization: document.getElementById('billing-savings').textContent,
+                    mips_improvements: document.getElementById('mips-savings').textContent,
+                    total_savings: document.getElementById('total-annual-savings').textContent,
+                    net_savings: document.getElementById('net-annual-savings').textContent,
+                    payback_period: document.getElementById('payback-period').textContent
+                });
+
+                // Only block if Turnstile not ready
+                if (submitted === 'blocked') {
+                    // Turnstile not ready - don't show results yet
+                    console.log('Submission blocked - waiting for Turnstile');
+                    return;
+                }
+
                 // Update progress
                 progressStep2.classList.remove('active');
                 progressSep2.classList.add('active');
                 progressStep3.classList.add('active');
-                
+
                 // Show results
                 step2.classList.add('hidden');
                 resultsSection.classList.remove('hidden');
-                
-                // Submit form data in background
-                console.log('About to submit form data');
-                window.submitRoiToLeadGenerator({
-    documentation_savings: document.getElementById('doc-savings').textContent,
-    billing_optimization: document.getElementById('billing-savings').textContent,
-    mips_improvements: document.getElementById('mips-savings').textContent,
-    total_savings: document.getElementById('total-annual-savings').textContent,
-    net_savings: document.getElementById('net-annual-savings').textContent,
-    payback_period: document.getElementById('payback-period').textContent
-});
 
-                
                 // Scroll to results
-                resultsSection.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
+                resultsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             } else {
                 console.log('Step 2 validation failed');
@@ -1696,9 +1702,10 @@
   // Note: You'll need to integrate this with your existing multi-step form logic
 
   async function submitToLeadGenerator(calculatedResults) {
+    // Return 'blocked' if Turnstile not ready - this prevents showing results
     if (!turnstileToken) {
-      alert('Please complete the security check.');
-      return false;
+      alert('Please complete the security check before viewing results.');
+      return 'blocked';
     }
 
     const formData = new FormData(form);
@@ -1744,10 +1751,12 @@
       });
 
       const result = await response.json();
-      return result.success;
+      // Return true even on API failure - still show results, lead capture is best-effort
+      return true;
     } catch (error) {
       console.error('Form submission error:', error);
-      return false;
+      // Return true even on network error - still show results
+      return true;
     }
   }
 

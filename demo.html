@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Cal.com Embed Script -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "omniwound-demo", {origin:"https://app.cal.com"});
+      Cal.ns["omniwound-demo"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Schedule a free demo of OmniWound EMR - the only electronic medical records software built specifically for traveling wound care specialists. See how you can reduce documentation time by 50%.">
@@ -1127,7 +1133,6 @@
                         <div class="progress-indicator">
                             <div class="progress-step active"></div>
                             <div class="progress-step"></div>
-                            <div class="progress-step"></div>
                         </div>
                         
                         <div class="form-row">
@@ -1157,74 +1162,12 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="practice">Practice/Organization Name <span class="required">*</span></label>
+                            <label for="practice">Organization Name <span class="required">*</span></label>
                             <input type="text" id="practice" name="practiceName" required aria-required="true">
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="providers">Number of Providers</label>
-                                <select id="providers" name="providers">
-                                    <option value="">Select...</option>
-                                    <option value="1-2">1-2 providers</option>
-                                    <option value="3-5">3-5 providers</option>
-                                    <option value="6-10">6-10 providers</option>
-                                    <option value="11-20">11-20 providers</option>
-                                    <option value="21+">21+ providers</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="encounters">Weekly Patient Encounters</label>
-                                <select id="encounters" name="encounters">
-                                    <option value="">Select...</option>
-                                    <option value="under-50">Under 50</option>
-                                    <option value="50-100">50-100</option>
-                                    <option value="100-250">100-250</option>
-                                    <option value="250-500">250-500</option>
-                                    <option value="500+">500+</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="currentEMR">Current EMR System</label>
-                            <input type="text" id="currentEMR" name="currentEmr" placeholder="e.g., Epic, Cerner, NextGen, Paper-based">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="primaryChallenges">Primary Documentation Challenges</label>
-                            <textarea id="primaryChallenges" name="challenges" placeholder="What are your biggest pain points with current documentation? (e.g., time-consuming, mobile access, billing accuracy)"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="timeline">Implementation Timeline</label>
-                            <select id="timeline" name="timeline">
-                                <option value="">Select...</option>
-                                <option value="immediate">Immediate (within 1 month)</option>
-                                <option value="1-3months">1-3 months</option>
-                                <option value="3-6months">3-6 months</option>
-                                <option value="6-12months">6-12 months</option>
-                                <option value="exploring">Just exploring options</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="preferredTime">Preferred Demo Time</label>
-                            <select id="preferredTime" name="demoTime">
-                                <option value="">Select...</option>
-                                <option value="morning">Morning (9 AM - 12 PM EST)</option>
-                                <option value="afternoon">Afternoon (12 PM - 5 PM EST)</option>
-                                <option value="evening">Evening (5 PM - 7 PM EST)</option>
-                                <option value="flexible">I'm flexible</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="additionalNotes">Additional Questions or Notes</label>
-                            <textarea id="additionalNotes" name="notes" placeholder="Anything specific you'd like us to cover in the demo?"></textarea>
-                        </div>
                         <div class="cf-turnstile" data-sitekey="0x4AAAAAACWJS37i2-evcqS0" data-callback="onDemoTurnstileSuccess"></div>
-                        <button type="submit" class="submit-button">Schedule My Demo</button>
+                        <button type="submit" class="submit-button">Schedule My Demo →</button>
                     </form>
 
                     <!-- Success Message (Hidden Initially) -->
@@ -1399,23 +1342,25 @@
         // Enhanced form progress tracking
         const formInputs = document.querySelectorAll('#demoForm input, #demoForm select, #demoForm textarea');
         const progressSteps = document.querySelectorAll('.progress-step');
-        
+
         function updateProgress() {
             const requiredFields = document.querySelectorAll('#demoForm [required]');
             const filledRequired = Array.from(requiredFields).filter(field => field.value.trim() !== '').length;
-            const totalFields = document.querySelectorAll('#demoForm input, #demoForm select, #demoForm textarea').length;
-            const filledTotal = Array.from(formInputs).filter(field => field.value.trim() !== '').length;
-            
-            // Update progress steps based on completion
-            const progress = Math.min(Math.floor((filledTotal / totalFields) * 3), 3);
-            
-            progressSteps.forEach((step, index) => {
-                if (index < progress) {
-                    step.classList.add('active');
-                } else {
-                    step.classList.remove('active');
-                }
-            });
+            const totalRequired = requiredFields.length;
+
+            // Update progress steps based on required fields completion
+            // Step 1: At least 1 required field filled
+            // Step 2: All required fields filled
+            if (filledRequired >= totalRequired) {
+                progressSteps[0].classList.add('active');
+                progressSteps[1].classList.add('active');
+            } else if (filledRequired >= 1) {
+                progressSteps[0].classList.add('active');
+                progressSteps[1].classList.remove('active');
+            } else {
+                progressSteps[0].classList.remove('active');
+                progressSteps[1].classList.remove('active');
+            }
         }
 
         // Add progress tracking to form fields
@@ -1424,9 +1369,13 @@
             input.addEventListener('change', updateProgress);
         });
 
-// Demo request form submission
+// Demo request form submission with Cal.com integration
         (function() {
   const API_URL = 'https://omni-sales-app.vercel.app/api/public/leads';
+  const CAL_LINK = 'filipe-goncalves-z4cawv/30min';
+
+  // TODO: REMOVE THIS BEFORE PRODUCTION - localhost bypass for testing
+  const IS_LOCALHOST = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
   const form = document.getElementById('demoForm') || document.getElementById('demo-form');
   if (!form) return;
@@ -1440,7 +1389,8 @@
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    if (!turnstileToken) {
+    // TODO: REMOVE LOCALHOST BYPASS BEFORE PRODUCTION
+    if (!IS_LOCALHOST && !turnstileToken) {
       alert('Please complete the security check.');
       return;
     }
@@ -1451,20 +1401,48 @@
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
 
+    // Collect form data for lead capture
+    const firstName = formData.get('first_name') || formData.get('firstName');
+    const lastName = formData.get('last_name') || formData.get('lastName');
+    const email = formData.get('email');
+    const phone = formData.get('phone');
+    const jobTitle = formData.get('job_title') || formData.get('jobTitle');
+    const practiceName = formData.get('practice_name') || formData.get('practiceName') || formData.get('organization');
+
+    // Helper function to open Cal.com modal
+    function openCalComModal() {
+      const fullName = [firstName, lastName].filter(Boolean).join(' ');
+      Cal.ns["omniwound-demo"]("modal", {
+        calLink: CAL_LINK,
+        config: {
+          name: fullName,
+          email: email,
+          notes: `Organization: ${practiceName || 'N/A'}\nJob Title: ${jobTitle || 'N/A'}\nPhone: ${phone || 'N/A'}`,
+          layout: "month_view"
+        }
+      });
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Schedule My Demo →';
+
+      Cal.ns["omniwound-demo"]("on", {
+        action: "bookingSuccessful",
+        callback: (e) => {
+          form.style.display = 'none';
+          document.getElementById('successMessage').style.display = 'block';
+        }
+      });
+    }
+
+    // Note: API call now works on localhost (CORS and Turnstile bypass enabled server-side)
+
     const data = {
-      first_name: formData.get('first_name') || formData.get('firstName'),
-      last_name: formData.get('last_name') || formData.get('lastName'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      job_title: formData.get('job_title') || formData.get('jobTitle'),
-      practice_name: formData.get('practice_name') || formData.get('practiceName') || formData.get('organization'),
-      num_providers: formData.get('num_providers') || formData.get('numProviders') || formData.get('providers'),
-      weekly_patients: formData.get('weekly_patients') || formData.get('weeklyPatients') || formData.get('encounters'),
-      current_emr: formData.get('current_emr') || formData.get('currentEmr') || formData.get('emr'),
-      documentation_challenges: formData.get('documentation_challenges') || formData.get('challenges'),
-      timeline: formData.get('timeline') || formData.get('implementation_timeline'),
-      preferred_demo_time: formData.get('preferred_demo_time') || formData.get('demoTime'),
-      additional_notes: formData.get('additional_notes') || formData.get('notes') || formData.get('questions')
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone: phone,
+      job_title: jobTitle,
+      practice_name: practiceName
     };
 
     // Remove undefined/null values
@@ -1488,26 +1466,17 @@
       const result = await response.json();
 
       if (result.success) {
-        // Show success message
-        form.style.display = 'none';
-        const successEl = document.createElement('div');
-        successEl.className = 'form-success';
-        successEl.innerHTML = `
-          <h3>Thank You!</h3>
-          <p>${result.message}</p>
-          <p>We'll contact you within 24 hours to schedule your personalized demo.</p>
-        `;
-        form.parentNode.insertBefore(successEl, form);
+        openCalComModal();
       } else {
         alert(result.error || 'Something went wrong. Please try again or contact us directly.');
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Schedule Demo';
+        submitBtn.textContent = 'Schedule My Demo →';
       }
     } catch (error) {
       console.error('Form submission error:', error);
       alert('Network error. Please try again or contact us at fgoncalv@omniwound.com');
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Schedule Demo';
+      submitBtn.textContent = 'Schedule My Demo →';
     }
   });
 })();

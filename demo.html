@@ -1371,11 +1371,11 @@
 
 // Demo request form submission with Cal.com integration
         (function() {
-  const API_URL = 'https://omni-sales-app.vercel.app/api/public/leads';
   const CAL_LINK = 'filipe-goncalves-z4cawv/30min';
 
   // TODO: REMOVE THIS BEFORE PRODUCTION - localhost bypass for testing
   const IS_LOCALHOST = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const API_URL = IS_LOCALHOST ? (window.location.protocol + '//' + window.location.hostname + ':3000/api/public/leads') : 'https://omni-sales-app.vercel.app/api/public/leads';
 
   const form = document.getElementById('demoForm') || document.getElementById('demo-form');
   if (!form) return;

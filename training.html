@@ -30,6 +30,9 @@
     
     <link rel="canonical" href="https://omniwound.com/training.html">
     <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
     <!-- Schema.org structured data -->
     <script type="application/ld+json">
@@ -1052,10 +1055,7 @@
                         <p>Tell us about your practice and training needs, and we'll connect you with the right resources</p>
                     </div>
 
-                    <form action="https://formspree.io/f/xkgvagwv" method="POST">
-                        <!-- Hidden field to identify form type -->
-                        <input type="hidden" name="form_type" value="training_request">
-                        
+                    <form id="trainingForm">
                         <div class="form-grid">
                             <div class="form-group">
                                 <label for="practice-name">Practice Name *</label>
@@ -1132,7 +1132,15 @@
                             </select>
                         </div>
 
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACWJS37i2-evcqS0" data-callback="onTrainingTurnstileSuccess" style="margin-bottom: 1rem;"></div>
+
                         <button type="submit" class="submit-button">Submit Training Request</button>
+
+                        <div id="successMessage" style="display: none; text-align: center; padding: 2rem;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">&#10003;</div>
+                            <h3 style="color: #1e3a8a; margin-bottom: 0.5rem;">Training Request Submitted!</h3>
+                            <p style="color: #64748b;">Thank you for your interest. We'll be in touch shortly to schedule your training sessions.</p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1249,6 +1257,82 @@
     </footer>
 
     <script>
+        // Training form submission
+        (function() {
+            const API_URL = 'https://omni-sales-app.vercel.app/api/public/leads';
+            const form = document.getElementById('trainingForm');
+            if (!form) return;
+
+            let turnstileToken = '';
+
+            window.onTrainingTurnstileSuccess = function(token) {
+                turnstileToken = token;
+            };
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                if (!turnstileToken) {
+                    alert('Please complete the security check.');
+                    return;
+                }
+
+                const formData = new FormData(form);
+                const submitBtn = form.querySelector('button[type="submit"]');
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+
+                const data = {
+                    contact_name: formData.get('contact_name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    practice_name: formData.get('practice_name'),
+                    team_size: formData.get('team_size'),
+                    training_preference: formData.get('training_preference'),
+                    current_emr: formData.get('current_emr'),
+                    implementation_status: formData.get('implementation_status'),
+                    specific_needs: formData.get('specific_needs'),
+                    timeline: formData.get('timeline'),
+                };
+
+                // Remove empty values
+                Object.keys(data).forEach(key => {
+                    if (data[key] === null || data[key] === undefined || data[key] === '') {
+                        delete data[key];
+                    }
+                });
+
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            form_type: 'training_request',
+                            data: data,
+                            turnstile_token: turnstileToken
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        form.style.display = 'none';
+                        document.getElementById('successMessage').style.display = 'block';
+                    } else {
+                        alert(result.error || 'Something went wrong. Please try again or contact us directly.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit Training Request';
+                    }
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    alert('Network error. Please try again or contact us at fgoncalv@omniwound.com');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Training Request';
+                }
+            });
+        })();
+
         // Header scroll effect and dropdown functionality - EXACTLY matching index.html
         document.addEventListener('DOMContentLoaded', function() {
             const header = document.querySelector('.header');

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download free wound care resources from OmniWound EMR - guides, templates, and best practices for traveling wound care specialists.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Free Download - OmniWound EMR Resources</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #f8fafc; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        .landing-header {
+            background: white; padding: 1rem 0; text-align: center; border-bottom: 2px solid #0891b2;
+        }
+        .landing-header a { text-decoration: none; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px; }
+        .landing-header img { width: 50px; height: 50px; object-fit: contain; }
+        .landing-header .logo-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 1.5rem; }
+
+        .hero {
+            background: linear-gradient(135deg, #7c3aed 0%, #1e3a8a 100%);
+            color: white; padding: 3rem 0; text-align: center;
+        }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+
+        .content-section { padding: 3rem 0; }
+
+        .resource-card {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+            max-width: 900px; margin: 0 auto; padding: 0 20px;
+        }
+
+        .resource-preview {
+            background: white; border-radius: 16px; padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); border: 1px solid #e2e8f0;
+        }
+        .resource-preview .asset-icon { font-size: 3rem; text-align: center; margin-bottom: 1rem; display: block; }
+        .resource-preview h3 { color: #1e3a8a; font-size: 1.3rem; margin-bottom: 0.75rem; }
+        .resource-preview p { color: #64748b; font-size: 0.95rem; margin-bottom: 1rem; }
+        .resource-preview .meta { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .resource-preview .meta span {
+            background: #f1f5f9; padding: 4px 12px; border-radius: 20px;
+            font-size: 0.8rem; color: #475569;
+        }
+        .resource-highlights { margin-top: 1.5rem; }
+        .resource-highlights h4 { color: #1e3a8a; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .resource-highlights ul { list-style: none; }
+        .resource-highlights li {
+            padding: 0.4rem 0; color: #475569; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .resource-highlights li::before { content: '\2713'; color: #059669; font-weight: bold; }
+
+        .form-card {
+            background: white; border-radius: 16px; padding: 2rem;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;
+        }
+        .form-card h2 { color: #1e3a8a; font-size: 1.3rem; margin-bottom: 0.5rem; text-align: center; }
+        .form-card .subtitle { color: #64748b; text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.3rem; font-weight: 500; color: #374151; font-size: 0.9rem; }
+        .form-group input {
+            width: 100%; padding: 10px 14px; border: 2px solid #e5e7eb; border-radius: 8px;
+            font-size: 0.95rem; transition: border-color 0.3s;
+        }
+        .form-group input:focus { border-color: #0891b2; outline: none; }
+        .required { color: #ef4444; }
+
+        .submit-button {
+            width: 100%; padding: 14px; background: linear-gradient(135deg, #7c3aed, #1e3a8a);
+            color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 0.5rem;
+        }
+        .submit-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3); }
+        .submit-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .privacy-note { text-align: center; color: #9ca3af; font-size: 0.75rem; margin-top: 0.75rem; }
+
+        .success-message {
+            display: none; text-align: center; padding: 2rem;
+            background: #f0fdf4; border-radius: 16px; border: 2px solid #86efac;
+        }
+        .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .success-message h3 { color: #166534; margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .success-message p { color: #475569; margin-bottom: 0.75rem; }
+        .download-btn {
+            display: inline-block; padding: 12px 32px; background: linear-gradient(135deg, #7c3aed, #1e3a8a);
+            color: white; text-decoration: none; border-radius: 8px; font-weight: 600;
+            transition: transform 0.2s;
+        }
+        .download-btn:hover { transform: translateY(-2px); }
+
+        .landing-footer {
+            background: #1e293b; color: #94a3b8; padding: 1.5rem 0; text-align: center; font-size: 0.85rem;
+        }
+        .landing-footer a { color: #94a3b8; text-decoration: none; }
+        .landing-footer a:hover { color: #0891b2; }
+
+        /* Loading state */
+        .loading { text-align: center; padding: 3rem; color: #64748b; }
+
+        *:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.7rem; }
+            .resource-card { grid-template-columns: 1fr; padding: 0 20px; gap: 2rem; }
+            .form-card, .resource-preview { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="landing-header">
+        <a href="index.html">
+            <img src="omniwound-logo.png" alt="OmniWound EMR Logo">
+            <span class="logo-text">OmniWound EMR</span>
+        </a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 id="heroTitle">Download Your Free Resource</h1>
+                <p id="heroSubtitle">Get actionable insights for your wound care practice</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="resource-card">
+                <div class="resource-preview" id="resourcePreview">
+                    <span class="asset-icon" id="assetIcon">&#128196;</span>
+                    <h3 id="assetTitle">Loading resource...</h3>
+                    <p id="assetDescription">Please wait while we load the resource details.</p>
+                    <div class="meta" id="assetMeta"></div>
+                    <div class="resource-highlights" id="resourceHighlights" style="display:none;">
+                        <h4>What's Inside</h4>
+                        <ul id="highlightsList"></ul>
+                    </div>
+                </div>
+
+                <div class="form-card">
+                    <h2>Get Instant Access</h2>
+                    <p class="subtitle">Fill in your details to download</p>
+
+                    <form id="resourceForm" aria-label="Resource download form">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Work Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="practice">Organization Name</label>
+                            <input type="text" id="practice" name="practiceName">
+                        </div>
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACWJS37i2-evcqS0" data-callback="onTurnstileSuccess"></div>
+                        <button type="submit" class="submit-button">Download Now</button>
+                        <p class="privacy-note">We respect your privacy. Unsubscribe anytime.</p>
+                    </form>
+
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon">&#127881;</div>
+                        <h3>Your Download is Ready!</h3>
+                        <p>Click the button below to download your resource.</p>
+                        <a href="#" id="downloadLink" class="download-btn" target="_blank">Download Now</a>
+                        <p style="margin-top: 1rem; font-size: 0.85rem;">A copy has also been sent to your email.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>&copy; 2025 OmniWound EMR. All rights reserved. | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+    </footer>
+
+    <!-- Tracking -->
+    <script src="/tracking.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <script>
+    (function() {
+        var API_BASE = 'https://salesapp.simplichart.com';
+        var LEADS_API = API_BASE + '/api/public/leads';
+        var CONTENT_API = API_BASE + '/api/content';
+
+        // Read asset slug from URL: ?asset=wound-care-best-practices
+        var params = new URLSearchParams(window.location.search);
+        var assetSlug = params.get('asset');
+
+        // Load asset metadata
+        if (assetSlug) {
+            fetch(CONTENT_API + '/' + encodeURIComponent(assetSlug))
+                .then(function(r) { return r.ok ? r.json() : null; })
+                .then(function(data) {
+                    if (data && data.asset) {
+                        var asset = data.asset;
+                        document.getElementById('heroTitle').textContent = asset.title || 'Download Your Free Resource';
+                        document.getElementById('heroSubtitle').textContent = asset.description || '';
+                        document.getElementById('assetTitle').textContent = asset.title || 'Resource';
+                        document.getElementById('assetDescription').textContent = asset.description || '';
+
+                        // Set icon based on file type
+                        var ext = (asset.file_name || '').split('.').pop().toLowerCase();
+                        var icons = { pdf: '\uD83D\uDCC4', doc: '\uD83D\uDCC3', docx: '\uD83D\uDCC3', xls: '\uD83D\uDCCA', xlsx: '\uD83D\uDCCA', ppt: '\uD83D\uDCBB', pptx: '\uD83D\uDCBB' };
+                        document.getElementById('assetIcon').textContent = icons[ext] || '\uD83D\uDCC4';
+
+                        // Meta tags
+                        var metaEl = document.getElementById('assetMeta');
+                        if (asset.category) metaEl.innerHTML += '<span>' + asset.category + '</span>';
+                        if (ext) metaEl.innerHTML += '<span>' + ext.toUpperCase() + '</span>';
+                        metaEl.innerHTML += '<span>Free Download</span>';
+                    }
+                })
+                .catch(function() {
+                    // Keep default text
+                });
+        }
+
+        // Form submission
+        var form = document.getElementById('resourceForm');
+        if (!form) return;
+
+        var turnstileToken = '';
+        window.onTurnstileSuccess = function(token) { turnstileToken = token; };
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!turnstileToken) {
+                alert('Please complete the security check.');
+                return;
+            }
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            var formData = new FormData(form);
+            var utmParams = window.OmniTrack ? window.OmniTrack.getUTMParams() : {};
+
+            var data = {
+                first_name: formData.get('firstName'),
+                last_name: formData.get('lastName'),
+                email: formData.get('email'),
+                practice_name: formData.get('practiceName')
+            };
+            Object.keys(data).forEach(function(key) { if (!data[key]) delete data[key]; });
+
+            try {
+                // 1. Create the lead
+                var leadResponse = await fetch(LEADS_API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        form_type: 'asset_download',
+                        data: data,
+                        turnstile_token: turnstileToken,
+                        utm_source: utmParams.utm_source,
+                        utm_medium: utmParams.utm_medium,
+                        utm_campaign: utmParams.utm_campaign,
+                        utm_content: utmParams.utm_content
+                    })
+                });
+
+                var leadResult = await leadResponse.json();
+
+                if (!leadResult.success) {
+                    alert(leadResult.error || 'Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Download Now';
+                    return;
+                }
+
+                // 2. Track conversion
+                if (window.OmniTrack) {
+                    window.OmniTrack.trackConversion('asset_downloaded', {
+                        source: 'landing_resource',
+                        asset_slug: assetSlug
+                    });
+                }
+
+                // 3. Get download URL if asset slug provided
+                if (assetSlug) {
+                    try {
+                        var dlResponse = await fetch(CONTENT_API + '/' + encodeURIComponent(assetSlug) + '/download', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ email: data.email })
+                        });
+                        var dlResult = await dlResponse.json();
+                        if (dlResult.download_url) {
+                            document.getElementById('downloadLink').href = dlResult.download_url;
+                        }
+                    } catch (err) {
+                        // Download link will be sent via email as fallback
+                    }
+                }
+
+                // 4. Show success
+                form.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Network error. Please try again or call (201) 270-9103.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Download Now';
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

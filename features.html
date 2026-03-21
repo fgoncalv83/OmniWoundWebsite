@@ -1461,7 +1461,7 @@
         
 // Newsletter form submission
 (function() {
-  const API_URL = 'https://omni-sales-app.vercel.app/api/public/leads';
+  const API_URL = 'https://salesapp.simplichart.com/api/public/leads';
   const FORM_SOURCE = 'features_page_newsletter';
 
   const form = document.querySelector('.newsletter-form');
@@ -1567,6 +1567,17 @@
                 }
             });
         });
+    </script>
+    <!-- OmniWound Tracking -->
+    <script src="/tracking.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
     </script>
 </body>
 </html>

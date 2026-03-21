@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- Cal.com Embed Script -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "omniwound-demo", {origin:"https://app.cal.com"});
+      Cal.ns["omniwound-demo"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Schedule a free 30-minute demo of OmniWound EMR. See how traveling wound care specialists reduce documentation time by 50%.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Free Demo - OmniWound EMR for Wound Care Specialists</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #f8fafc; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        /* Minimal header - no navigation */
+        .landing-header {
+            background: white;
+            padding: 1rem 0;
+            text-align: center;
+            border-bottom: 2px solid #0891b2;
+        }
+        .landing-header a { text-decoration: none; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px; }
+        .landing-header img { width: 50px; height: 50px; object-fit: contain; }
+        .landing-header .logo-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 1.5rem; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #1e3a8a 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 1.5rem; }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat .number { font-size: 2rem; font-weight: 700; display: block; }
+        .hero-stat .label { font-size: 0.85rem; opacity: 0.8; }
+
+        /* Form section */
+        .form-section { padding: 3rem 0; }
+        .form-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        .form-card h2 { color: #1e3a8a; font-size: 1.6rem; margin-bottom: 0.5rem; text-align: center; }
+        .form-card .subtitle { color: #64748b; text-align: center; margin-bottom: 2rem; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 500; color: #374151; font-size: 0.95rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px;
+            font-size: 1rem; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: #0891b2; outline: none; }
+        .required { color: #ef4444; }
+
+        .submit-button {
+            width: 100%; padding: 16px; background: linear-gradient(135deg, #0891b2, #20b2aa);
+            color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 0.5rem;
+        }
+        .submit-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(8, 145, 178, 0.3); }
+        .submit-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        /* Trust badges */
+        .trust-badges {
+            display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+            margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;
+        }
+        .trust-badge { display: flex; align-items: center; gap: 6px; color: #6b7280; font-size: 0.85rem; }
+        .trust-badge .icon { color: #22c55e; font-size: 1.1rem; }
+
+        /* Success message */
+        .success-message {
+            display: none; text-align: center; padding: 2rem;
+            background: #f0fdf4; border-radius: 16px; border: 2px solid #86efac;
+        }
+        .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .success-message h3 { color: #166534; margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .success-message p { color: #475569; margin-bottom: 1rem; }
+
+        /* Benefits strip */
+        .benefits-strip {
+            background: white; padding: 2rem 0; border-top: 1px solid #e2e8f0;
+        }
+        .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .benefit-item { text-align: center; }
+        .benefit-item .icon { font-size: 1.8rem; margin-bottom: 0.5rem; display: block; }
+        .benefit-item h4 { color: #1e3a8a; margin-bottom: 0.25rem; font-size: 0.95rem; }
+        .benefit-item p { color: #64748b; font-size: 0.85rem; }
+
+        /* Minimal footer */
+        .landing-footer {
+            background: #1e293b; color: #94a3b8; padding: 1.5rem 0; text-align: center; font-size: 0.85rem;
+        }
+        .landing-footer a { color: #94a3b8; text-decoration: none; }
+        .landing-footer a:hover { color: #0891b2; }
+
+        *:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero-stats { gap: 1rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .form-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="landing-header">
+        <a href="index.html">
+            <img src="omniwound-logo.png" alt="OmniWound EMR Logo">
+            <span class="logo-text">OmniWound EMR</span>
+        </a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Reduce Documentation Time by 50%</h1>
+                <p>See how the only EMR built for traveling wound care specialists transforms your workflow in a free 30-minute demo.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="number">50%</span><span class="label">Less Documentation Time</span></div>
+                    <div class="hero-stat"><span class="number">100+</span><span class="label">Providers Trust Us</span></div>
+                    <div class="hero-stat"><span class="number">20+</span><span class="label">States Covered</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="form-card">
+                    <h2>Schedule Your Free Demo</h2>
+                    <p class="subtitle">Takes less than 60 seconds. No obligation.</p>
+
+                    <form id="demoForm" aria-label="Demo request form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="practice">Organization Name <span class="required">*</span></label>
+                            <input type="text" id="practice" name="practiceName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="title">Job Title</label>
+                            <input type="text" id="title" name="jobTitle" placeholder="e.g., Practice Administrator, Medical Director">
+                        </div>
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACWJS37i2-evcqS0" data-callback="onTurnstileSuccess"></div>
+                        <button type="submit" class="submit-button">Schedule My Free Demo</button>
+                    </form>
+
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon">&#127881;</div>
+                        <h3>Demo Scheduled!</h3>
+                        <p>Thank you! A member of our team will confirm your demo within 24 hours.</p>
+                        <p>Questions? Call us at <a href="tel:+12012709103" style="color: #0891b2;">(201) 270-9103</a></p>
+                    </div>
+
+                    <div class="trust-badges">
+                        <div class="trust-badge"><span class="icon">&#9989;</span> HIPAA Compliant</div>
+                        <div class="trust-badge"><span class="icon">&#9989;</span> CMS Certified</div>
+                        <div class="trust-badge"><span class="icon">&#9989;</span> No Obligation</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-strip">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <span class="icon">&#9201;</span>
+                    <h4>Single-Screen Workflow</h4>
+                    <p>Complete wound assessments without clicking through multiple screens</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">&#128241;</span>
+                    <h4>Mobile-First Design</h4>
+                    <p>Built for providers on the go with offline capability</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="icon">&#128200;</span>
+                    <h4>MIPS Compliant</h4>
+                    <p>Automated quality measure tracking and reporting</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>&copy; 2025 OmniWound EMR. All rights reserved. | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+    </footer>
+
+    <!-- Tracking -->
+    <script src="/tracking.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <script>
+    (function() {
+        var CAL_LINK = 'filipe-goncalves-z4cawv/30min';
+        var API_URL = 'https://salesapp.simplichart.com/api/public/leads';
+        var form = document.getElementById('demoForm');
+        if (!form) return;
+
+        var turnstileToken = '';
+        window.onTurnstileSuccess = function(token) { turnstileToken = token; };
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!turnstileToken) {
+                alert('Please complete the security check.');
+                return;
+            }
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            var formData = new FormData(form);
+            var firstName = formData.get('firstName');
+            var lastName = formData.get('lastName');
+            var email = formData.get('email');
+            var phone = formData.get('phone');
+            var jobTitle = formData.get('jobTitle');
+            var practiceName = formData.get('practiceName');
+
+            // Get UTM params for attribution
+            var utmParams = window.OmniTrack ? window.OmniTrack.getUTMParams() : {};
+
+            var data = {
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                phone: phone,
+                job_title: jobTitle,
+                practice_name: practiceName
+            };
+            // Remove empty values
+            Object.keys(data).forEach(function(key) { if (!data[key]) delete data[key]; });
+
+            try {
+                var response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        form_type: 'demo_request',
+                        data: data,
+                        turnstile_token: turnstileToken,
+                        utm_source: utmParams.utm_source,
+                        utm_medium: utmParams.utm_medium,
+                        utm_campaign: utmParams.utm_campaign,
+                        utm_content: utmParams.utm_content
+                    })
+                });
+
+                var result = await response.json();
+
+                if (result.success) {
+                    // Track conversion
+                    if (window.OmniTrack) {
+                        window.OmniTrack.trackConversion('demo_booked', { source: 'landing_demo' });
+                    }
+
+                    // Open Cal.com modal
+                    var fullName = [firstName, lastName].filter(Boolean).join(' ');
+                    Cal.ns["omniwound-demo"]("modal", {
+                        calLink: CAL_LINK,
+                        config: {
+                            name: fullName,
+                            email: email,
+                            notes: 'Organization: ' + (practiceName || 'N/A') + '\nJob Title: ' + (jobTitle || 'N/A') + '\nPhone: ' + (phone || 'N/A'),
+                            layout: "month_view"
+                        }
+                    });
+
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Schedule My Free Demo';
+
+                    Cal.ns["omniwound-demo"]("on", {
+                        action: "bookingSuccessful",
+                        callback: function() {
+                            form.style.display = 'none';
+                            document.getElementById('successMessage').style.display = 'block';
+                        }
+                    });
+                } else {
+                    alert(result.error || 'Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Schedule My Free Demo';
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Network error. Please try again or call (201) 270-9103.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Schedule My Free Demo';
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

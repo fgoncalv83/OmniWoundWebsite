@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to OmniWound EMR - the only EMR built for traveling wound care specialists.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Welcome - OmniWound EMR</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #f8fafc; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        .landing-header {
+            background: white; padding: 1rem 0; text-align: center; border-bottom: 2px solid #0891b2;
+        }
+        .landing-header a { text-decoration: none; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px; }
+        .landing-header img { width: 50px; height: 50px; object-fit: contain; }
+        .landing-header .logo-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 1.5rem; }
+
+        .hero {
+            background: linear-gradient(135deg, #0891b2 0%, #1e3a8a 100%);
+            color: white; padding: 4rem 0; text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
+
+        .cta-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .cta-btn {
+            display: inline-block; padding: 14px 32px; border-radius: 8px;
+            font-size: 1.05rem; font-weight: 600; text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover { transform: translateY(-2px); }
+        .cta-primary {
+            background: white; color: #0891b2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .cta-primary:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.3); }
+        .cta-secondary {
+            background: transparent; color: white; border: 2px solid white;
+        }
+        .cta-secondary:hover { background: rgba(255,255,255,0.1); }
+
+        .offer-banner {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #78350f; text-align: center; padding: 1rem;
+            font-weight: 600; font-size: 1.05rem;
+        }
+
+        .features-section { padding: 3rem 0; }
+        .features-section h2 { text-align: center; color: #1e3a8a; font-size: 1.8rem; margin-bottom: 2rem; }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+            max-width: 900px; margin: 0 auto; padding: 0 20px;
+        }
+        .feature-card {
+            background: white; border-radius: 12px; padding: 1.5rem; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;
+        }
+        .feature-card .icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+        .feature-card h3 { color: #1e3a8a; font-size: 1rem; margin-bottom: 0.5rem; }
+        .feature-card p { color: #64748b; font-size: 0.85rem; }
+
+        .testimonial-section {
+            background: white; padding: 3rem 0; border-top: 1px solid #e2e8f0;
+        }
+        .testimonial {
+            max-width: 600px; margin: 0 auto; text-align: center; padding: 0 20px;
+        }
+        .testimonial blockquote {
+            font-size: 1.15rem; color: #475569; font-style: italic;
+            margin-bottom: 1rem; line-height: 1.8;
+        }
+        .testimonial cite { color: #0891b2; font-style: normal; font-weight: 600; }
+
+        .final-cta {
+            background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
+            padding: 3rem 0; text-align: center;
+        }
+        .final-cta h2 { color: #1e3a8a; font-size: 1.8rem; margin-bottom: 1rem; }
+        .final-cta p { color: #475569; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+        .final-cta .cta-btn {
+            background: linear-gradient(135deg, #0891b2, #20b2aa); color: white;
+            box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);
+        }
+
+        .landing-footer {
+            background: #1e293b; color: #94a3b8; padding: 1.5rem 0; text-align: center; font-size: 0.85rem;
+        }
+        .landing-footer a { color: #94a3b8; text-decoration: none; }
+        .landing-footer a:hover { color: #0891b2; }
+
+        *:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 2.5rem 0; }
+            .features-grid { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header class="landing-header">
+        <a href="index.html">
+            <img src="omniwound-logo.png" alt="OmniWound EMR Logo">
+            <span class="logo-text">OmniWound EMR</span>
+        </a>
+    </header>
+
+    <main>
+        <!-- Special offer banner -->
+        <div class="offer-banner" id="offerBanner" style="display:none;">
+            Special Offer: Schedule your demo today and get priority implementation!
+        </div>
+
+        <section class="hero">
+            <div class="container">
+                <h1>The Only EMR Built for Traveling Wound Care</h1>
+                <p>You received our letter because we believe OmniWound EMR can transform how your practice handles documentation. Let us show you how.</p>
+                <div class="cta-buttons">
+                    <a href="landing-demo.html" class="cta-btn cta-primary" id="demoCta">Schedule a Free Demo</a>
+                    <a href="landing-trial.html" class="cta-btn cta-secondary" id="trialCta">Start Free Trial</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2>Why Providers Choose OmniWound</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon">&#9201;</span>
+                    <h3>50% Less Documentation</h3>
+                    <p>Single-screen workflow means no more clicking through endless tabs</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">&#128241;</span>
+                    <h3>Mobile-First</h3>
+                    <p>Works on any device with offline mode for areas with poor connectivity</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">&#128247;</span>
+                    <h3>Photo Documentation</h3>
+                    <p>Capture, annotate, and track wound healing progress visually</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">&#128200;</span>
+                    <h3>MIPS Reporting</h3>
+                    <p>Automated quality measure tracking saves hours per quarter</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">&#128274;</span>
+                    <h3>HIPAA Compliant</h3>
+                    <p>Enterprise-grade security with full audit trail</p>
+                </div>
+                <div class="feature-card">
+                    <span class="icon">&#128101;</span>
+                    <h3>100+ Providers</h3>
+                    <p>Trusted across 20+ states by wound care specialists</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="testimonial">
+                <blockquote>"OmniWound EMR cut our documentation time in half. My nurses love the single-screen workflow - it's intuitive and fast."</blockquote>
+                <cite>- Wound Care Practice Administrator</cite>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <h2>Ready to Transform Your Practice?</h2>
+            <p>Join 100+ providers who have simplified their wound care documentation.</p>
+            <a href="landing-demo.html" class="cta-btn" id="finalDemoCta">Schedule Your Free Demo</a>
+        </section>
+    </main>
+
+    <footer class="landing-footer">
+        <p>&copy; 2025 OmniWound EMR. All rights reserved. | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a> | <a href="tel:+12012709103">(201) 270-9103</a></p>
+    </footer>
+
+    <!-- Tracking -->
+    <script src="/tracking.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <script>
+    (function() {
+        // Pass UTM params through to demo/trial CTAs
+        var utmString = window.location.search;
+        if (utmString) {
+            var links = document.querySelectorAll('#demoCta, #trialCta, #finalDemoCta');
+            links.forEach(function(link) {
+                var href = link.getAttribute('href');
+                link.setAttribute('href', href + (href.indexOf('?') > -1 ? '&' : '?') + utmString.substring(1));
+            });
+        }
+
+        // Show offer banner if utm_medium=direct_mail
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('utm_medium') === 'direct_mail') {
+            document.getElementById('offerBanner').style.display = 'block';
+        }
+    })();
+    </script>
+</body>
+</html>

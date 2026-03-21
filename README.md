@@ -27,7 +27,7 @@ Official marketing website for OmniWound - an AI-powered wound care documentatio
 
 All forms are integrated with the OmniWound Lead Generator API:
 
-- **API Endpoint:** `https://omni-sales-app.vercel.app/api/public/leads`
+- **API Endpoint:** `https://salesapp.simplichart.com/api/public/leads`
 - **Spam Protection:** Cloudflare Turnstile
 - **Form Types:** newsletter, exit_intent, demo_request, contact, roi_calculator
 

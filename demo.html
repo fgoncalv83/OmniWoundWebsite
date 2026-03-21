@@ -1373,9 +1373,7 @@
         (function() {
   const CAL_LINK = 'filipe-goncalves-z4cawv/30min';
 
-  // TODO: REMOVE THIS BEFORE PRODUCTION - localhost bypass for testing
-  const IS_LOCALHOST = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const API_URL = IS_LOCALHOST ? (window.location.protocol + '//' + window.location.hostname + ':3000/api/public/leads') : 'https://omni-sales-app.vercel.app/api/public/leads';
+  const API_URL = 'https://salesapp.simplichart.com/api/public/leads';
 
   const form = document.getElementById('demoForm') || document.getElementById('demo-form');
   if (!form) return;
@@ -1389,8 +1387,7 @@
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
-    // TODO: REMOVE LOCALHOST BYPASS BEFORE PRODUCTION
-    if (!IS_LOCALHOST && !turnstileToken) {
+    if (!turnstileToken) {
       alert('Please complete the security check.');
       return;
     }
@@ -1490,7 +1487,10 @@
         });
     </script>
 
-    <!-- Google Analytics -->
+    <!-- OmniWound Tracking -->
+    <script src="/tracking.js"></script>
+
+        <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

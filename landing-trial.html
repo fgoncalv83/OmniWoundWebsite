@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Start your free trial of OmniWound EMR - the only EMR built for traveling wound care specialists. No credit card required.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Start Your Free Trial - OmniWound EMR</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"></noscript>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background-color: #f8fafc; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        .landing-header {
+            background: white; padding: 1rem 0; text-align: center; border-bottom: 2px solid #0891b2;
+        }
+        .landing-header a { text-decoration: none; color: #2c3e50; display: inline-flex; align-items: center; gap: 8px; }
+        .landing-header img { width: 50px; height: 50px; object-fit: contain; }
+        .landing-header .logo-text { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 1.5rem; }
+
+        .hero {
+            background: linear-gradient(135deg, #059669 0%, #0891b2 100%);
+            color: white; padding: 3rem 0; text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 1.5rem; }
+        .hero .badge {
+            display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1.5rem;
+            border-radius: 50px; font-weight: 600; font-size: 1rem;
+        }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; padding: 3rem 0; max-width: 900px; margin: 0 auto; }
+
+        .features-col h3 { color: #1e3a8a; font-size: 1.3rem; margin-bottom: 1.5rem; }
+        .feature-item { display: flex; gap: 12px; margin-bottom: 1.25rem; }
+        .feature-item .check { color: #059669; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+        .feature-item div h4 { color: #1e3a8a; font-size: 0.95rem; margin-bottom: 2px; }
+        .feature-item div p { color: #64748b; font-size: 0.85rem; }
+
+        .form-col .form-card {
+            background: white; border-radius: 16px; padding: 2rem;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1); border: 1px solid #e2e8f0;
+        }
+        .form-card h2 { color: #1e3a8a; font-size: 1.4rem; margin-bottom: 0.5rem; text-align: center; }
+        .form-card .subtitle { color: #64748b; text-align: center; margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.3rem; font-weight: 500; color: #374151; font-size: 0.9rem; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 10px 14px; border: 2px solid #e5e7eb; border-radius: 8px;
+            font-size: 0.95rem; transition: border-color 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: #0891b2; outline: none; }
+        .required { color: #ef4444; }
+
+        .submit-button {
+            width: 100%; padding: 14px; background: linear-gradient(135deg, #059669, #0891b2);
+            color: white; border: none; border-radius: 8px; font-size: 1.05rem; font-weight: 600;
+            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 0.5rem;
+        }
+        .submit-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3); }
+        .submit-button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .no-cc { text-align: center; color: #6b7280; font-size: 0.8rem; margin-top: 0.75rem; }
+
+        .success-message {
+            display: none; text-align: center; padding: 2rem;
+            background: #f0fdf4; border-radius: 16px; border: 2px solid #86efac;
+        }
+        .success-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .success-message h3 { color: #166534; margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .success-message p { color: #475569; margin-bottom: 0.75rem; }
+
+        .landing-footer {
+            background: #1e293b; color: #94a3b8; padding: 1.5rem 0; text-align: center; font-size: 0.85rem;
+        }
+        .landing-footer a { color: #94a3b8; text-decoration: none; }
+        .landing-footer a:hover { color: #0891b2; }
+
+        *:focus-visible { outline: 2px solid #0891b2; outline-offset: 2px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .two-col { grid-template-columns: 1fr; padding: 2rem 20px; gap: 2rem; }
+            .form-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="landing-header">
+        <a href="index.html">
+            <img src="omniwound-logo.png" alt="OmniWound EMR Logo">
+            <span class="logo-text">OmniWound EMR</span>
+        </a>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Start Your Free Trial Today</h1>
+                <p>Experience the only EMR built specifically for traveling wound care specialists. Full access, no limitations.</p>
+                <span class="badge">No Credit Card Required</span>
+            </div>
+        </section>
+
+        <div class="two-col">
+            <div class="features-col">
+                <h3>What You Get</h3>
+                <div class="feature-item">
+                    <span class="check">&#10003;</span>
+                    <div><h4>Single-Screen Workflow</h4><p>Complete wound assessments without tab switching</p></div>
+                </div>
+                <div class="feature-item">
+                    <span class="check">&#10003;</span>
+                    <div><h4>Mobile-First Design</h4><p>Works on any device, even offline</p></div>
+                </div>
+                <div class="feature-item">
+                    <span class="check">&#10003;</span>
+                    <div><h4>Photo Documentation</h4><p>Capture and annotate wound photos in seconds</p></div>
+                </div>
+                <div class="feature-item">
+                    <span class="check">&#10003;</span>
+                    <div><h4>Auto-Generated Reports</h4><p>MIPS-compliant reports at the click of a button</p></div>
+                </div>
+                <div class="feature-item">
+                    <span class="check">&#10003;</span>
+                    <div><h4>HIPAA Compliant</h4><p>Enterprise-grade security and encryption</p></div>
+                </div>
+                <div class="feature-item">
+                    <span class="check">&#10003;</span>
+                    <div><h4>Dedicated Support</h4><p>Personal onboarding and training included</p></div>
+                </div>
+            </div>
+
+            <div class="form-col">
+                <div class="form-card">
+                    <h2>Create Your Free Account</h2>
+                    <p class="subtitle">Full access for 14 days</p>
+
+                    <form id="trialForm" aria-label="Free trial signup form">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Work Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="practice">Organization Name <span class="required">*</span></label>
+                            <input type="text" id="practice" name="practiceName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numProviders">Number of Providers</label>
+                            <select id="numProviders" name="numProviders">
+                                <option value="">Select...</option>
+                                <option value="1">1 (Solo)</option>
+                                <option value="2-5">2-5</option>
+                                <option value="6-10">6-10</option>
+                                <option value="11-25">11-25</option>
+                                <option value="25+">25+</option>
+                            </select>
+                        </div>
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAACWJS37i2-evcqS0" data-callback="onTurnstileSuccess"></div>
+                        <button type="submit" class="submit-button">Start Free Trial</button>
+                        <p class="no-cc">No credit card required. Cancel anytime.</p>
+                    </form>
+
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon">&#127881;</div>
+                        <h3>Welcome to OmniWound!</h3>
+                        <p>Your trial account is being set up. Check your email for login instructions.</p>
+                        <p>Questions? Call <a href="tel:+12012709103" style="color: #0891b2;">(201) 270-9103</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="landing-footer">
+        <p>&copy; 2025 OmniWound EMR. All rights reserved. | <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+    </footer>
+
+    <!-- Tracking -->
+    <script src="/tracking.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <script>
+    (function() {
+        var API_URL = 'https://salesapp.simplichart.com/api/public/leads';
+        var form = document.getElementById('trialForm');
+        if (!form) return;
+
+        var turnstileToken = '';
+        window.onTurnstileSuccess = function(token) { turnstileToken = token; };
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            if (!turnstileToken) {
+                alert('Please complete the security check.');
+                return;
+            }
+
+            var submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Creating account...';
+
+            var formData = new FormData(form);
+            var utmParams = window.OmniTrack ? window.OmniTrack.getUTMParams() : {};
+
+            var data = {
+                first_name: formData.get('firstName'),
+                last_name: formData.get('lastName'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                practice_name: formData.get('practiceName'),
+                num_providers: formData.get('numProviders')
+            };
+            Object.keys(data).forEach(function(key) { if (!data[key]) delete data[key]; });
+
+            try {
+                var response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        form_type: 'trial_signup',
+                        data: data,
+                        turnstile_token: turnstileToken,
+                        utm_source: utmParams.utm_source,
+                        utm_medium: utmParams.utm_medium,
+                        utm_campaign: utmParams.utm_campaign,
+                        utm_content: utmParams.utm_content
+                    })
+                });
+
+                var result = await response.json();
+
+                if (result.success) {
+                    if (window.OmniTrack) {
+                        window.OmniTrack.trackConversion('trial_started', { source: 'landing_trial' });
+                    }
+                    form.style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                } else {
+                    alert(result.error || 'Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Start Free Trial';
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                alert('Network error. Please try again or call (201) 270-9103.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Start Free Trial';
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

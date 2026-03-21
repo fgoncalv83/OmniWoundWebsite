@@ -202,7 +202,7 @@
     (function() {
         var API_BASE = 'https://salesapp.simplichart.com';
         var LEADS_API = API_BASE + '/api/public/leads';
-        var CONTENT_API = API_BASE + '/api/content';
+        var CONTENT_API = API_BASE + '/api/public/assets';
 
         // Read asset slug from URL: ?asset=wound-care-best-practices
         var params = new URLSearchParams(window.location.search);
@@ -301,13 +301,9 @@
                 }
 
                 // 3. Get download URL if asset slug provided
-                if (assetSlug) {
+                if (assetSlug && leadResult.lead_id) {
                     try {
-                        var dlResponse = await fetch(CONTENT_API + '/' + encodeURIComponent(assetSlug) + '/download', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ email: data.email })
-                        });
+                        var dlResponse = await fetch(CONTENT_API + '/' + encodeURIComponent(assetSlug) + '/download?lead_id=' + encodeURIComponent(leadResult.lead_id));
                         var dlResult = await dlResponse.json();
                         if (dlResult.download_url) {
                             document.getElementById('downloadLink').href = dlResult.download_url;

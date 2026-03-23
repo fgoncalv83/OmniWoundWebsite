@@ -23,13 +23,7 @@ Official marketing website for OmniWound - an AI-powered wound care documentatio
 - **privacy.html** - Privacy policy
 - **terms.html** - Terms of service
 
-## Lead Capture Integration
 
-All forms are integrated with the OmniWound Lead Generator API:
-
-- **API Endpoint:** `https://salesapp.simplichart.com/api/public/leads`
-- **Spam Protection:** Cloudflare Turnstile
-- **Form Types:** newsletter, exit_intent, demo_request, contact, roi_calculator
 
 ## Development
 
@@ -43,6 +37,3 @@ python -m http.server 8000
 npx serve
 ```
 
-## Related Projects
-
-- [omniwound-lead-generator](https://github.com/fgoncalv83/omniwound-lead-generator) - Lead capture API and dashboard

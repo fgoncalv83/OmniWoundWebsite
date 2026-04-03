@@ -1625,7 +1625,7 @@
 
                 try {
                     // Load actual newsletter content from external file
-                    const response = await fetch(`./newsletters/${newsletter.file}`);
+                    const response = await fetch(`./newsletters/${newsletter.file}`, { cache: 'no-store' });
                     if (response.ok) {
                         const content = await response.text();
                         modalBody.innerHTML = `<div class="newsletter-content">${content}</div>`;

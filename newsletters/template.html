@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniWound Monthly Pulse – Issue #{{ISSUE_NUMBER}}</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f6f8fb;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    h1 {
+      font-size: 22px;
+      color: #0055a5;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 18px;
+      color: #0055a5;
+      margin-top: 25px;
+      margin-bottom: 10px;
+    }
+    p {
+      line-height: 1.6;
+      margin: 10px 0;
+    }
+    a {
+      color: #0055a5;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .highlight {
+      background-color: #e9f5ff;
+      padding: 10px 15px;
+      border-left: 4px solid #0055a5;
+      border-radius: 6px;
+      margin-top: 15px;
+    }
+    .cta {
+      margin-top: 20px;
+      padding: 15px;
+      background: #fef6e4;
+      border: 2px dashed #f4a300;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+    .footer {
+      font-size: 12px;
+      color: #777;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .footer a {
+      color: #777;
+      text-decoration: underline;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 20px 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <h1>{{HEADER_EMOJI}} OmniWound Monthly Pulse – Issue #{{ISSUE_NUMBER}}</h1>
+
+    <!-- WELCOME NOTE -->
+    <h2>{{WELCOME_EMOJI}} Welcome Note</h2>
+    <p>{{WELCOME_CONTENT}}</p>
+
+    <hr class="divider">
+
+    <!-- INDUSTRY NEWS -->
+    <h2>{{NEWS_EMOJI}} Industry News Roundup</h2>
+    {{NEWS_ITEMS}}
+    <!-- Each news item should follow this format:
+    <p><strong>{{NEWS_TITLE}}</strong><br>
+      {{NEWS_SUMMARY}}<br>
+      {{NEWS_LINK_EMOJI}} <a href="{{NEWS_URL}}">Read More</a>
+    </p>
+    -->
+
+    <hr class="divider">
+
+    <!-- CLINICAL TIP -->
+    <h2>{{TIP_EMOJI}} Clinical Tip</h2>
+    {{CLINICAL_TIP_CONTENT}}
+
+    <hr class="divider">
+
+    <!-- REGULATORY UPDATE (optional, remove section if not applicable) -->
+    <h2>{{REGULATORY_EMOJI}} Regulatory Update</h2>
+    {{REGULATORY_CONTENT}}
+
+    <hr class="divider">
+
+    <!-- EMR FEATURE SPOTLIGHT (<=15% of content) -->
+    <h2>{{SPOTLIGHT_EMOJI}} OmniWound Spotlight</h2>
+    {{EMR_SPOTLIGHT_CONTENT}}
+
+    <hr class="divider">
+
+    <!-- CLOSING NOTE -->
+    <h2>{{CLOSING_EMOJI}} Closing Note</h2>
+    <p>{{CLOSING_CONTENT}}</p>
+    <div class="highlight">
+      {{CONTACT_CTA}}
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <p>&copy; {{YEAR}} OmniWound. All rights reserved.</p>
+      <p>
+        <a href="{{UNSUBSCRIBE_URL}}">Unsubscribe</a> |
+        <a href="https://omniwound.net/newsletter.html">View in Browser</a>
+      </p>
+      <!-- {{TRACKING_PIXEL}} -->
+    </div>
+
+  </div>
+</body>
+</html>

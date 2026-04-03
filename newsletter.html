@@ -1628,7 +1628,10 @@
                     const response = await fetch(`./newsletters/${newsletter.file}`, { cache: 'no-store' });
                     if (response.ok) {
                         const content = await response.text();
-                        modalBody.innerHTML = `<div class="newsletter-content">${content}</div>`;
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(content, 'text/html');
+                        const bodyContent = doc.body.innerHTML;
+                        modalBody.innerHTML = `<div class="newsletter-content">${bodyContent}</div>`;
                     } else {
                         throw new Error('Newsletter file not found');
                     }

@@ -58,20 +58,30 @@
       utm_campaign: params.get('utm_campaign') || undefined,
       utm_content: params.get('utm_content') || undefined,
     };
+    var result;
     if (fromUrl.utm_source) {
       try { sessionStorage.setItem('ow_utms', JSON.stringify(fromUrl)); } catch(e) {}
-      return fromUrl;
+      result = fromUrl;
+    } else {
+      try {
+        var stored = sessionStorage.getItem('ow_utms');
+        if (stored) {
+          result = JSON.parse(stored);
+        }
+      } catch(e) {}
+      if (!result) {
+        // No UTMs this session — attach first-touch referrer as fallback
+        try {
+          var ref = sessionStorage.getItem('ow_referrer');
+          if (ref) fromUrl.referrer = ref;
+        } catch(e) {}
+        result = fromUrl;
+      }
     }
-    try {
-      var stored = sessionStorage.getItem('ow_utms');
-      if (stored) return JSON.parse(stored);
-    } catch(e) {}
-    // No UTMs this session — attach first-touch referrer as fallback
-    try {
-      var ref = sessionStorage.getItem('ow_referrer');
-      if (ref) fromUrl.referrer = ref;
-    } catch(e) {}
-    return fromUrl;
+    // Always attach visitor_id so form submissions can backfill anonymous
+    // page_visits / conversion_events rows after the lead is created.
+    try { result.visitor_id = getVisitorId(); } catch(e) {}
+    return result;
   }
 
   // --- Get lead_id from URL (for email links and direct mail attribution) ---

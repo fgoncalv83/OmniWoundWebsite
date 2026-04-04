@@ -29,9 +29,27 @@
     return vid;
   }
 
+  // --- First-touch referrer capture ---
+  // On every page load, if we arrived from an external domain and haven't
+  // already stored a referrer this session, save the hostname to sessionStorage.
+  // This gives us attribution for organic/dark-social traffic with no UTMs.
+  (function () {
+    try {
+      if (document.referrer && !sessionStorage.getItem('ow_referrer')) {
+        var refHost = new URL(document.referrer).hostname;
+        var curHost = window.location.hostname;
+        if (refHost && refHost !== curHost) {
+          sessionStorage.setItem('ow_referrer', refHost);
+        }
+      }
+    } catch (e) {}
+  })();
+
   // --- UTM Parameter Extraction ---
   // UTMs are read from the URL on first touch and persisted to sessionStorage
   // so they carry forward across page navigations within the same session.
+  // When no UTMs are present, the first-touch external referrer is returned
+  // as a fallback so form submissions still carry some attribution signal.
   function getUTMParams() {
     var params = new URLSearchParams(window.location.search);
     var fromUrl = {
@@ -47,6 +65,11 @@
     try {
       var stored = sessionStorage.getItem('ow_utms');
       if (stored) return JSON.parse(stored);
+    } catch(e) {}
+    // No UTMs this session — attach first-touch referrer as fallback
+    try {
+      var ref = sessionStorage.getItem('ow_referrer');
+      if (ref) fromUrl.referrer = ref;
     } catch(e) {}
     return fromUrl;
   }

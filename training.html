@@ -1310,7 +1310,8 @@
                         body: JSON.stringify({
                             form_type: 'training_request',
                             data: data,
-                            turnstile_token: turnstileToken
+                            turnstile_token: turnstileToken,
+                            ...(window.OmniTrack ? window.OmniTrack.getUTMParams() : {})
                         })
                     });
 

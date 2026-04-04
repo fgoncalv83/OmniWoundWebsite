@@ -1456,7 +1456,8 @@
         body: JSON.stringify({
           form_type: 'demo_request',
           data: data,
-          turnstile_token: turnstileToken
+          turnstile_token: turnstileToken,
+          ...(window.OmniTrack ? window.OmniTrack.getUTMParams() : {})
         })
       });
 

@@ -30,14 +30,25 @@
   }
 
   // --- UTM Parameter Extraction ---
+  // UTMs are read from the URL on first touch and persisted to sessionStorage
+  // so they carry forward across page navigations within the same session.
   function getUTMParams() {
     var params = new URLSearchParams(window.location.search);
-    return {
+    var fromUrl = {
       utm_source: params.get('utm_source') || undefined,
       utm_medium: params.get('utm_medium') || undefined,
       utm_campaign: params.get('utm_campaign') || undefined,
       utm_content: params.get('utm_content') || undefined,
     };
+    if (fromUrl.utm_source) {
+      try { sessionStorage.setItem('ow_utms', JSON.stringify(fromUrl)); } catch(e) {}
+      return fromUrl;
+    }
+    try {
+      var stored = sessionStorage.getItem('ow_utms');
+      if (stored) return JSON.parse(stored);
+    } catch(e) {}
+    return fromUrl;
   }
 
   // --- Get lead_id from URL (for email links and direct mail attribution) ---

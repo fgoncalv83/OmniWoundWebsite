@@ -1746,7 +1746,8 @@
         body: JSON.stringify({
           form_type: 'roi_calculator',
           data: data,
-          turnstile_token: turnstileToken
+          turnstile_token: turnstileToken,
+          ...(window.OmniTrack ? window.OmniTrack.getUTMParams() : {})
         })
       });
 

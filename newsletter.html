@@ -1824,6 +1824,7 @@
     submitBtn.textContent = 'Subscribing...';
     messageEl.textContent = '';
 
+    const utmParams = window.OmniTrack ? window.OmniTrack.getUTMParams() : {};
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
@@ -1834,7 +1835,11 @@
             email: emailInput.value,
             form_source: FORM_SOURCE
           },
-          turnstile_token: turnstileToken
+          turnstile_token: turnstileToken,
+          utm_source: utmParams.utm_source,
+          utm_medium: utmParams.utm_medium,
+          utm_campaign: utmParams.utm_campaign,
+          utm_content: utmParams.utm_content
         })
       });
 
